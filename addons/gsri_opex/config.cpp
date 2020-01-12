@@ -39,6 +39,7 @@ class CfgVehicles {
             class CustomShipNameTexture0;
             class CustomShipFlagTexture0;
         };
+        class EventHandlers;
     };
     class GSRI_Normandie : Land_Destroyer_01_base_F {
         displayname="$STR_GSRI_frigate_displayName";
@@ -55,6 +56,15 @@ class CfgVehicles {
 			{"GSRI_Normandie_Flag","pos_Flag"}
 		};
         class Attributes : Attributes {
+            class GSRI_frigate_attribute_addWeapons {
+                displayName="$STR_GSRI_frigate_addWeaponsTitle";
+                tooltip="$STR_GSRI_frigate_addWeaponsTooltip";
+                property="GSRI_frigate_addWeaponsProperty";
+                control="Checkbox";
+                expression="_this setVariable ['%s',_value];";
+                defaultValue="1";
+                typeName = "BOOL";
+            };
             class CustomShipNumber1 : CustomShipNumber1 {
                 defaultValue="6";
                 expression="[([_this, 'GSRI_Normandie_hull_01'] call bis_fnc_destroyer01GetShipPart), _value, 0] spawn bis_fnc_destroyer01InitHullNumbers;";
@@ -76,6 +86,11 @@ class CfgVehicles {
                 expression="([_this, 'GSRI_Normandie_Flag'] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, _value];";
             };
         };
+        class EventHandlers : EventHandlers {
+            init = "_this call GSRI_fnc_libertyInit;";
+            // TODO : retaper le spawn des armes, qui ont tendance à finir au fond de l'eau
+            dragged3DEN = "_this call GSRI_fnc_libertyUpdate;";
+        };
     };
 };
 
@@ -89,6 +104,7 @@ class CfgFunctions {
 			class libertyBridge {};
 			class libertyWeapons {};
 			class libertyInit {};
+            class libertyUpdate {};
 			class libertyBayReplace {};
 		};
 		class heli {

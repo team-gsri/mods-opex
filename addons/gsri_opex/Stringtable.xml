@@ -5,7 +5,16 @@
 			<Original>Frigate [D-651 Normandie]</Original>
 			<French>Frégate [D-651 Normandie]</French>
 		</Key>
+		<Key ID="STR_GSRI_frigate_addWeaponsTitle">
+			<Original>Add frigate's weapons</Original>
+			<French>Ajouter l'armement</French>
+		</Key>
+		<Key ID="STR_GSRI_frigate_addWeaponsTooltip">
+			<Original>Equip the frigate with standard weaponry.</Original>
+			<French>Equipe la frégate avec son armement standard.</French>
+		</Key>
 	</Package>
+
 	<Package name="GSRI_submarine_notifications">
 		<Key ID="STR_GSRI_submarineOk">
 			<Original>Submarine has moved to the designated location (%1).</Original>
@@ -20,6 +29,7 @@
 			<French>Clic-gauche pour déplacer, maj+clic pour déplacer à la surface.</French>
 		</Key>
 	</Package>
+	
 	<Package name="GSRI_heli_notifications">
 		<Key ID="STR_GSRI_heliInfo">
 			<Original>%1 is available in hangar.</Original>
