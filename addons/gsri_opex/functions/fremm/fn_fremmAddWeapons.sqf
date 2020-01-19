@@ -1,10 +1,9 @@
-// Script de création et mise en place de l'armement du navire
+// Creating and placing Liberty-class ships armament
 // by [-GSRI-] Cheitan
 
 if!(isServer) exitWith {};
 
-// Récupération de la référence du navire
-params["_navire"];
+params["_ship"];
 
 //[type, relPos, relDir]
 _raw = [
@@ -18,13 +17,11 @@ _weaponsList = [];
 
 {
 	_gun = createVehicle [(_x select 0), [0,0,0], [], 0, "CAN_COLLIDE"];
-	_gun setDir (getDir _navire + (_x select 2));
-	_gun setPosASL AGLToASL (_navire modelToWorld (_x select 1));
+	_gun setDir (getDir _ship + (_x select 2));
+	_gun setPosASL AGLToASL (_ship modelToWorld (_x select 1));
 	createVehicleCrew _gun;
 	_gun disableAI "ALL";
 	_weaponsList pushBack [_gun, _x select 1, _x select 2];
 } forEach _raw;
 
-_navire setVariable ["GSRI_Normandie_weapons", _weaponsList, true];
-
-//if!(is3DEN) then {{ detach (_x select 0) } forEach _weaponsList};
+_ship setVariable ["GSRI_FREMM_Weapons", _weaponsList, true];

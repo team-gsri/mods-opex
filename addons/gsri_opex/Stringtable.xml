@@ -14,6 +14,48 @@
 			<French>Equipe la frégate avec son armement standard.</French>
 		</Key>
 	</Package>
+	
+	<Package name="FREMM_Arsenal">
+		<Key ID="STR_GSRI_FREMM_openLocker">
+			<Original>Open locker</Original>
+			<French>Ouvrir le casier</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_gearAs">
+			<Original>Gear as...</Original>
+			<French>S'équiper en tant que...</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_gearAsRifleman">
+			<Original>Rifleman</Original>
+			<French>Fusilier</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_gearAsGunner">
+			<Original>Gunner</Original>
+			<French>Mitrailleur</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_gearAsGrenadier">
+			<Original>Grenadier</Original>
+			<French>Grenadier</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_gearAsMedic">
+			<Original>Medic</Original>
+			<French>Infirmier</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_gearAsDiver">
+			<Original>Diver</Original>
+			<French>Nageur de combat</French>
+		</Key>
+	</Package>
+
+	<Package name="FREMM_BoatBays">
+		<Key ID="STR_GSRI_FREMM_emptyBay">
+			<Original>Empty</Original>
+			<French>Vide</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_spawnInBay">
+			<Original>Equip bay with...</Original>
+			<French>Equiper la baie avec...</French>
+		</Key>
+	</Package>
 
 	<Package name="GSRI_submarine_notifications">
 		<Key ID="STR_GSRI_submarineOk">
