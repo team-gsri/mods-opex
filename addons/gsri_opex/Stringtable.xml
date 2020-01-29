@@ -1,17 +1,93 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Project name="GSRI-Opex">
-	<Package name="GSRI-Opex_Core">
-		<Key ID="STR_GSRI_frigate_displayName">
-			<Original>Frigate [D-651 Normandie]</Original>
-			<French>Frégate [D-651 Normandie]</French>
+	<Package name="GSRI-Opex_Settings">
+		<Key ID="STR_GSRI_FREMM_fullname">
+			<Original>Full name</Original>
+			<French>Nom complet</French>
 		</Key>
-		<Key ID="STR_GSRI_frigate_addWeaponsTitle">
-			<Original>Add frigate's weapons</Original>
-			<French>Ajouter l'armement</French>
+		<Key ID="STR_GSRI_FREMM_fullname_tooltip">
+			<Original>Used by the corresponding map marker</Original>
+			<French>Utilisé pour nommer le marqueur sur carte</French>
 		</Key>
-		<Key ID="STR_GSRI_frigate_addWeaponsTooltip">
-			<Original>Equip the frigate with standard weaponry.</Original>
-			<French>Equipe la frégate avec son armement standard.</French>
+		<Key ID="STR_GSRI_FREMM_identifier">
+			<Original>Identifier</Original>
+			<French>Immatriculation</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_identifier_tooltip">
+			<Original>Displayed on the ship's hull</Original>
+			<French>Affiché sur la coque du navire</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_name">
+			<Original>Short name</Original>
+			<French>Nom court</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_name_tooltip">
+			<Original>Name without identifier</Original>
+			<French>Nom sans immatriculation</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_flag">
+			<Original>Flag's texture path</Original>
+			<French>Texture du drapeau</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_flag_tooltip">
+			<Original>Hanging on the ship's flight deck</Original>
+			<French>Flottant sur le pont d'envol du navire</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_nameplate">
+			<Original>Nameplate's texture path</Original>
+			<French>Texture de la plaque nominative</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_nameplate_tooltip">
+			<Original>Displayed on the ship's stern</Original>
+			<French>Visible à la poupe du navire</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasWeapons">
+			<Original>Armament</Original>
+			<French>Armement</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasWeapons_tooltip">
+			<Original>Add heavy weapons to the ship</Original>
+			<French>Ajoute des armes lourdes au navire</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasArsenal">
+			<Original>Arsenal</Original>
+			<French>Arsenal</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasArsenal_tooltip">
+			<Original>Add arsenal on ship's lockers</Original>
+			<French>Ajoute un arsenal aux casiers du navire</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBridge">
+			<Original>Bridge crew</Original>
+			<French>Personnel navigant</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBridge_tooltip">
+			<Original>Add AI crew on the bridge</Original>
+			<French>Ajoute un équipage sur la passerelle</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBoatBays">
+			<Original>Boat bays</Original>
+			<French>Baies latérales</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBoatBays_tooltip">
+			<Original>Add working boat bays on ship's sides</Original>
+			<French>Ajoute des baies à embarcations fonctionnelles</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasHelicopter">
+			<Original>Helicopter</Original>
+			<French>Hélicoptère</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasHelicopter_tooltip">
+			<Original>Add a selectable helicopter to the ship's hangar</Original>
+			<French>Ajoute un hélicoptère sélectionnable dans le hangar</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasSubmarine">
+			<Original>Submarine</Original>
+			<French>Sous-marin</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasSubmarine_tooltip">
+			<Original>Add an escort submarine to the ship</Original>
+			<French>Ajoute un sous-marin d'escorte</French>
 		</Key>
 	</Package>
 	

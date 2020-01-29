@@ -25,9 +25,13 @@ class GSRI_FREMM_Templates {
 
 class CfgFunctions {
 	class GSRI {
+		class core {
+			file="gsri_opex\functions\core";
+            class initMission { postInit = 1 };
+			class initSettings { postInit = 1 };
+		};
 		class fremm {
             file="gsri_opex\functions\fremm";
-            class initMission { postInit = 1 };
 			class initFremm {};
 			class fremmAddWeapons {};
 			class fremmAddArsenal {};
