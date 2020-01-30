@@ -19,7 +19,7 @@ _settings = (configProperties [configFile >> "GSRI_FREMM_Templates" >> "GSRI_Nor
 			[localize format["STR_GSRI_FREMM_%1", _x], localize format["STR_GSRI_FREMM_%1_tooltip", _x]],
 			["GSRI FREMM Templates", _template],
 			_defaultValue,
-			2,
+			1,
 			{},
 			true
 		] call CBA_fnc_addSetting;
@@ -39,7 +39,7 @@ _settings = (configProperties [configFile >> "GSRI_FREMM_Templates" >> "GSRI_Nor
 		[localize format["STR_GSRI_FREMM_%1", _x], localize format["STR_GSRI_FREMM_%1_tooltip", _x]],
 		["GSRI FREMM Templates", "Custom"],
 		_defaultValue,
-		0,
+		1,
 		{},
 		true
 	] call CBA_fnc_addSetting;
