@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Project name="GSRI-Opex">
 	<Package name="GSRI-Opex_Settings">
+		<Key ID="STR_GRSI_FREMM_selectTemplate">
+			<Original>Select template</Original>
+			<French>Sélectionner un template</French>
+		</Key>
+		<Key ID="STR_GRSI_FREMM_selectTemplate_tooltip">
+			<Original>Templates are configured from CBA addons settings menu</Original>
+			<French>Les templates sont configurés via le menu de configuration des addons CBA</French>
+		</Key>
 		<Key ID="STR_GSRI_FREMM_fullname">
 			<Original>Full name</Original>
 			<French>Nom complet</French>

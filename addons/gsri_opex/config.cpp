@@ -2,9 +2,39 @@ class CfgPatches {
     class gsri_opex {
         units[]={};
         requiredVersion=0.1;
-        requiredAddons[]={"A3_Boat_F_Destroyer"};
+        requiredAddons[]={"A3_Boat_F_Destroyer", "cba_settings"};
         author="[-GSRI-] Cheitan";
     };
+};
+
+class CfgVehicles {
+	class Strategic;
+	class StaticShip : Strategic {
+		class Attributes;
+	}
+	class Land_Destroyer_01_base_F : StaticShip {
+		class Attributes : Attributes {
+			class GSRI_FREMM_selectTemplate {
+				displayName = $STR_GRSI_FREMM_selectTemplate;
+				tooltip = $STR_GRSI_FREMM_selectTemplate_tooltip;
+				property = "GSRI_FREMM_selectTemplate";
+				control = "Combo";
+				class Values {
+					class GSRI_Normandie {
+						name = "D-651 Normandie";
+						value = "GSRI_Normandie";
+					};
+					class Custom {
+						name = "Custom ship";
+						value = "GSRI_Custom";
+					};
+				};
+				expression = "_this setVariable ['%s',_value];";
+				defaultValue = "GSRI_Normandie";
+				typeName = "STRING";
+			};
+		};
+	};
 };
 
 class GSRI_FREMM_Templates {
