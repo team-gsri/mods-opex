@@ -37,6 +37,12 @@ class CfgVehicles {
 	};
 };
 
+class Extended_PreInit_EventHandlers {
+    class gsri_opex {
+        init = "call GSRI_fnc_initSettings";
+    };
+};
+
 class GSRI_FREMM_Templates {
     class GSRI_Normandie {
         fullname="D-651 Normandie";
@@ -58,7 +64,7 @@ class CfgFunctions {
 		class core {
 			file="gsri_opex\functions\core";
             class initMission { postInit = 1 };
-			class initSettings { postInit = 1 };
+			class initSettings {};
 		};
 		class fremm {
             file="gsri_opex\functions\fremm";
