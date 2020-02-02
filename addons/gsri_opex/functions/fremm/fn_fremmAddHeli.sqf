@@ -7,6 +7,11 @@ params["_ship"];
 _handle = "Land_Battery_F" createVehicleLocal [0,0,0];
 _handle attachTo [_ship, [-9.74,36.64,12.38]];
 
+// Adding fuel pomp
+_fuel = "Land_FuelStation_01_pump_malevil_F" createVehicleLocal [0,0,0];
+_fuel attachTo [_ship, [9.63,40.13,10.15]];
+_fuel setDir 90;
+
 // Dummy objects for hangar and flight deck
 _types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "B_Heli_Light_01_F", "B_T_UAV_03_dynamicLoadout_F","MELB_AH6M","MELB_MH6M"];
 {
@@ -107,8 +112,3 @@ _statement = {
 };
 _action = ["actionHangar","Placer l'appareil dans le hangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
 [_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
-
-// Adding fuel pomp
-_fuel = "Land_FuelStation_01_pump_malevil_F" createVehicleLocal [0,0,0];
-_fuel attachTo [_ship, [9.63,40.13,10.15]];
-_fuel setDir 90;
