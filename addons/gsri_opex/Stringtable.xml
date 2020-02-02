@@ -100,33 +100,33 @@
 	</Package>
 	
 	<Package name="FREMM_Arsenal">
-		<Key ID="STR_GSRI_FREMM_openLocker">
+		<Key ID="STR_GSRI_FREMM_lockerMain">
 			<Original>Open locker</Original>
 			<French>Ouvrir le casier</French>
 		</Key>
-		<Key ID="STR_GSRI_FREMM_gearAs">
-			<Original>Gear as...</Original>
-			<French>S'équiper en tant que...</French>
+		<Key ID="STR_GSRI_FREMM_openArsenal">
+			<Original>Arsenal</Original>
+			<French>Arsenal</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsRifleman">
-			<Original>Rifleman</Original>
-			<French>Fusilier</French>
+			<Original>Rifleman outfit</Original>
+			<French>Tenue de fusilier</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsGunner">
-			<Original>Gunner</Original>
-			<French>Mitrailleur</French>
+			<Original>Gunner outfit</Original>
+			<French>Tenue de mitrailleur</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsGrenadier">
-			<Original>Grenadier</Original>
-			<French>Grenadier</French>
+			<Original>Grenadier outfit</Original>
+			<French>Tenue de grenadier</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsMedic">
-			<Original>Medic</Original>
-			<French>Infirmier</French>
+			<Original>Medic outfit</Original>
+			<French>Tenue d'infirmier</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsDiver">
-			<Original>Diver</Original>
-			<French>Nageur de combat</French>
+			<Original>Diver outfit</Original>
+			<French>Tenue de nageur de combat</French>
 		</Key>
 	</Package>
 
