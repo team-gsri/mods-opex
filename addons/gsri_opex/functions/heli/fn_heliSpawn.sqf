@@ -5,7 +5,7 @@ _args spawn {
 	params["_hangar", "_newType"];
 
 	// Making some space for our new chopper, sleep is mandatory
-	deleteVehicle ([_hangar] call GSRI_fnc_getHeli);
+	deleteVehicle ([_hangar] call GSRI_fnc_heliRetrieveCurrent);
 	sleep 0.1;
 
 	// Carefully spawn the new helo

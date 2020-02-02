@@ -15,5 +15,5 @@ if(isClass (configFile >> "CfgVehicles" >> _entry)) then {
 	_entry = getText (configFile >> "CfgVehicles" >> _entry >> "displayName");
 };
 
-// Split displayName and return first group
+// If displayName, split and return first group (usually code name like MH6, AH64, etc)
 (_entry splitString " ") select 0

@@ -73,6 +73,7 @@ class CfgFunctions {
 			class fremmAddArsenal {};
 			class fremmAddBridge {};
 			class fremmAddBoatBays {};
+			class fremmAddHeli {};
             class fremmUpdate {};
 		};
         class bays {
@@ -81,12 +82,11 @@ class CfgFunctions {
         };
 		class heli {
             file="gsri_opex\functions\heli";
-			class getHeli {};
-			class spawnHeli {};
-			class initHeli {};
-			class minifyName {};
-			class addCleaningAction {};
-			class addFRIESAction {};
+			class heliMinifyName {};
+			class heliRetrieveCurrent {};
+			class heliSpawn {};
+			class heliRemove {};
+			class heliEquipFRIES {};
 		};
 		class submarine {
             file="gsri_opex\functions\submarine";

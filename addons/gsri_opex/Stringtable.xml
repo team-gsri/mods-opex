@@ -141,6 +141,25 @@
 		</Key>
 	</Package>
 
+	<Package name="FREMM_Helicopter">
+		<Key ID="STR_GSRI_FREMM_heliReplace">
+			<Original>Replace %1 by %2</Original>
+			<French>Remplacer %1 par %2</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_heliGet">
+			<Original>Request %2</Original>
+			<French>Demander %2</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_heliRemove">
+			<Original>Remove %1</Original>
+			<French>Supprimer %1</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_heliEquipFRIES">
+			<Original>Equip FRIES</Original>
+			<French>Equiper FRIES</French>
+		</Key>
+	</Package>
+
 	<Package name="GSRI_submarine_notifications">
 		<Key ID="STR_GSRI_submarineOk">
 			<Original>Submarine has moved to the designated location (%1).</Original>

@@ -18,7 +18,7 @@ if(_hasWeapons) then { [_ship] call GSRI_fnc_fremmAddWeapons };
 if(_hasArsenal) then { [_ship] call GSRI_fnc_fremmAddArsenal };
 if(_hasBridge) then { [_ship] call GSRI_fnc_fremmAddBridge };
 if(_hasBoatBays) then { [_ship] call GSRI_fnc_fremmAddBoatBays };
-//if(_hasHelicopter) then { [_ship] call GSRI_fnc_fremmAddBoatBays };
+if(_hasHelicopter) then { [_ship] call GSRI_fnc_fremmAddHeli };
 //if(_hasSubmarine) then { [_ship] call GSRI_fnc_fremmAddBoatBays };
 
 if(isServer) then {
