@@ -1,13 +1,13 @@
-params["_destroyer"];
+params["_ship"];
 
 // Submarine spawn
 if(isServer) then {
 	// Spawn and place sub
 	_sub = "Submarine_01_F" createVehicle [0,0,0];
 	_sub enableSimulation false;
-	_destroyer setVariable ["submarine", _sub, true];
-	_sub setPosASL [(getPosASL _destroyer select 0) + 100, (getPosASL _destroyer select 1) + 100, (getPosASL _destroyer select 2)-10];
-	_sub setDir getDir _destroyer;
+	_ship setVariable ["submarine", _sub, true];
+	_sub setPosASL [(getPosASL _ship select 0) + 100, (getPosASL _ship select 1) + 100, (getPosASL _ship select 2)-10];
+	_sub setDir getDir _ship;
 
 	// Add map marker
 	_mk = createMarker ["marker_submarine", _sub];
@@ -16,7 +16,7 @@ if(isServer) then {
 };
 
 // Adding position selection eventHandler
-addMissionEventHandler ["MapSingleClick", GSRI_fnc_submarineSelectPos];
+addMissionEventHandler ["MapSingleClick", GSRI_fnc_subSelectPos];
 
 // Adding "abort selection" eventHandler
 addMissionEventHandler ["Map", {
@@ -33,7 +33,7 @@ if!(isDedicated) then {
 	// Create handle for sub movement
 	_com = "Land_Battery_F" createVehicleLocal [0,0,0];
 	_com enableSimulation false;
-	_com attachTo [_destroyer, [-2.94995,-34.0001,20.6]];
+	_com attachTo [_ship, [-2.94995,-34.0001,20.6]];
 
 	// Add actions with map selection
 	_statement = {
@@ -53,14 +53,14 @@ if!(isDedicated) then {
 	// Create handle for TP to sub
 	_tp = "Land_Battery_F" createVehicleLocal [0,0,0];
 	_tp enableSimulation false;
-	_tp attachTo [_destroyer,[-2.21198,13.976,7.537]];
-	_destroyer setVariable ["toSub", _tp];
+	_tp attachTo [_ship,[-2.21198,13.976,7.537]];
+	_ship setVariable ["toSub", _tp];
 
 	// Handle for extraction
 	_h = "Land_Battery_F" createVehicleLocal [0,0,0];
 	_h enableSimulation false;
-	_h attachTo [_destroyer getVariable "submarine", [0.0788574,-4.32037,3.1]];
-	_destroyer setVariable ["toShip", _h];
+	_h attachTo [_ship getVariable "submarine", [0.0788574,-4.32037,3.1]];
+	_ship setVariable ["toShip", _h];
 
 	// Add teleport action
 	_action = ["teleportToSubmarine", "Aller au sous-marin", "",{player setPosATL getPosATL (destroyer getVariable "toShip")},{!isNil{destroyer getVariable "submarine"}}] call ace_interact_menu_fnc_createAction;

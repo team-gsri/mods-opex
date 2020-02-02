@@ -74,6 +74,7 @@ class CfgFunctions {
 			class fremmAddBridge {};
 			class fremmAddBoatBays {};
 			class fremmAddHeli {};
+			class fremmAddSub {};
             class fremmUpdate {};
 		};
         class bays {
@@ -88,10 +89,9 @@ class CfgFunctions {
 			class heliRemove {};
 			class heliEquipFRIES {};
 		};
-		class submarine {
+		class sub {
             file="gsri_opex\functions\submarine";
-			class initSubmarine {};
-			class submarineSelectPos {};
+			class subSelectPos {};
 		};
 		class preslots {
             file="gsri_opex\functions\preslots";
