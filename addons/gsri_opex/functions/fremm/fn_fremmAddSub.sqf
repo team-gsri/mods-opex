@@ -59,7 +59,7 @@ if!(isDedicated) then {
 		// Help notification
 		["SubmarineInfo"] call BIS_fnc_showNotification;
 	};
-	_action = ["submarineSelectPosition","Choisir une destination pour le sous-marin","",_statement,{true}] call ace_interact_menu_fnc_createAction;
+	_action = ["submarineSelectPosition",localize "STR_GSRI_FREMM_submarine_selectPos","",_statement,{true}] call ace_interact_menu_fnc_createAction;
 	[_com, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
 
 	// Add teleport action
@@ -71,7 +71,7 @@ if!(isDedicated) then {
 			_params params["_ship","_targetName"];
 			_player setPosASL getPosASL (_ship getVariable (format["GSRI_FREMM_submarine_%1", _targetName]));
 		};
-		_action = [format["action_%1",_x], "Aller ailleurs", "",_statement,{true},{},[_ship, _targetName]] call ace_interact_menu_fnc_createAction;
+		_action = [format["action_%1",_x], localize format ["STR_GSRI_FREMM_submarine_go_%1", _x], "",_statement,{true},{},[_ship, _targetName]] call ace_interact_menu_fnc_createAction;
 		[(_ship getVariable format ["GSRI_FREMM_submarine_%1",_x]), 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
 	} forEach ["toSub", "toShip"];
 };
