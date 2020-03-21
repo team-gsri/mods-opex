@@ -90,7 +90,7 @@ class CfgFunctions {
 			class heliEquipFRIES {};
 		};
 		class sub {
-            file="gsri_opex\functions\submarine";
+            file="gsri_opex\functions\sub";
 			class subSelectPos {};
 		};
 		class preslots {
