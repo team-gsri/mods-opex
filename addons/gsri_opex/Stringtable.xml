@@ -160,35 +160,47 @@
 		</Key>
 	</Package>
 
-	<Package name="GSRI_submarine_notifications">
-		<Key ID="STR_GSRI_submarineOk">
+	<Package name="FREMM_submarine">
+		<Key ID="STR_GSRI_FREMM_submarineOk">
 			<Original>Submarine has moved to the designated location (%1).</Original>
 			<French>Le sous-marin s'est déplacé aux coordonnées indiquées (%1).</French>
 		</Key>
-		<Key ID="STR_GSRI_submarineFail">
+		<Key ID="STR_GSRI_FREMM_submarineFail">
 			<Original>Submarine cannot go here.</Original>
 			<French>Le sous-marin ne peut pas se déplacer ici.</French>
 		</Key>
-		<Key ID="STR_GSRI_submarineInfo">
+		<Key ID="STR_GSRI_FREMM_submarineInfo">
 			<Original>Left-click to move, shift+click to move in surface.</Original>
 			<French>Clic-gauche pour déplacer, maj+clic pour déplacer à la surface.</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_submarine_selectPos">
+			<Original>Select position for the submarine.</Original>
+			<French>Choisir une destination pour le sous-marin</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_submarine_go_toSub">
+			<Original>Go to submarine</Original>
+			<French>Aller au sous-marin</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_submarine_go_toShip">
+			<Original>Go to frigate</Original>
+			<French>Aller à la frégate</French>
 		</Key>
 	</Package>
 	
 	<Package name="GSRI_heli_notifications">
-		<Key ID="STR_GSRI_heliInfo">
+		<Key ID="STR_GSRI_FREMM_heliInfo">
 			<Original>%1 is available in hangar.</Original>
 			<French>%1 est disponible dans le hangar.</French>
 		</Key>
-		<Key ID="STR_GSRI_heliDelete">
+		<Key ID="STR_GSRI_FREMM_heliDelete">
 			<Original>%1 has been deleted.</Original>
 			<French>%1 a été supprimé.</French>
 		</Key>
-		<Key ID="STR_GSRI_heliMoved">
+		<Key ID="STR_GSRI_FREMM_heliMoved">
 			<Original>%1 has been moved.</Original>
 			<French>%1 a été déplacé.</French>
 		</Key>
-		<Key ID="STR_GSRI_heliFRIES">
+		<Key ID="STR_GSRI_FREMM_heliFRIES">
 			<Original>%1 is now equipped with FRIES.</Original>
 			<French>%1 a été équipé d'un FRIES.</French>
 		</Key>

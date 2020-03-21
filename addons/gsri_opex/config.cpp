@@ -103,3 +103,5 @@ class CfgFunctions {
 		};
 	};
 };
+
+#include "CfgNotifications.hpp"
