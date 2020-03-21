@@ -11,7 +11,7 @@ class CfgVehicles {
 	class Strategic;
 	class StaticShip : Strategic {
 		class Attributes;
-	}
+	};
 	class Land_Destroyer_01_base_F : StaticShip {
 		class Attributes : Attributes {
 			class GSRI_FREMM_selectTemplate {
