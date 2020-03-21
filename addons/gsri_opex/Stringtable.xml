@@ -101,12 +101,12 @@
 	
 	<Package name="FREMM_Arsenal">
 		<Key ID="STR_GSRI_FREMM_lockerMain">
-			<Original>Open locker</Original>
-			<French>Ouvrir le casier</French>
+			<Original>Locker</Original>
+			<French>Casier</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_openArsenal">
-			<Original>Arsenal</Original>
-			<French>Arsenal</French>
+			<Original>Full arsenal</Original>
+			<French>Arsenal complet</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsRifleman">
 			<Original>Rifleman outfit</Original>
