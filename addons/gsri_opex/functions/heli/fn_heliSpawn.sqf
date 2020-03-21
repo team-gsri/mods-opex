@@ -11,10 +11,13 @@ _args spawn {
 	// Carefully spawn the new helo
 	_veh = _newType createVehicle [0,0,100];
 	_veh enableSimulation false;
+	_veh allowDamage false; //prevent random explosion
 	_veh setDir getDir _hangar;
 	_veh setPosASL getPosASL _hangar;
 	_veh enableSimulation true;
 
-	// Quick confirmation
+	// Quick confirmation + re enable damage
 	["HeliInfo", [getText (configFile >> "CfgVehicles" >> _newType >> "displayName")]] call BIS_fnc_showNotification;
+	sleep 0.1;
+	_veh allowDamage true;
 };
