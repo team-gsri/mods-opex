@@ -21,7 +21,7 @@ if(isServer) then {
 	([_ship, "Land_Destroyer_01_hull_01_F"] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [2, format["A3\Boat_F_Destroyer\Destroyer_01\Data\Destroyer_01_N_0%1_co.paa",(_identifier select [2,1])]];
 	([_ship, 'ShipFlag_US_F'] call bis_fnc_destroyer01GetShipPart) setFlagTexture _flag;
 	([_ship, 'Land_Destroyer_01_hull_05_F'] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, _nameplate];
-	
+
 	// Add map marker
 	_mk = createMarker ["marker_destroyer", _ship];
 	_mk setMarkerType "flag_France";
@@ -43,3 +43,5 @@ if(isServer) then {
 		_sign setObjectTextureGlobal [0, _texture];
 	} forEach _signs;
 };
+
+diag_log "initFremm finished.";

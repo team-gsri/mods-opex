@@ -14,7 +14,7 @@ if(isServer) then {
 		_bay enableSimulation true;
 		[_bay] remoteExecCall ["BIS_fnc_BoatRack01Init", 0, true];
 
-		_com = "Land_Tablet_02_black_F" createVehicleLocal [0,0,0];
+		_com = "Land_Tablet_02_black_F" createVehicle [0,0,0];
 		_com attachTo [_ship, (_x select 2)];
 		_com setVectorDirAndUp [[0,0,-1],[0,-1,0]];
 

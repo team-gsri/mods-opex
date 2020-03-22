@@ -25,6 +25,7 @@ if(isServer) then {
 	_toShip enableSimulation false;
 	_toShip attachTo [_ship getVariable "GSRI_FREMM_submarine", [0.0788574,-4.32037,3.1]];
 	_ship setVariable ["GSRI_FREMM_submarine_toShip", _toShip, true];
+	diag_log "addSub, server part finished.";
 };
 
 // Adding position selection eventHandler
@@ -39,6 +40,7 @@ addMissionEventHandler ["Map", {
 		if!(player getVariable ["GSRI_FREMM_submarine_hadMap",true]) then { player unlinkItem "ItemMap"; player setVariable ["GSRI_FREMM_submarine_hadMap", nil] };
 	};
 }];
+diag_log "addSub, common part finished.";
 
 // Clientside jobs
 if!(isDedicated) then {
@@ -74,4 +76,5 @@ if!(isDedicated) then {
 		_action = [format["action_%1",_x], localize format ["STR_GSRI_FREMM_submarine_go_%1", _x], "",_statement,{true},{},[_ship, _targetName]] call ace_interact_menu_fnc_createAction;
 		[(_ship getVariable format ["GSRI_FREMM_submarine_%1",_x]), 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
 	} forEach ["toSub", "toShip"];
+	diag_log "addSub, client part finished.";
 };
