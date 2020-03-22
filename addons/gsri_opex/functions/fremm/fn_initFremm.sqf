@@ -6,13 +6,6 @@ _varList = ["_fullname","_identifier","_flag","_nameplate","_hasWeapons","_hasAr
 private _varList;
 { call compile format["%1 = %2%3",_x,_template,_x] } forEach _varList;
 
-// Identifier, flag, nameplate textures
-([_ship, "Land_Destroyer_01_hull_01_F"] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, format["A3\Boat_F_Destroyer\Destroyer_01\Data\Destroyer_01_N_0%1_co.paa",(_identifier select [0,1])]];
-([_ship, "Land_Destroyer_01_hull_01_F"] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [1, format["A3\Boat_F_Destroyer\Destroyer_01\Data\Destroyer_01_N_0%1_co.paa",(_identifier select [1,1])]];
-([_ship, "Land_Destroyer_01_hull_01_F"] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [2, format["A3\Boat_F_Destroyer\Destroyer_01\Data\Destroyer_01_N_0%1_co.paa",(_identifier select [2,1])]];
-([_ship, 'ShipFlag_US_F'] call bis_fnc_destroyer01GetShipPart) setFlagTexture _flag;
-([_ship, 'Land_Destroyer_01_hull_05_F'] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, _nameplate];
-
 // Ship features
 if(_hasWeapons) then { [_ship] call GSRI_fnc_fremmAddWeapons };
 if(_hasArsenal) then { [_ship] call GSRI_fnc_fremmAddArsenal };
@@ -22,6 +15,13 @@ if(_hasHelicopter) then { [_ship] call GSRI_fnc_fremmAddHeli };
 if(_hasSubmarine) then { [_ship] call GSRI_fnc_fremmAddSub };
 
 if(isServer) then {
+	// Identifier, flag, nameplate textures
+	([_ship, "Land_Destroyer_01_hull_01_F"] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, format["A3\Boat_F_Destroyer\Destroyer_01\Data\Destroyer_01_N_0%1_co.paa",(_identifier select [0,1])]];
+	([_ship, "Land_Destroyer_01_hull_01_F"] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [1, format["A3\Boat_F_Destroyer\Destroyer_01\Data\Destroyer_01_N_0%1_co.paa",(_identifier select [1,1])]];
+	([_ship, "Land_Destroyer_01_hull_01_F"] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [2, format["A3\Boat_F_Destroyer\Destroyer_01\Data\Destroyer_01_N_0%1_co.paa",(_identifier select [2,1])]];
+	([_ship, 'ShipFlag_US_F'] call bis_fnc_destroyer01GetShipPart) setFlagTexture _flag;
+	([_ship, 'Land_Destroyer_01_hull_05_F'] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, _nameplate];
+	
 	// Add map marker
 	_mk = createMarker ["marker_destroyer", _ship];
 	_mk setMarkerType "flag_France";

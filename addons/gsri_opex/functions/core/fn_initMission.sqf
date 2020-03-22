@@ -1,4 +1,3 @@
-if!(isServer) exitWith {};
 {
 	if!(_x getVariable ["GSRI_FREMM_selectTemplate", ""] == "") then {
 		[_x] call GSRI_fnc_initFremm;
