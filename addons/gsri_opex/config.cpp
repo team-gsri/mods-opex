@@ -15,8 +15,8 @@ class CfgVehicles {
 	class Land_Destroyer_01_base_F : StaticShip {
 		class Attributes : Attributes {
 			class GSRI_FREMM_selectTemplate {
-				displayName = $STR_GRSI_FREMM_selectTemplate;
-				tooltip = $STR_GRSI_FREMM_selectTemplate_tooltip;
+				displayName = "$STR_GRSI_FREMM_selectTemplate";
+				tooltip = "$STR_GRSI_FREMM_selectTemplate_tooltip";
 				property = "GSRI_FREMM_selectTemplate";
 				control = "Combo";
 				class Values {
