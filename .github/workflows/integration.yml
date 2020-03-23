@@ -16,11 +16,11 @@ jobs:
 
     - name: Binarize config
       run: |
-        docker run --volume=./:/repo arwynfr/armake2 rapify /repo/addons/gsri_opex/config.cpp /repo/addons/gsri_opex/config.bin
+        docker run --volume=./:/repo arwynfr/armake2:alpine rapify /repo/addons/gsri_opex/config.cpp /repo/addons/gsri_opex/config.bin
         rm ./addons/gsri_opex/config.cpp 
       
     - name: Pack addon
-      run: docker run --volume=./:/repo arwynfr/armake2 pack /repo/addons/gsri_opex /repo/addons/gsri_opex.pbo
+      run: docker run --volume=./:/repo arwynfr/armake2:alpine pack /repo/addons/gsri_opex /repo/addons/gsri_opex.pbo
 
     - name: Create release
       id: create_release
