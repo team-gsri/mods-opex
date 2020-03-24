@@ -1,0 +1,45 @@
+name: integration
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout files
+      uses: actions/checkout@v2
+
+    - name: Binarize config
+      run: |
+        docker run --volume=${{ github.workspace }}:/repo arwynfr/armake2:alpine rapify /repo/addons/gsri_opex/config.cpp /repo/addons/gsri_opex/config.bin
+        rm addons/gsri_opex/config.cpp
+      
+    - name: Pack addon
+      run: docker run --volume=${{ github.workspace }}:/repo arwynfr/armake2:alpine pack /repo/addons/gsri_opex /repo/addons/gsri_opex.pbo
+
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ver-${{ github.sha }}
+        release_name: Version ${{ github.sha }}
+        body: ${{ github.event.head_commit.message }}
+        draft: true
+        prerelease: false
+        
+    - name: Upload pbo
+      uses: actions/upload-release-asset@latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_content_type: application/octet-stream
+        asset_path: addons/gsri_opex.pbo
+        asset_name: gsri_opex.pbo
