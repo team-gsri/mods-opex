@@ -22,20 +22,14 @@ jobs:
     - name: Pack addon
       run: docker run --volume=${{ github.workspace }}:/repo arwynfr/armake2:alpine pack /repo/addons/gsri_opex /repo/addons/gsri_opex.pbo
 
-    - name: Generate build number
-      id: buildnumber
-      uses: einaregilsson/build-number@v2
-      with:
-        token: ${{ secrets.github_token }}
-
     - name: Create release
       id: create_release
       uses: actions/create-release@latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ver-$BUILD_NUMBER
-        release_name: Version $BUILD_NUMBER
+        tag_name: ver-${{ github.sha }}
+        release_name: Version ${{ github.sha }}
         body: ${{ github.event.head_commit.message }}
         draft: true
         prerelease: false
