@@ -104,9 +104,21 @@
 			<Original>Locker</Original>
 			<French>Casier</French>
 		</Key>
-		<Key ID="STR_GSRI_FREMM_openArsenal">
-			<Original>Full arsenal</Original>
-			<French>Arsenal complet</French>
+		<Key ID="STR_GSRI_FREMM_arsenalMain">
+			<Original>Arsenal</Original>
+			<French>Arsenal</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_preslotMain">
+			<Original>Preslots</Original>
+			<French>Preslots</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_openArsenalBI">
+			<Original>Full BI arsenal</Original>
+			<French>Arsenal BI complet</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_openArsenalACE">
+			<Original>Full ACE arsenal</Original>
+			<French>Arsenal ACE complet</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsRifleman">
 			<Original>Rifleman outfit</Original>
