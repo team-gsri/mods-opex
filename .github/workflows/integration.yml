@@ -40,5 +40,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_content_type: application/octet-stream
-        asset_path: ./repo/addons/gsri_opex.pbo
+        asset_path: addons/gsri_opex.pbo
         asset_name: gsri_opex.pbo
