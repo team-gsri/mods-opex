@@ -140,6 +140,22 @@
 			<Original>Diver outfit</Original>
 			<French>Tenue de nageur de combat</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_medicalMain">
+			<Original>Medical skills</Original>
+			<French>Compétences médicales</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_medicalNoMed">
+			<Original>Not trained</Original>
+			<French>Non entraîné</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_medicalMedic">
+			<Original>Medic</Original>
+			<French>Infirmier</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_medicalDoctor">
+			<Original>Doctor</Original>
+			<French>Médecin</French>
+		</Key>
 	</Package>
 
 	<Package name="FREMM_BoatBays">
