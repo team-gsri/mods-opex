@@ -82,12 +82,12 @@ _condition = {
 	params["_t", "_p", "_args"];
 	_args params ["_ship"];
 	// Return true if there is a heli in hangar and if there is no heli on deck
-	!(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_getHeli)) and (isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_getHeli))
+	!(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and (isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
 };
 _statement = {
 	params["_t", "_p", "_args"];
 	_args params ["_ship"];
-	_heli = [(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_getHeli;
+	_heli = [(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent;
 	["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
 	_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_deck");
 };
@@ -101,12 +101,12 @@ _condition = {
 	params["_t", "_p", "_args"];
 	_args params ["_ship"];
 	// Return true if there is no heli in hangar and if there is a heli on deck
-	(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_getHeli)) and !(isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_getHeli))
+	(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and !(isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
 };
 _statement = {
 	params["_t", "_p", "_args"];
 	_args params ["_ship"];
-	_heli = [(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_getHeli;
+	_heli = [(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent;
 	["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
 	_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_hangar");
 };
