@@ -70,45 +70,53 @@ _condition = {
 _action = ["actionFRIES",localize "STR_GSRI_FREMM_heliEquipFRIES","",GSRI_fnc_heliEquipFRIES,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")]] call ace_interact_menu_fnc_createAction;
 [_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
+_leshLoaded = isClass (configFile >> "CfgPatches" >> "rksla3_aircraft_tug");
+if(_leshLoaded) then {
+	// add RKSL airport tug to ship
+	_tug = createVehicle ["rksla3_aircraft_tug_blufor", [0,0,100], [], 0, "NONE"];
+	_tug enableSimulation false;
+	_tug allowDamage false;
+	_tug animateSource ["option_cabin_hide_source", 0, true];
+	_tug setDir getDir _ship;
+	_tug setPosATL ASLToATL (_ship modelToWorldWorld [7.45,47.77,8.81]);
+	_tug enableSimulation true;
+	_tug allowDamage true;
+	_ship setVariable ["GSRI_FREMM_tug", _tug];
+} else {
+	// Add placeholder actions
+	// Place helicopter on rear deck
+	// Will not be externalized
+	_condition = {
+		params["_t", "_p", "_args"];
+		_args params ["_ship"];
+		// Return true if there is a heli in hangar and if there is no heli on deck
+		!(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and (isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
+	};
+	_statement = {
+		params["_t", "_p", "_args"];
+		_args params ["_ship"];
+		_heli = [(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent;
+		["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
+		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_deck");
+	};
+	_action = ["actionDeck","Placer l'appareil sur le pont d'envol","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
+	[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
-
-
-
-
-// Place helicopter on rear deck
-// TODO : replace by Lesh's tow mod
-// Will not be externalized
-_condition = {
-	params["_t", "_p", "_args"];
-	_args params ["_ship"];
-	// Return true if there is a heli in hangar and if there is no heli on deck
-	!(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and (isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
+	// Place helicopter in hangar
+	// Will not be externalized
+	_condition = {
+		params["_t", "_p", "_args"];
+		_args params ["_ship"];
+		// Return true if there is no heli in hangar and if there is a heli on deck
+		(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and !(isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
+	};
+	_statement = {
+		params["_t", "_p", "_args"];
+		_args params ["_ship"];
+		_heli = [(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent;
+		["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
+		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_hangar");
+	};
+	_action = ["actionHangar","Placer l'appareil dans le hangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
+	[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 };
-_statement = {
-	params["_t", "_p", "_args"];
-	_args params ["_ship"];
-	_heli = [(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent;
-	["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
-	_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_deck");
-};
-_action = ["actionDeck","Placer l'appareil sur le pont d'envol","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
-[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
-
-// Place helicopter in hangar
-// TODO : replace by Lesh's tow mod
-// Will not be externalized
-_condition = {
-	params["_t", "_p", "_args"];
-	_args params ["_ship"];
-	// Return true if there is no heli in hangar and if there is a heli on deck
-	(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and !(isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
-};
-_statement = {
-	params["_t", "_p", "_args"];
-	_args params ["_ship"];
-	_heli = [(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent;
-	["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
-	_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_hangar");
-};
-_action = ["actionHangar","Placer l'appareil dans le hangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
-[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
