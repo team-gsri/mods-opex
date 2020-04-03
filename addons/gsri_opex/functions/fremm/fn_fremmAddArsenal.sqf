@@ -21,6 +21,7 @@ _actionGunner = ["actionGunner",localize "STR_GSRI_FREMM_gearAsGunner","",{call 
 _actionGrenadier = ["actionGrenadier",localize "STR_GSRI_FREMM_gearAsGrenadier","",{call GSRI_fnc_getGrenadier},{true}] call ace_interact_menu_fnc_createAction;
 _actionMedical = ["actionMedic",localize "STR_GSRI_FREMM_gearAsMedic","",{call GSRI_fnc_getMedic},{true}] call ace_interact_menu_fnc_createAction;
 _actionDiver = ["actionDiver",localize "STR_GSRI_FREMM_gearAsDiver","",{call GSRI_fnc_getDiver},{true}] call ace_interact_menu_fnc_createAction;
+_actionEmpty = ["actionEmpty",localize "STR_GSRI_FREMM_gearAsEmpty","",{call GSRI_fnc_getEmpty},{true}] call ace_interact_menu_fnc_createAction;
 
 _actionNoMed = ["actionNoMed",localize "STR_GSRI_FREMM_medicalNoMed","",{player setVariable ["ace_medical_medicclass", 0]},{true}] call ace_interact_menu_fnc_createAction;
 _actionMedic = ["actionMedic",localize "STR_GSRI_FREMM_medicalMedic","",{player setVariable ["ace_medical_medicclass", 1]},{true}] call ace_interact_menu_fnc_createAction;
@@ -34,7 +35,7 @@ for [{_i = 0}, {_i < 9}, {_i = _i+1}] do {
 	[_handle, 0, ["actionLockerMain"], _actionPreslotMain] call ace_interact_menu_fnc_addActionToObject;
 	{
 		[_handle, 0, ["actionLockerMain","actionPreslotMain"], _x] call ace_interact_menu_fnc_addActionToObject;
-	} forEach [_actionRifleman,_actionGrenadier,_actionGunner,_actionMedical,_actionDiver];
+	} forEach [_actionRifleman,_actionGrenadier,_actionGunner,_actionMedical,_actionDiver,_actionEmpty];
 	[_handle, 0, ["actionLockerMain"], _actionArsenalMain] call ace_interact_menu_fnc_addActionToObject;
 	{
 		[_handle, 0, ["actionLockerMain","actionArsenalMain"], _x] call ace_interact_menu_fnc_addActionToObject;

@@ -99,6 +99,7 @@ class CfgFunctions {
 			class getMedic {};
 			class getGunner {};
 			class getDiver {};
+			class getEmpty {};
 		};
 	};
 };
