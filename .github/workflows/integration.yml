@@ -5,6 +5,10 @@ name: integration
 on:
   push:
     branches: [ master ]
+    paths:
+      - addons/gsri_opex/**
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -15,12 +19,19 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Binarize config
-      run: |
-        docker run --volume=${{ github.workspace }}:/repo arwynfr/armake2:alpine rapify /repo/addons/gsri_opex/config.cpp /repo/addons/gsri_opex/config.bin
-        rm addons/gsri_opex/config.cpp
-      
+      uses: docker://arwynfr/armake2:alpine
+      with:
+        entrypoint: /usr/bin/armake2
+        args: rapify /github/workspace/addons/gsri_opex/config.cpp /github/workspace/addons/gsri_opex/config.bin
+
+    - name: Delete unrapified file
+      run: rm addons/gsri_opex/config.cpp
+
     - name: Pack addon
-      run: docker run --volume=${{ github.workspace }}:/repo arwynfr/armake2:alpine pack /repo/addons/gsri_opex /repo/addons/gsri_opex.pbo
+      uses: docker://arwynfr/armake2:alpine
+      with:
+        entrypoint: /usr/bin/armake2
+        args: pack /github/workspace/addons/gsri_opex /github/workspace/addons/gsri_opex.pbo
 
     - name: Create release
       id: create_release
@@ -33,6 +44,7 @@ jobs:
         body: ${{ github.event.head_commit.message }}
         draft: true
         prerelease: false
+      if: github.event_name == 'push'
         
     - name: Upload pbo
       uses: actions/upload-release-asset@latest
@@ -43,3 +55,4 @@ jobs:
         asset_content_type: application/octet-stream
         asset_path: addons/gsri_opex.pbo
         asset_name: gsri_opex.pbo
+      if: github.event_name == 'push'
