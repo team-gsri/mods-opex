@@ -190,6 +190,14 @@
 			<Original>Equip FRIES</Original>
 			<French>Equiper FRIES</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_heliToDeck">
+			<Original>Move aircraft to flight deck</Original>
+			<French>Placer l'appareil sur le pont d'envol</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_heliToHangar">
+			<Original>Move aircraft to hangar</Original>
+			<French>Placer l'appareil dans le hangar</French>
+		</Key>
 	</Package>
 
 	<Package name="FREMM_submarine">
