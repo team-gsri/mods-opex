@@ -13,7 +13,7 @@ _fuel attachTo [_ship, [9.63,40.13,10.15]];
 _fuel setDir 90;
 
 // Dummy objects for hangar and flight deck
-_types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "B_Heli_Light_01_F", "B_T_UAV_03_dynamicLoadout_F","MELB_AH6M","MELB_MH6M"];
+_types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "B_Heli_Light_01_F", "B_T_UAV_03_dynamicLoadout_F","MELB_AH6M","MELB_MH6M","UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited"];
 {
 	_helipad = "Land_HelipadEmpty_F" createVehicleLocal [0,0,0];
 	_helipad enableSimulation false;

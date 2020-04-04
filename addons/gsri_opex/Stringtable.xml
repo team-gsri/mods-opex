@@ -140,6 +140,10 @@
 			<Original>Diver outfit</Original>
 			<French>Tenue de nageur de combat</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_gearAsEmpty">
+			<Original>Regular fatigues</Original>
+			<French>Tenue régulière</French>
+		</Key>
 		<Key ID="STR_GSRI_FREMM_medicalMain">
 			<Original>Medical skills</Original>
 			<French>Compétences médicales</French>
