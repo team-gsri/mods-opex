@@ -5,6 +5,8 @@ name: integration
 on:
   push:
     branches: [ master ]
+    paths:
+      - addons/gsri_opex/**
   pull_request:
     branches: [ master ]
 
