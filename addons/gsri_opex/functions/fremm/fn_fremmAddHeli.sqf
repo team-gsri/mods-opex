@@ -99,7 +99,7 @@ if(_leshLoaded) then {
 		["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
 		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_deck");
 	};
-	_action = ["actionDeck","Placer l'appareil sur le pont d'envol","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
+	_action = ["actionDeck",localize "STR_GSRI_FREMM_heliToDeck","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
 	[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 	// Place helicopter in hangar
@@ -117,6 +117,6 @@ if(_leshLoaded) then {
 		["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
 		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_hangar");
 	};
-	_action = ["actionHangar","Placer l'appareil dans le hangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
+	_action = ["actionHangar",localize "STR_GSRI_FREMM_heliToHangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
 	[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 };
