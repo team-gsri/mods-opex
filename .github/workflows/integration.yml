@@ -5,6 +5,8 @@ name: integration
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -40,6 +42,7 @@ jobs:
         body: ${{ github.event.head_commit.message }}
         draft: true
         prerelease: false
+      if: github.event_name == 'push'
         
     - name: Upload pbo
       uses: actions/upload-release-asset@latest
@@ -50,3 +53,4 @@ jobs:
         asset_content_type: application/octet-stream
         asset_path: addons/gsri_opex.pbo
         asset_name: gsri_opex.pbo
+      if: github.event_name == 'push'
