@@ -36,7 +36,10 @@ if(isServer) then {
 // Boat bays might not already exists for the first few clients to connect
 waitUntil{ !isNil{_ship getVariable ["GSRI_FREMM_Portboard_bay", objNull] getVariable "GSRI_FREMM_associatedCom"}};
 
-// ACE actions are created clientside to avoid unnecessary network load
+// Main action
+_bayRoot = ["bayRoot","Baie","",{},{true}] call ace_interact_menu_fnc_createAction;
+
+// Boat selection
 _actionSpawnInBay = ["actionSpawnInBay",localize "STR_GSRI_FREMM_spawnInBay","",{},{true}] call ace_interact_menu_fnc_createAction;
 _actionsList = [];
 {
@@ -47,9 +50,18 @@ _actionsList = [];
 _actionNull = ["actionNull",localize "STR_GSRI_FREMM_emptyBay","",{_this spawn GSRI_fnc_bayReplace},{true},{},[""]] call ace_interact_menu_fnc_createAction;
 _actionsList pushBack _actionNull;
 
+// Door control
+_doorControl = ["doorControl","Porte","",{},{true}] call ace_interact_menu_fnc_createAction;
+_doorLift = ["doorLift","Relever","",{_this spawn GSRI_fnc_bayDoorControl},{true},{},[true]] call ace_interact_menu_fnc_createAction;
+_doorLower = ["doorLower","Baisser","",{_this spawn GSRI_fnc_bayDoorControl},{true},{},[false]] call ace_interact_menu_fnc_createAction;
+
 // Add all actions
 {
 	_com = (_ship getVariable _x getVariable "GSRI_FREMM_associatedCom");
-	[_com, 0, [], _actionSpawnInBay] call ace_interact_menu_fnc_addActionToObject;
-	{ [_com, 0, ["actionSpawnInBay"], _x] call ace_interact_menu_fnc_addActionToObject } forEach _actionsList;
+	[_com, 0, [], _bayRoot] call ace_interact_menu_fnc_addActionToObject;
+	[_com, 0, ["bayRoot"], _actionSpawnInBay] call ace_interact_menu_fnc_addActionToObject;
+	{ [_com, 0, ["bayRoot","actionSpawnInBay"], _x] call ace_interact_menu_fnc_addActionToObject } forEach _actionsList;
+	[_com, 0, ["bayRoot"], _doorControl] call ace_interact_menu_fnc_addActionToObject;
+	[_com, 0, ["bayRoot","doorControl"], _doorLift] call ace_interact_menu_fnc_addActionToObject;
+	[_com, 0, ["bayRoot","doorControl"], _doorLower] call ace_interact_menu_fnc_addActionToObject;
 } forEach ["GSRI_FREMM_Starboard_bay","GSRI_FREMM_Portboard_bay"];
