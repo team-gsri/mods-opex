@@ -14,14 +14,23 @@ if(isServer) then {
 		_bay enableSimulation true;
 		[_bay] remoteExecCall ["BIS_fnc_BoatRack01Init", 0, true];
 
+		_door = "SCMS_HangarDoor" createVehicle [0,0,0];
+		_door setPosWorld (_ship modelToWorldWorld (_x select 3));
+		_door setDir (getDir _ship + (_x select 4));
+
 		_com = "Land_Tablet_02_black_F" createVehicle [0,0,0];
 		_com attachTo [_ship, (_x select 2)];
 		_com setVectorDirAndUp [[0,0,-1],[0,-1,0]];
 
 		_com setVariable ["GSRI_FREMM_associatedBay", _bay, true];
 		_bay setVariable ["GSRI_FREMM_associatedCom", _com, true];
+		_com setVariable ["GSRI_FREMM_associatedDoor", _door, true];
+		_door setVariable ["GSRI_FREMM_associatedCom", _com, true];
 		_ship setVariable [(_x select 0), _bay, true];
-	} forEach [["GSRI_FREMM_Starboard_bay",[-11.5,14.43,7.5],[-4.4,18.29,8.9]],["GSRI_FREMM_Portboard_bay",[11.5,14.43,7.5],[4.4,18.29,8.9]]];
+	} forEach [
+		["GSRI_FREMM_Starboard_bay",[-11.5,14.43,7.5],[-4.4,18.29,8.9],[-14.73,14.25,9.96], 178.75],
+		["GSRI_FREMM_Portboard_bay",[11.5,14.43,7.5],[4.4,18.29,8.9],[14.73,14.25,9.96], 1.23]
+	];
 };
 
 // Boat bays might not already exists for the first few clients to connect
@@ -37,6 +46,8 @@ _actionsList = [];
 } forEach ["B_Boat_Transport_01_F", "C_Boat_Transport_02_F", "B_Boat_Armed_01_minigun_F", "B_SDV_01_F"];
 _actionNull = ["actionNull",localize "STR_GSRI_FREMM_emptyBay","",{_this spawn GSRI_fnc_bayReplace},{true},{},[""]] call ace_interact_menu_fnc_createAction;
 _actionsList pushBack _actionNull;
+
+// Add all actions
 {
 	_com = (_ship getVariable _x getVariable "GSRI_FREMM_associatedCom");
 	[_com, 0, [], _actionSpawnInBay] call ace_interact_menu_fnc_addActionToObject;
