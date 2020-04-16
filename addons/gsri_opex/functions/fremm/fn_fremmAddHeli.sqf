@@ -71,7 +71,7 @@ _action = ["actionFRIES",localize "STR_GSRI_FREMM_heliEquipFRIES","",GSRI_fnc_he
 [_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 _leshLoaded = isClass (configFile >> "CfgPatches" >> "rksla3_aircraft_tug");
-if(_leshLoaded) then {
+if(_leshLoaded && isServer) then {
 	// add RKSL airport tug to ship
 	_tug = createVehicle ["rksla3_aircraft_tug_blufor", [0,0,100], [], 0, "NONE"];
 	_tug enableSimulation false;
@@ -81,7 +81,7 @@ if(_leshLoaded) then {
 	_tug setPosATL ASLToATL (_ship modelToWorldWorld [7.45,47.77,8.81]);
 	_tug enableSimulation true;
 	_tug allowDamage true;
-	_ship setVariable ["GSRI_FREMM_tug", _tug];
+	_ship setVariable ["GSRI_FREMM_tug", _tug, true];
 } else {
 	// Add placeholder actions
 	// Place helicopter on rear deck
