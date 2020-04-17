@@ -1,6 +1,7 @@
 // Mandatory to get suspension allowed
 _this spawn {
 	params ["_units", "_pos", "_alt", "_shift"];
+	private ["_shift","_maxDepth","_pos","_sub"];
 
 	// Map click may happen but not linked to this module
 	if!(player getVariable ["GSRI_FREMM_submarine_token", false]) exitWith {};
