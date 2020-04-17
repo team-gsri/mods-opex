@@ -7,6 +7,7 @@ if(isDedicated) exitWith {};
 
 params["_ship"];
 private [
+	"_start",
 	"_actionLockerMain",
 	"_actionArsenalMain",
 	"_actionPreslotMain",

@@ -1,9 +1,9 @@
 params["_ship"];
 
 // Parsing settings based on selected template
-private _template = _ship getVariable "GSRI_FREMM_selectTemplate";
+private ["_fullname","_identifier","_flag","_nameplate","_hasWeapons","_hasArsenal","_hasBridge","_hasBoatBays","_hasHelicopter","_hasSubmarine","_template","_varList"];
+_template = _ship getVariable "GSRI_FREMM_selectTemplate";
 _varList = ["_fullname","_identifier","_flag","_nameplate","_hasWeapons","_hasArsenal","_hasBridge","_hasBoatBays","_hasHelicopter","_hasSubmarine"];
-private _varList;
 { call compile format["%1 = %2%3",_x,_template,_x] } forEach _varList;
 
 // Ship features

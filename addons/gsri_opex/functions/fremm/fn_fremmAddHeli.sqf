@@ -116,7 +116,7 @@ if(_leshLoaded && isServer) then {
 		_args params ["_ship"];
 		private _heli = [(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent;
 		["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
-		private _heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_hangar");
+		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_hangar");
 	};
 	private _actionHangar = ["actionHangar",localize "STR_GSRI_FREMM_heliToHangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
 	[_handle, 0, ["ACE_MainActions"], _actionHangar] call ace_interact_menu_fnc_addActionToObject;
