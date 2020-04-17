@@ -1,4 +1,4 @@
-private ["_template", "_settings"];
+private ["_templates", "_settings"];
 
 // Retrieve all preconfigured templates
 _templates = ((configFile >> "GSRI_FREMM_Templates") call BIS_fnc_getCfgSubClasses);
