@@ -5,7 +5,7 @@ if!(isServer) then {
 };
 
 {
-	_template = _x getVariable ["GSRI_FREMM_selectTemplate", ""];
+	private _template = _x getVariable ["GSRI_FREMM_selectTemplate", ""];
 	if!(_template == "") then {
 		_x setVariable ["GSRI_FREMM_selectTemplate", _template, true];
 		[_x] call GSRI_fnc_initFremm;
