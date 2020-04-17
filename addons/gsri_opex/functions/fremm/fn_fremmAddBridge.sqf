@@ -5,6 +5,7 @@
 params["_ship"];
 
 if(isServer) then {
+	private ["_group", "_posArray", "_helper", "_unit","_move"];
 	_group = createGroup[WEST, true];
 	_posArray = [[-1.29529,-39.7251,19.35],[1.29529,-39.7251,19.35]];
 	{
@@ -22,7 +23,7 @@ if(isServer) then {
 		_move = selectRandom ["HubSittingAtTableU_idle1", "HubSittingAtTableU_idle2", "HubSittingAtTableU_idle3"];
 		[_unit, _move] remoteExecCall ["switchMove", 0];
 		_unit addEventHandler ["AnimDone", {
-			params ["_u", "_anim"];
+			params ["_u"];
 			_move = selectRandom ["HubSittingAtTableU_idle1", "HubSittingAtTableU_idle2", "HubSittingAtTableU_idle3"];
 			[_u, _move] remoteExecCall ["switchMove", 0];
 		}];

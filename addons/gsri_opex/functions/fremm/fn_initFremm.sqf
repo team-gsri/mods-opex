@@ -1,8 +1,9 @@
 params["_ship"];
 
 // Parsing settings based on selected template
-_template = _ship getVariable "GSRI_FREMM_selectTemplate";
-_varList = ["_fullname","_identifier","_flag","_nameplate","_hasWeapons","_hasArsenal","_hasBridge","_hasBoatBays","_hasHelicopter","_hasSubmarine"]; 
+private _template = _ship getVariable "GSRI_FREMM_selectTemplate";
+_varList = ["_fullname","_identifier","_flag","_nameplate","_hasWeapons","_hasArsenal","_hasBridge","_hasBoatBays","_hasHelicopter","_hasSubmarine"];
+private _varList;
 { call compile format["%1 = %2%3",_x,_template,_x] } forEach _varList;
 
 // Ship features
@@ -22,12 +23,12 @@ if(isServer) then {
 	([_ship, 'Land_Destroyer_01_hull_05_F'] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, _nameplate];
 
 	// Add map marker
-	_mk = createMarker ["marker_destroyer", _ship];
+	private _mk = createMarker ["marker_destroyer", _ship];
 	_mk setMarkerType "flag_France";
 	_mk setMarkerText _fullname;
 
 	// Signs array
-	_signs = [
+	private _signs = [
 		["SignAd_Sponsor_F",[-1.912,6.641,8.27],270,"gsri_opex\images\zone_preparation.paa"],
 		["SignAd_Sponsor_F",[-2.91199,14.007,7.465],270,"gsri_opex\images\vers_sousmarin.paa"],
 		["SignAd_SponsorS_F",[-10.116,50.833,9.2],270,"gsri_opex\images\vers_heli.paa"]
@@ -35,7 +36,7 @@ if(isServer) then {
 
 	{
 		_x params ["_class", "_pos", "_dir", "_texture"];
-		_sign = _class createVehicle [0,0,0];
+		private _sign = _class createVehicle [0,0,0];
 		_sign enableSimulation false;
 		_sign attachTo [_ship, _pos];
 		_sign setDir _dir;
