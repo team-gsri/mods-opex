@@ -1,8 +1,8 @@
 params["_ship"];
 
 // Parsing settings based on selected template
-private ["_fullname","_identifier","_flag","_nameplate","_hasWeapons","_hasArsenal","_hasBridge","_hasBoatBays","_hasHelicopter","_hasSubmarine"];
 private _template = _ship getVariable "GSRI_FREMM_selectTemplate";
+// Those variables are not private because the next scope has to access them for attribution
 private _varList = ["_fullname","_identifier","_flag","_nameplate","_hasWeapons","_hasArsenal","_hasBridge","_hasBoatBays","_hasHelicopter","_hasSubmarine"];
 { call compile format["%1 = %2%3",_x,_template,_x] } forEach _varList;
 
