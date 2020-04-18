@@ -171,6 +171,10 @@
 			<Original>Equip bay with...</Original>
 			<French>Equiper la baie avec...</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_bayDoorControl">
+			<Original>Operate bay shield</Original>
+			<French>Actionner le bouclier</French>
+		</Key>
 	</Package>
 
 	<Package name="FREMM_Helicopter">
