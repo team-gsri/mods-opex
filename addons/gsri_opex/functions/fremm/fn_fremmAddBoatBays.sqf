@@ -60,6 +60,4 @@ _doorControl = ["doorControl",localize "STR_GSRI_FREMM_bayDoorControl","",GSRI_f
 	[_com, 0, ["bayRoot"], _actionSpawnInBay] call ace_interact_menu_fnc_addActionToObject;
 	{ [_com, 0, ["bayRoot","actionSpawnInBay"], _x] call ace_interact_menu_fnc_addActionToObject } forEach _actionsList;
 	[_com, 0, ["bayRoot"], _doorControl] call ace_interact_menu_fnc_addActionToObject;
-	[_com, 0, ["bayRoot","doorControl"], _doorLift] call ace_interact_menu_fnc_addActionToObject;
-	[_com, 0, ["bayRoot","doorControl"], _doorLower] call ace_interact_menu_fnc_addActionToObject;
 } forEach ["GSRI_FREMM_Starboard_bay","GSRI_FREMM_Portboard_bay"];
