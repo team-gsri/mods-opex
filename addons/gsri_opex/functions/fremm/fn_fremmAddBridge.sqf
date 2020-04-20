@@ -25,7 +25,7 @@ if(isServer) then {
 		_unit addEventHandler ["AnimDone", {
 			params ["_eventUnit"];
 			_move = selectRandom ["HubSittingAtTableU_idle1", "HubSittingAtTableU_idle2", "HubSittingAtTableU_idle3"];
-			[_u, _move] remoteExecCall ["switchMove", 0];
+			[_eventUnit, _move] remoteExecCall ["switchMove", 0];
 		}];
 
 		// Spawn unit's gear
