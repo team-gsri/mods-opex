@@ -1,5 +1,5 @@
 params ["_target", "_player", "_params"];
-private["_type", "_bay", "_cargo"];
+private ["_type", "_bay", "_cargo"];
 _type = (_params select 0);
 _bay = (_target getVariable "GSRI_FREMM_associatedBay");
 _cargo = (getVehicleCargo _bay) select 0;
