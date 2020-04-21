@@ -2,30 +2,30 @@ params["_ship"];
 
 // Parsing settings based on selected template
 private _template = _ship getVariable "GSRI_FREMM_selectTemplate";
-// Those variables are not private because the next scope has to access them for attribution
-private _varList = ["_fullname","_identifier","_flag","_nameplate","_hasWeapons","_hasArsenal","_hasBridge","_hasBoatBays","_hasHelicopter","_hasSubmarine"];
-{ call compile format["%1 = %2%3",_x,_template,_x] } forEach _varList;
+private _varList = (configProperties [configFile >> "GSRI_FREMM_Templates" >> _template]) apply {configName _x};
+{ _ship setVariable [format["GSRI_FREMM_%1", _x], call compile format["%1_%2",_template, _x] ] } forEach _varList;
 
 // Ship features
-if(_hasWeapons) then { [_ship] call GSRI_fnc_fremmAddWeapons };
-if(_hasArsenal) then { [_ship] call GSRI_fnc_fremmAddArsenal };
-if(_hasBridge) then { [_ship] call GSRI_fnc_fremmAddBridge };
-if(_hasBoatBays) then { [_ship] call GSRI_fnc_fremmAddBoatBays };
-if(_hasHelicopter) then { [_ship] call GSRI_fnc_fremmAddHeli };
-if(_hasSubmarine) then { [_ship] call GSRI_fnc_fremmAddSub };
+if(_ship getVariable "GSRI_FREMM_hasWeapons") then { [_ship] call GSRI_fnc_fremmAddWeapons };
+if(_ship getVariable "GSRI_FREMM_hasArsenal") then { [_ship] call GSRI_fnc_fremmAddArsenal };
+if(_ship getVariable "GSRI_FREMM_hasBridge") then { [_ship] call GSRI_fnc_fremmAddBridge };
+if(_ship getVariable "GSRI_FREMM_hasBoatBays") then { [_ship] call GSRI_fnc_fremmAddBoatBays };
+if(_ship getVariable "GSRI_FREMM_hasHelicopter") then { [_ship] call GSRI_fnc_fremmAddHeli };
+if(_ship getVariable "GSRI_FREMM_hasSubmarine") then { [_ship] call GSRI_fnc_fremmAddSub };
 
 if(isServer) then {
 	// Identifier, flag, nameplate textures
+	private _identifier = (_ship getVariable "GSRI_FREMM_identifier");
 	([_ship, "Land_Destroyer_01_hull_01_F"] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, format["A3\Boat_F_Destroyer\Destroyer_01\Data\Destroyer_01_N_0%1_co.paa",(_identifier select [0,1])]];
 	([_ship, "Land_Destroyer_01_hull_01_F"] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [1, format["A3\Boat_F_Destroyer\Destroyer_01\Data\Destroyer_01_N_0%1_co.paa",(_identifier select [1,1])]];
 	([_ship, "Land_Destroyer_01_hull_01_F"] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [2, format["A3\Boat_F_Destroyer\Destroyer_01\Data\Destroyer_01_N_0%1_co.paa",(_identifier select [2,1])]];
-	([_ship, 'ShipFlag_US_F'] call bis_fnc_destroyer01GetShipPart) setFlagTexture _flag;
-	([_ship, 'Land_Destroyer_01_hull_05_F'] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, _nameplate];
+	([_ship, 'ShipFlag_US_F'] call bis_fnc_destroyer01GetShipPart) setFlagTexture (_ship getVariable "GSRI_FREMM_flag");
+	([_ship, 'Land_Destroyer_01_hull_05_F'] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, (_ship getVariable "GSRI_FREMM_nameplate")];
 
 	// Add map marker
 	private _mk = createMarker ["marker_destroyer", _ship];
 	_mk setMarkerType "flag_France";
-	_mk setMarkerText _fullname;
+	_mk setMarkerText (_ship getVariable "GSRI_FREMM_fullname");
 
 	// Signs array
 	private _signs = [
