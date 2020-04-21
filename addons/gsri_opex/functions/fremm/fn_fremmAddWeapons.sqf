@@ -4,6 +4,7 @@
 if!(isServer) exitWith {};
 
 params["_ship"];
+private ["_raw","_weaponsList","_gun"];
 
 //[type, relPos, relDir]
 _raw = [
