@@ -7,7 +7,7 @@ private _varList = (configProperties [configFile >> "GSRI_FREMM_Templates" >> _t
   private _name = format ["%1_%2", "GSRI_FREMM", _x];
   private _feature = format ["%1_%2", _template, _x];
   _ship setVariable [_name, call compile _feature ];
-} for each _varList;
+} forEach _varList;
 
 // Ship features
 if(_ship getVariable "GSRI_FREMM_hasWeapons") then { [_ship] call GSRI_fnc_fremmAddWeapons };
