@@ -5,8 +5,8 @@ private _template = _ship getVariable "GSRI_FREMM_selectTemplate";
 private _varList = (configProperties [configFile >> "GSRI_FREMM_Templates" >> _template]) apply {configName _x};
 {
   private _name = format ["%1_%2", "GSRI_FREMM", _x];
-  private _function = format ["%1_%2", _template, _x];
-  _ship setVariable [_name, call compile _function];
+  private _feature = format ["%1_%2", _template, _x];
+  _ship setVariable [_name, call compile _feature ];
 } for each _varList;
 
 // Ship features
