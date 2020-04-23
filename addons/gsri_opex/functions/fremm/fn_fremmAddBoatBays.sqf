@@ -25,7 +25,8 @@ if(isServer) then {
 };
 
 // Boat bays might not already exists for the first few clients to connect
-waitUntil{ !isNil{_ship getVariable ["GSRI_FREMM_Portboard_bay", objNull] getVariable "GSRI_FREMM_associatedCom"}};
+if(isDedicated) exitWith {};
+waitUntil{ !isNull (_ship getVariable ["GSRI_FREMM_Portboard_bay", objNull] getVariable ["GSRI_FREMM_associatedCom", objNull]) };
 
 // ACE actions are created clientside to avoid unnecessary network load
 private _actionSpawnInBay = ["actionSpawnInBay",localize "STR_GSRI_FREMM_spawnInBay","",{},{true}] call ace_interact_menu_fnc_createAction;
