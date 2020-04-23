@@ -25,6 +25,7 @@ if(isServer) then {
 };
 
 // Boat bays might not already exists for the first few clients to connect
+if(isDedicated) exitWith {};
 waitUntil{ !isNull (_ship getVariable ["GSRI_FREMM_Portboard_bay", objNull] getVariable ["GSRI_FREMM_associatedCom", objNull]) };
 
 // ACE actions are created clientside to avoid unnecessary network load
