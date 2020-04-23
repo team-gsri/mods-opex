@@ -20,6 +20,9 @@ private [
 	"_actionMedicalMain",
 	"_medicalActions"
 ];
+_arsenalActions = [];
+_preslotsActions = [];
+_medicalActions = [];
 
 _actionLockerMain = ["actionLockerMain",localize "STR_GSRI_FREMM_lockerMain","",{},{true}] call ace_interact_menu_fnc_createAction;
 
