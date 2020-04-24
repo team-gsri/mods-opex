@@ -1,5 +1,4 @@
 params["_com", "_player", "_params"];
-_params params ["_lifting"];
 
 private ["_door","_currentPhase", "_nextPhase"];
 
