@@ -51,7 +51,7 @@ _actionNull = ["actionNull",localize "STR_GSRI_FREMM_emptyBay","",{_this spawn G
 _actionsList pushBack _actionNull;
 
 // Door control
-_doorControl = ["doorControl",localize "STR_GSRI_FREMM_bayDoorControl","",GSRI_fnc_bayDoorControl,{true}] call ace_interact_menu_fnc_createAction;
+_doorControl = ["doorControl",localize "STR_GSRI_FREMM_bayDoorControl","",{_this spawn GSRI_fnc_bayDoorControl},{true}] call ace_interact_menu_fnc_createAction;
 
 // Add all actions
 {
