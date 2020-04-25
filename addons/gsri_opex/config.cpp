@@ -75,6 +75,7 @@ class CfgFunctions {
 			class fremmAddBoatBays {};
 			class fremmAddHeli {};
 			class fremmAddSub {};
+			class fremmAddScreens {};
 		};
         class bays {
             file="gsri_opex\functions\bays";
