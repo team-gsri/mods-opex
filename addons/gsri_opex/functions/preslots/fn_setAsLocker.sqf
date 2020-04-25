@@ -42,9 +42,9 @@ _preslotsActions pushBack (["actionEmpty",localize "STR_GSRI_FREMM_gearAsEmpty",
 
 // Medical skills actions
 _actionMedicalMain = ["actionMedicalMain",localize "STR_GSRI_FREMM_medicalMain","",{},{true}] call ace_interact_menu_fnc_createAction;
-_medicalActions pushBack (["actionNoMed",localize "STR_GSRI_FREMM_medicalNoMed","",{player setVariable ["ace_medical_medicclass", 0]},{true}] call ace_interact_menu_fnc_createAction);
-_medicalActions pushBack (["actionMedic",localize "STR_GSRI_FREMM_medicalMedic","",{player setVariable ["ace_medical_medicclass", 1]},{true}] call ace_interact_menu_fnc_createAction);
-_medicalActions pushBack (["actionDoctor",localize "STR_GSRI_FREMM_medicalDoctor","",{player setVariable ["ace_medical_medicclass", 2]},{true}] call ace_interact_menu_fnc_createAction);
+_medicalActions pushBack (["actionNoMed",localize "STR_GSRI_FREMM_medicalNoMed","",{player setVariable ["ace_medical_medicClass", 0, true]},{true}] call ace_interact_menu_fnc_createAction);
+_medicalActions pushBack (["actionMedic",localize "STR_GSRI_FREMM_medicalMedic","",{player setVariable ["ace_medical_medicClass", 1, true]},{true}] call ace_interact_menu_fnc_createAction);
+_medicalActions pushBack (["actionDoctor",localize "STR_GSRI_FREMM_medicalDoctor","",{player setVariable ["ace_medical_medicClass", 2, true]},{true}] call ace_interact_menu_fnc_createAction);
 
 // Adding tree
 [_locker, 0, [], _actionLockerMain] call ace_interact_menu_fnc_addActionToObject;
