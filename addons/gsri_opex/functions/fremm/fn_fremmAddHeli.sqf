@@ -29,14 +29,14 @@ _types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_
 	if(isClass (configFile >> "CfgVehicles" >> _x)) then {
 		private _display = [_x] call GSRI_fnc_heliMinifyName;
 		private _modifier = {
-			params ["_target", "_player", "_args", "_actionData"];
+			params ["", "", "_args", "_actionData"];
 			_args params ["_hangar", "_newType"];
 			private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
 			private _displayName = [localize "STR_GSRI_FREMM_heliReplace", localize "STR_GSRI_FREMM_heliGet"] select (isNull _heli);
 			_actionData set [1, format [_displayName, [_heli] call GSRI_fnc_heliMinifyName, [_newType] call GSRI_fnc_heliMinifyName]];
 		};
 		private _condition = {
-			params["_target", "_player", "_args"];
+			params["", "", "_args"];
 			_args params ["_hangar", "_newType"];
 			private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
 			(([_newType] call GSRI_fnc_heliMinifyName) != ([_heli] call GSRI_fnc_heliMinifyName))
