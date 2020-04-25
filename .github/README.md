@@ -11,8 +11,8 @@ Using this template when starting a new mission allows the editor to focus on wh
 The following documents provide additional informations on rules and standards applying to this project :
 
 *   [MIT License](../LICENSE.md)
-*   [GSRI code of conduct](https://github.com/team-gsri/CodeOfConduct/blob/master/.github/CODE_OF_CONDUCT.md)
-*   [Contributing to this project](./CONTRIBUTING.md)
+*   [GSRI code of conduct](https://github.com/team-gsri/.github/blob/master/CODE_OF_CONDUCT.md)
+*   [GSRI standard contribution guide](https://github.com/team-gsri/.github/blob/master/CONTRIBUTING.md)
 
 ## Usage
 
@@ -27,6 +27,8 @@ Start the game with GSRI modpack and create a new mission with Eden editor. Plac
 * Set name to `destroyer` : not mandatory, but usefull for debuging purpose
 * Configure the template in the advanced properties
 * You're done !
+
+We have written a complete guide on [how to make a standard GSRI OPEX mission](https://cloud.gsri.team/f/14473). Curently, this file is accessible only to GSRI members on our private cloud.
 
 ## How to get help
 
