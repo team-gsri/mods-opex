@@ -1,4 +1,5 @@
 params["_target", "_player", "_args"];
+params["", "", "_args"];
 
 // Allow suspension
 _args spawn {
