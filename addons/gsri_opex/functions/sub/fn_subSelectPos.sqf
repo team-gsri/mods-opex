@@ -1,5 +1,6 @@
 // Mandatory to get suspension allowed
 _this spawn {
+	// params ["_units", "_pos", "_alt", "_shift"];
 	params ["", "_pos", "", "_shift"];
 	private ["_maxDepth","_sub","_ship"];
 

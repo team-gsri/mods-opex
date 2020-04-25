@@ -1,3 +1,4 @@
+// params ["_target", "_player", "_args"];
 params ["", "", "_args"];
 _args params ["_hangar"];
 private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;

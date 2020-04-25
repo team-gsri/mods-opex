@@ -1,3 +1,4 @@
+// params ["_target", "_player", "_params"];
 params ["_target", "", "_params"];
 private ["_type", "_bay", "_cargo"];
 _type = (_params select 0);

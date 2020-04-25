@@ -34,7 +34,8 @@ addMissionEventHandler ["MapSingleClick", GSRI_fnc_subSelectPos];
 
 // Adding "abort selection" eventHandler
 addMissionEventHandler ["Map", {
-	params ["_opened", ""];
+	// params ["_opened", "_forced"];
+	params ["_opened"];
 	// Detect if map is closed but do not check if the event is linked to this module
 	if!(_opened) then {
 		player setVariable ["GSRI_FREMM_submarine_token", false];
@@ -70,6 +71,7 @@ if!(isDedicated) then {
 		// Select the handle opposite to the one the player is interacting with
 		private _targetName = ["toSub", "toShip"] select (_x == "toSub");
 		private _statement = {
+			// params["_target", "_player", "_params"];
 			params["", "_player", "_params"];
 			_params params["_ship","_targetName"];
 			_player setPosASL getPosASL (_ship getVariable (format["GSRI_FREMM_submarine_%1", _targetName]));

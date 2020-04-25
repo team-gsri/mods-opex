@@ -29,6 +29,7 @@ _types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_
 	if(isClass (configFile >> "CfgVehicles" >> _x)) then {
 		private _display = [_x] call GSRI_fnc_heliMinifyName;
 		private _modifier = {
+			// params ["_target", "_player", "_args", "_actionData"];
 			params ["", "", "_args", "_actionData"];
 			_args params ["_hangar", "_newType"];
 			private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
@@ -36,6 +37,7 @@ _types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_
 			_actionData set [1, format [_displayName, [_heli] call GSRI_fnc_heliMinifyName, [_newType] call GSRI_fnc_heliMinifyName]];
 		};
 		private _condition = {
+			// params["_target", "_player", "_args"];
 			params["", "", "_args"];
 			_args params ["_hangar", "_newType"];
 			private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
@@ -48,12 +50,14 @@ _types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_
 
 // Hangar cleaning action
 private _modifier = {
+	// params ["_target", "_player", "_args", "_actionData"];
     params ["", "", "_args", "_actionData"];
 	_args params ["_hangar"];
 	private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
     _actionData set [1, format [localize "STR_GSRI_FREMM_heliRemove", [_heli] call GSRI_fnc_heliMinifyName]];
 };
 private _condition = {
+	// params ["_target", "_player", "_args"];
 	params ["", "", "_args"];
 	_args params ["_hangar"];
 	!isNull ([_hangar] call GSRI_fnc_heliRetrieveCurrent)
@@ -63,6 +67,7 @@ private _actionClear = ["actionClear","Supprimer","",GSRI_fnc_heliRemove,_condit
 
 // FRIES mounting action
 private _condition = {
+	// params ["_target", "_player", "_args"];
 	params ["", "", "_args"];
 	_args params ["_hangar"];
 	private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
@@ -88,12 +93,14 @@ if(_leshLoaded && isServer) then {
 	// Place helicopter on rear deck
 	// Will not be externalized
 	private _condition = {
+		// params["_target", "_player", "_args"];
 		params["", "", "_args"];
 		_args params ["_ship"];
 		// Return true if there is a heli in hangar and if there is no heli on deck
 		!(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and (isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
 	};
 	private _statement = {
+		// params["_target", "_player", "_args"];
 		params["", "", "_args"];
 		_args params ["_ship"];
 		private _heli = [(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent;
@@ -106,12 +113,14 @@ if(_leshLoaded && isServer) then {
 	// Place helicopter in hangar
 	// Will not be externalized
 	private _condition = {
+		// params["_target", "_player", "_args"];
 		params["", "", "_args"];
 		_args params ["_ship"];
 		// Return true if there is no heli in hangar and if there is a heli on deck
 		(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and !(isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
 	};
 	private _statement = {
+		// params["_target", "_player", "_args"];
 		params["", "", "_args"];
 		_args params ["_ship"];
 		private _heli = [(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent;
