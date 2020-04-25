@@ -10,7 +10,7 @@ Using this template when starting a new mission allows the editor to focus on wh
 
 The following documents provide additional informations on rules and standards applying to this project :
 
-*   [MIT License](../LICENSE.md)
+*   [MIT License](../LICENSE)
 *   [GSRI code of conduct](https://github.com/team-gsri/.github/blob/master/CODE_OF_CONDUCT.md)
 *   [GSRI standard contribution guide](https://github.com/team-gsri/.github/blob/master/CONTRIBUTING.md)
 
