@@ -37,7 +37,7 @@ if(isServer) then {
 waitUntil{ !isNil{_ship getVariable ["GSRI_FREMM_Portboard_bay", objNull] getVariable "GSRI_FREMM_associatedCom"}};
 
 // Main action
-_bayRoot = ["bayRoot","Baie","",{},{true}] call ace_interact_menu_fnc_createAction;
+_bayRoot = ["bayRoot",localize "STR_GSRI_FREMM_bayRoot","",{},{true}] call ace_interact_menu_fnc_createAction;
 
 // Boat selection
 _actionSpawnInBay = ["actionSpawnInBay",localize "STR_GSRI_FREMM_spawnInBay","",{},{true}] call ace_interact_menu_fnc_createAction;

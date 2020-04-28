@@ -163,6 +163,10 @@
 	</Package>
 
 	<Package name="FREMM_BoatBays">
+		<Key ID="STR_GSRI_FREMM_bayRoot">
+			<Original>Bay control</Original>
+			<French>Contrôle de la baie</French>
+		</Key>
 		<Key ID="STR_GSRI_FREMM_emptyBay">
 			<Original>Empty</Original>
 			<French>Vide</French>
