@@ -1,4 +1,5 @@
-params["_com", "_player", "_params"];
+//params["_com", "_player", "_params"];
+params["_com"];
 
 private ["_door","_currentPhase", "_nextPhase"];
 
