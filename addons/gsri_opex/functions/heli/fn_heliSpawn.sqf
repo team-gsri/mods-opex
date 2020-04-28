@@ -1,4 +1,5 @@
-params["_t", "_u", "_args"];
+params["_target", "_player", "_args"];
+params["", "", "_args"];
 
 // Allow suspension
 _args spawn {
@@ -9,7 +10,7 @@ _args spawn {
 	sleep 0.1;
 
 	// Carefully spawn the new helo
-	_veh = _newType createVehicle [0,0,100];
+	private _veh = _newType createVehicle [0,0,100];
 	_veh enableSimulation false;
 	_veh allowDamage false; //prevent random explosion
 	_veh setDir getDir _hangar;

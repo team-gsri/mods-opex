@@ -2,6 +2,7 @@
 if(isDedicated) exitWith {};
 
 params["_ship"];
+private ["_handle","_fuel","_types","_helipad"];
 
 // Actions handle spawn
 _handle = "Land_Battery_F" createVehicleLocal [0,0,0];
@@ -26,54 +27,59 @@ _types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_
 // Heli actions
 {
 	if(isClass (configFile >> "CfgVehicles" >> _x)) then {
-		_display = [_x] call GSRI_fnc_heliMinifyName;
-		_modifier = {
-			params ["_target", "_player", "_args", "_actionData"];
+		private _display = [_x] call GSRI_fnc_heliMinifyName;
+		private _modifier = {
+			// params ["_target", "_player", "_args", "_actionData"];
+			params ["", "", "_args", "_actionData"];
 			_args params ["_hangar", "_newType"];
-			_heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
-			_displayName = [localize "STR_GSRI_FREMM_heliReplace", localize "STR_GSRI_FREMM_heliGet"] select (isNull _heli);
+			private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
+			private _displayName = [localize "STR_GSRI_FREMM_heliReplace", localize "STR_GSRI_FREMM_heliGet"] select (isNull _heli);
 			_actionData set [1, format [_displayName, [_heli] call GSRI_fnc_heliMinifyName, [_newType] call GSRI_fnc_heliMinifyName]];
 		};
-		_condition = {
-			params["_target", "_player", "_args"];
+		private _condition = {
+			// params["_target", "_player", "_args"];
+			params["", "", "_args"];
 			_args params ["_hangar", "_newType"];
-			_heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
+			private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
 			(([_newType] call GSRI_fnc_heliMinifyName) != ([_heli] call GSRI_fnc_heliMinifyName))
 		};
-		_action = [format["action%1", _display],_display,"",GSRI_fnc_heliSpawn,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar"), _x],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction;
+		private _action = [format["action%1", _display],_display,"",GSRI_fnc_heliSpawn,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar"), _x],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction;
 		[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 	};
 } forEach _types;
 
 // Hangar cleaning action
-_modifier = {
-    params ["_target", "_player", "_args", "_actionData"];
+private _modifier = {
+	// params ["_target", "_player", "_args", "_actionData"];
+    params ["", "", "_args", "_actionData"];
 	_args params ["_hangar"];
-	_heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
+	private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
     _actionData set [1, format [localize "STR_GSRI_FREMM_heliRemove", [_heli] call GSRI_fnc_heliMinifyName]];
 };
-_condition = {
-	params ["_target", "_player", "_args"];
+private _condition = {
+	// params ["_target", "_player", "_args"];
+	params ["", "", "_args"];
 	_args params ["_hangar"];
 	!isNull ([_hangar] call GSRI_fnc_heliRetrieveCurrent)
 };
-_action = ["actionClear","Supprimer","",GSRI_fnc_heliRemove,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction;
-[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+private _actionClear = ["actionClear","Supprimer","",GSRI_fnc_heliRemove,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction;
+[_handle, 0, ["ACE_MainActions"], _actionClear] call ace_interact_menu_fnc_addActionToObject;
 
 // FRIES mounting action
-_condition = {
-	params ["_target", "_player", "_args"];
+private _condition = {
+	// params ["_target", "_player", "_args"];
+	params ["", "", "_args"];
 	_args params ["_hangar"];
-	_heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
+	private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
 	(isNumber (configFile >> "CfgVehicles" >> typeOf _heli >> "ace_fastroping_enabled") && isNull (_heli getVariable ["ace_fastroping_FRIES", objNull]));
 };
-_action = ["actionFRIES",localize "STR_GSRI_FREMM_heliEquipFRIES","",GSRI_fnc_heliEquipFRIES,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")]] call ace_interact_menu_fnc_createAction;
-[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+private _actionFRIES = ["actionFRIES",localize "STR_GSRI_FREMM_heliEquipFRIES","",GSRI_fnc_heliEquipFRIES,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")]] call ace_interact_menu_fnc_createAction;
+[_handle, 0, ["ACE_MainActions"], _actionFRIES] call ace_interact_menu_fnc_addActionToObject;
 
-_leshLoaded = isClass (configFile >> "CfgPatches" >> "rksla3_aircraft_tug");
-if(_leshLoaded) then {
+private _leshLoaded = isClass (configFile >> "CfgPatches" >> "rksla3_aircraft_tug");
+if(_leshLoaded && isServer) then {
 	// add RKSL airport tug to ship
-	_tug = createVehicle ["rksla3_aircraft_tug_blufor", [0,0,100], [], 0, "NONE"];
+	private _tug = createVehicle ["rksla3_aircraft_tug_blufor", [0,0,100], [], 0, "NONE"];
 	_tug enableSimulation false;
 	_tug allowDamage false;
 	_tug animateSource ["option_cabin_hide_source", 0, true];
@@ -81,42 +87,46 @@ if(_leshLoaded) then {
 	_tug setPosATL ASLToATL (_ship modelToWorldWorld [7.45,47.77,8.81]);
 	_tug enableSimulation true;
 	_tug allowDamage true;
-	_ship setVariable ["GSRI_FREMM_tug", _tug];
+	_ship setVariable ["GSRI_FREMM_tug", _tug, true];
 } else {
 	// Add placeholder actions
 	// Place helicopter on rear deck
 	// Will not be externalized
-	_condition = {
-		params["_target", "_player", "_args"];
+	private _condition = {
+		// params["_target", "_player", "_args"];
+		params["", "", "_args"];
 		_args params ["_ship"];
 		// Return true if there is a heli in hangar and if there is no heli on deck
 		!(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and (isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
 	};
-	_statement = {
-		params["_target", "_player", "_args"];
+	private _statement = {
+		// params["_target", "_player", "_args"];
+		params["", "", "_args"];
 		_args params ["_ship"];
-		_heli = [(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent;
+		private _heli = [(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent;
 		["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
 		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_deck");
 	};
-	_action = ["actionDeck",localize "STR_GSRI_FREMM_heliToDeck","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
-	[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+	private _actionDeck = ["actionDeck",localize "STR_GSRI_FREMM_heliToDeck","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
+	[_handle, 0, ["ACE_MainActions"], _actionDeck] call ace_interact_menu_fnc_addActionToObject;
 
 	// Place helicopter in hangar
 	// Will not be externalized
-	_condition = {
-		params["_target", "_player", "_args"];
+	private _condition = {
+		// params["_target", "_player", "_args"];
+		params["", "", "_args"];
 		_args params ["_ship"];
 		// Return true if there is no heli in hangar and if there is a heli on deck
 		(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and !(isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
 	};
-	_statement = {
-		params["_target", "_player", "_args"];
+	private _statement = {
+		// params["_target", "_player", "_args"];
+		params["", "", "_args"];
 		_args params ["_ship"];
-		_heli = [(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent;
+		private _heli = [(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent;
 		["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
 		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_hangar");
 	};
-	_action = ["actionHangar",localize "STR_GSRI_FREMM_heliToHangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
-	[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+	private _actionHangar = ["actionHangar",localize "STR_GSRI_FREMM_heliToHangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
+	[_handle, 0, ["ACE_MainActions"], _actionHangar] call ace_interact_menu_fnc_addActionToObject;
 };

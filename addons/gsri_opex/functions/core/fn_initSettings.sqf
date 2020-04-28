@@ -1,3 +1,5 @@
+private ["_templates", "_settings"];
+
 // Retrieve all preconfigured templates
 _templates = ((configFile >> "GSRI_FREMM_Templates") call BIS_fnc_getCfgSubClasses);
 
@@ -6,10 +8,10 @@ _settings = (configProperties [configFile >> "GSRI_FREMM_Templates" >> "GSRI_Nor
 
 // Automatic creation of needed server-forced settings for
 {
-	_template = _x;
+	private _template = _x;
 	{
-		_settingType = ["CHECKBOX","EDITBOX"] select (isText (configFile >> "GSRI_FREMM_Templates" >> _template >> _x));
-		_defaultValue = switch (_settingType) do {
+		private _settingType = ["CHECKBOX","EDITBOX"] select (isText (configFile >> "GSRI_FREMM_Templates" >> _template >> _x));
+		private _defaultValue = switch (_settingType) do {
 			case "CHECKBOX": { [false,true] select ((configFile >> "GSRI_FREMM_Templates" >> _template >> _x) call BIS_fnc_getCfgData) };
 			default { (configFile >> "GSRI_FREMM_Templates" >> _template >> _x) call BIS_fnc_getCfgData };
 		};
@@ -28,8 +30,8 @@ _settings = (configProperties [configFile >> "GSRI_FREMM_Templates" >> "GSRI_Nor
 
 // Custom template based on Normandie that can be edited as a mission setting instead of serverside
 {
-	_settingType = ["CHECKBOX","EDITBOX"] select (isText (configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> _x));
-	_defaultValue = switch (_settingType) do {
+	private _settingType = ["CHECKBOX","EDITBOX"] select (isText (configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> _x));
+	private _defaultValue = switch (_settingType) do {
 		case "CHECKBOX": { [false,true] select ((configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> _x) call BIS_fnc_getCfgData) };
 		default { (configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> _x) call BIS_fnc_getCfgData };
 	};

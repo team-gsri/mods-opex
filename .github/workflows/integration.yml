@@ -18,6 +18,9 @@ jobs:
     - name: Checkout files
       uses: actions/checkout@v2
 
+    - name: Lint sources
+      uses: arma-actions/sqflint@v1.0
+      
     - name: Binarize config
       uses: docker://arwynfr/armake2:alpine
       with:

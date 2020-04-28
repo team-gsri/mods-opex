@@ -101,6 +101,7 @@ class CfgFunctions {
 			class getGunner {};
 			class getDiver {};
 			class getEmpty {};
+			class setAsLocker {};
 		};
 	};
 };
