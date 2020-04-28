@@ -34,7 +34,7 @@ private _actionsList = [];
 {
 	private _name = getText (configFile >> "CfgVehicles" >> _x >> "displayName");
 	_actionsList pushBack ([format["action_%1",_x],_name,"",{_this spawn GSRI_fnc_bayReplace},{true},{},[_x]] call ace_interact_menu_fnc_createAction);
-} forEach ["B_Boat_Transport_01_F", "C_Boat_Transport_02_F", "B_Boat_Armed_01_minigun_F", "B_SDV_01_F"];
+} forEach ["B_Boat_Transport_01_F", "C_Boat_Transport_02_F", "B_Boat_Armed_01_minigun_F", "B_SDV_01_F", "I_C_Boat_Transport_02_F"];
 _actionsList pushBack (["actionNull",localize "STR_GSRI_FREMM_emptyBay","",{_this spawn GSRI_fnc_bayReplace},{true},{},[""]] call ace_interact_menu_fnc_createAction);
 {
 	private _com = (_ship getVariable _x getVariable "GSRI_FREMM_associatedCom");
