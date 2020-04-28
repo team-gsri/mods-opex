@@ -28,9 +28,13 @@ class CfgVehicles {
 						name = "Custom ship";
 						value = "GSRI_Custom";
 					};
+					class None {
+						name = "None";
+						value = "";
+					};
 				};
 				expression = "_this setVariable ['%s',_value];";
-				defaultValue = "GSRI_Normandie";
+				defaultValue = "None";
 				typeName = "STRING";
 			};
 		};
