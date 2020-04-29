@@ -27,7 +27,7 @@ if(isServer) then {
 	([_ship, 'Land_Destroyer_01_hull_05_F'] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, (_ship getVariable "GSRI_FREMM_nameplate")];
 
 	// Add map marker
-	private _mk = createMarker ["marker_destroyer", _ship];
+	private _mk = createMarker [format["marker_destroyer_%1", _ship getVariable "GSRI_FREMM_shipIndex"], _ship];
 	_mk setMarkerType "flag_France";
 	_mk setMarkerText (_ship getVariable "GSRI_FREMM_fullname");
 
@@ -46,6 +46,9 @@ if(isServer) then {
 		_sign setDir _dir;
 		_sign setObjectTextureGlobal [0, _texture];
 	} forEach _signs;
+
+	// Screens
+	[_ship] call GSRI_fnc_fremmAddScreens;
 };
 
 diag_log "initFremm finished.";

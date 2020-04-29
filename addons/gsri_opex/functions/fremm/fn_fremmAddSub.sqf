@@ -9,9 +9,10 @@ if(isServer) then {
 	_ship setVariable ["GSRI_FREMM_submarine", _sub, true];
 	_sub setPosASL [(getPosASL _ship select 0) + 100, (getPosASL _ship select 1) + 100, (getPosASL _ship select 2)-10];
 	_sub setDir getDir _ship;
+	_sub setVariable ["GSRI_FREMM_shipIndex", _ship getVariable "GSRI_FREMM_shipIndex"];
 
 	// Add map marker
-	_mk = createMarker ["marker_submarine", _sub];
+	_mk = createMarker [format["marker_submarine_%1", _sub getVariable "GSRI_FREMM_shipIndex"], _sub];
 	_mk setMarkerType "flag_France";
 	_mk setMarkerText "S-625 Devigny";
 
