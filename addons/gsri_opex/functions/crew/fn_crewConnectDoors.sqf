@@ -1,6 +1,9 @@
 // With two doors, connect each one's handle to the other's doorstep
 // (and create the handle, too...)
-params["_sides", "_door1", "_door2", "_action"];
+params["_sides", "_doorName1", "_doorName2", "_action"];
+
+private _door1 = [_sides select 0, _doorName1] call GSRI_fnc_crewGetDoor;
+private _door2 = [_sides select 1, _doorName2] call GSRI_fnc_crewGetDoor;
 
 private _handle1 = (_door1 select 0) createVehicleLocal [0,0,0];
 _handle1 attachTo [(_sides select 0), (_door1 select 2)];

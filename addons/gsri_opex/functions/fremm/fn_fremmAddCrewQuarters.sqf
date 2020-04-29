@@ -48,10 +48,7 @@ if!(isDedicated) then {
 	{
 		// Get sides (objects) of the corridor
 		private _sides = [_ship, _x select 0] call GSRI_fnc_crewGetDoorSides;
-		// Retrieve doors data of the given corridor and create objects
-		private _door1 = [_sides select 0, _x select 1] call GSRI_fnc_crewGetDoor;
-		private _door2 = [_sides select 1, _x select 2] call GSRI_fnc_crewGetDoor;
 		// Connect doors
-		[_sides, _door1, _door2, _doorCross] call GSRI_fnc_crewConnectDoors;
+		[_sides, _x select 1, _x select 2, _doorCross] call GSRI_fnc_crewConnectDoors;
 	} forEach _corridors;
 };
