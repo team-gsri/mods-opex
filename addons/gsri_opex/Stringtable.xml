@@ -97,6 +97,14 @@
 			<Original>Add an escort submarine to the ship</Original>
 			<French>Ajoute un sous-marin d'escorte</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_hasCrewQuarters">
+			<Original>Submarine</Original>
+			<French>Sous-marin</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasCrewQuarters_tooltip">
+			<Original>Add an escort submarine to the ship</Original>
+			<French>Ajoute un sous-marin d'escorte</French>
+		</Key>
 	</Package>
 	
 	<Package name="FREMM_Arsenal">
