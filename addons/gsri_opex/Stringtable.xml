@@ -163,6 +163,10 @@
 	</Package>
 
 	<Package name="FREMM_BoatBays">
+		<Key ID="STR_GSRI_FREMM_bayRoot">
+			<Original>Bay control</Original>
+			<French>Contrôle de la baie</French>
+		</Key>
 		<Key ID="STR_GSRI_FREMM_emptyBay">
 			<Original>Empty</Original>
 			<French>Vide</French>
@@ -170,6 +174,10 @@
 		<Key ID="STR_GSRI_FREMM_spawnInBay">
 			<Original>Equip bay with...</Original>
 			<French>Equiper la baie avec...</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_bayDoorControl">
+			<Original>Operate bay shield</Original>
+			<French>Actionner le bouclier</French>
 		</Key>
 	</Package>
 

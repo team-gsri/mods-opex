@@ -84,6 +84,7 @@ class CfgFunctions {
         class bays {
             file="gsri_opex\functions\bays";
 			class bayReplace {};
+			class bayDoorControl {};
         };
 		class heli {
             file="gsri_opex\functions\heli";
