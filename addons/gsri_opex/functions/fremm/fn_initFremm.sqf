@@ -46,6 +46,9 @@ if(isServer) then {
 		_sign setDir _dir;
 		_sign setObjectTextureGlobal [0, _texture];
 	} forEach _signs;
+
+	// Screens
+	[_ship] call GSRI_fnc_fremmAddScreens;
 };
 
 diag_log "initFremm finished.";
