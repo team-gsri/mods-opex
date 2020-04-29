@@ -2,7 +2,7 @@
 _this spawn {
 	// params ["_units", "_pos", "_alt", "_shift"];
 	params ["", "_pos", "", "_shift"];
-	private ["_maxDepth","_sub","_ship"];
+	private ["_maxDepth","_sub","_ship","_marker"];
 
 	// Map click may happen but not linked to this module
 	if!(player getVariable ["GSRI_FREMM_submarine_token", false]) exitWith {};
@@ -23,7 +23,8 @@ _this spawn {
 	_sub = (_ship getVariable "GSRI_FREMM_submarine");
 	_sub setPosASL _pos;
 	sleep 0.1;
-	"marker_submarine" setMarkerPos getPosASL _sub;
+	_marker = format ["marker_submarine_%1", _sub getVariable "GSRI_FREMM_shipIndex"];
+	_marker setMarkerPos getPosASL _sub;
 	(_ship getVariable "GSRI_FREMM_submarine_toShip") attachTo [_sub, [0.0788574,-4.32037,3.1]];
 	["SubmarineOk", [["submerged", "surfaced"] select _shift]] call BIS_fnc_showNotification;
 

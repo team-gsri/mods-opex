@@ -8,6 +8,7 @@ if!(isServer) then {
 	private _template = _x getVariable ["GSRI_FREMM_selectTemplate", ""];
 	if!(_template == "") then {
 		_x setVariable ["GSRI_FREMM_selectTemplate", _template, true];
+		_x setVariable ["GSRI_FREMM_shipIndex", _forEachIndex, true];
 		[_x] call GSRI_fnc_initFremm;
 	};
 } forEach allMissionObjects "Land_Destroyer_01_base_F";

@@ -3,7 +3,7 @@ class CfgPatches {
         units[]={};
         requiredVersion=0.1;
         requiredAddons[]={"A3_Boat_F_Destroyer", "cba_settings"};
-        author="[-GSRI-] Cheitan";
+        author="www.gsri.team";
     };
 };
 
@@ -28,9 +28,13 @@ class CfgVehicles {
 						name = "Custom ship";
 						value = "GSRI_Custom";
 					};
+					class None {
+						name = "None";
+						value = "";
+					};
 				};
 				expression = "_this setVariable ['%s',_value];";
-				defaultValue = "GSRI_Normandie";
+				defaultValue = "None";
 				typeName = "STRING";
 			};
 		};
