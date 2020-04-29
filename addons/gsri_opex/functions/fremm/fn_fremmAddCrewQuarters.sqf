@@ -36,7 +36,7 @@ if!(isDedicated) then {
 		params["_target", "_player"];
 		_player setPosWorld (_target getVariable "GSRI_FREMM_goTo");
 	};
-	private _doorCross = ["actionCrossDoor","Franchir la porte","",_statement,{true}] call ace_interact_menu_fnc_createAction;
+	private _doorCross = ["actionCrossDoor",localize "STR_GSRI_FREMM_crewCrossDoor","",_statement,{true}] call ace_interact_menu_fnc_createAction;
 
 	// A corridor is a link between two doors
 	//[name, doorSide1, doorSide2]

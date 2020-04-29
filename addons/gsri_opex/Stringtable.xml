@@ -242,6 +242,13 @@
 			<French>Aller à la frégate</French>
 		</Key>
 	</Package>
+
+	<Package name="FREMM_crew">
+		<Key ID="STR_GSRI_FREMM_crewCrossDoor">
+			<Original>Cross this door</Original>
+			<French>Franchir cette porte</French>
+		</Key>
+	</Package>
 	
 	<Package name="GSRI_heli_notifications">
 		<Key ID="STR_GSRI_FREMM_heliInfo">
