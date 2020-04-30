@@ -41,14 +41,12 @@ if!(isDedicated) then {
 	// A corridor is a link between two doors
 	//[name, doorSide1, doorSide2]
 	private _corridors = [
-		["Ship_RoomA","DoorQuarters", "Door1"],
-		["Ship_RoomB","DoorBays","Door2"],
-		["RoomA_RoomB", "Door2", "Door1"]
+		[[_ship, "DoorQuarters"],[_ship getVariable "GSRI_FREMM_crewQuartersRoomA", "Door1"]],
+		[[_ship, "DoorBays"],[_ship getVariable "GSRI_FREMM_crewQuartersRoomB", "Door2"]],
+		[[_ship getVariable "GSRI_FREMM_crewQuartersRoomA", "Door2"],[_ship getVariable "GSRI_FREMM_crewQuartersRoomB", "Door1"]]
 	];
 	{
-		// Get sides (objects) of the corridor
-		private _sides = [_ship, _x select 0] call GSRI_fnc_crewGetDoorSides;
 		// Connect doors
-		[_sides, _x select 1, _x select 2, _doorCross] call GSRI_fnc_crewConnectDoors;
+		[_x, _doorCross] call GSRI_fnc_crewConnectDoors;
 	} forEach _corridors;
 };
