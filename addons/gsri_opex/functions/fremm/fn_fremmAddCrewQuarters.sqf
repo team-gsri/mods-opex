@@ -49,4 +49,19 @@ if!(isDedicated) then {
 		// Connect doors
 		[_x, _doorCross] call GSRI_fnc_crewConnectDoors;
 	} forEach _corridors;
+
+	// When crew quarters are loaded, any respawn on the ship should be redirected to rooms
+	player addEventHandler ["Respawn", {
+		//params["_unit", "_corpse"];
+		waitUntil{vehicle player == player};
+		// Retrieve nearest ship, and if it is close enough then move to quarters
+		private _ship = nearestObject [player, "Land_Destroyer_01_base_F"];
+		systemChat str (player distance _ship);
+		if(player distance _ship < 20) then {
+			// Select a room and a relative pos (cabin)
+			private _room = _ship getVariable format["GSRI_FREMM_crewQuarters%1", selectRandom ["RoomA", "RoomB"]];
+			private _pos = [selectRandom[-4,-0.8,2.8,5.8], 5, -0.5];
+			player setPosWorld (_room modelToWorldWorld _pos);
+		};
+	}];
 };
