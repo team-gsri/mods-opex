@@ -190,6 +190,10 @@
 	</Package>
 
 	<Package name="FREMM_Helicopter">
+		<Key ID="STR_GSRI_FREMM_heliMain">
+			<Original>Helicopters</Original>
+			<French>Hélicoptères</French>
+		</Key>
 		<Key ID="STR_GSRI_FREMM_heliReplace">
 			<Original>Replace %1 by %2</Original>
 			<French>Remplacer %1 par %2</French>

@@ -45,7 +45,6 @@ private _actionList = [];
 			(([_newType] call GSRI_fnc_heliMinifyName) != ([_heli] call GSRI_fnc_heliMinifyName))
 		};
 		_actionList pushBack ([format["action%1", _display],_display,"",GSRI_fnc_heliSpawn,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar"), _x],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction);
-		//[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 	};
 } forEach _types;
 
@@ -64,7 +63,6 @@ private _condition = {
 	!isNull ([_hangar] call GSRI_fnc_heliRetrieveCurrent)
 };
 _actionList pushBack (["actionClear","Supprimer","",GSRI_fnc_heliRemove,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction);
-//[_handle, 0, ["ACE_MainActions"], _actionClear] call ace_interact_menu_fnc_addActionToObject;
 
 // FRIES mounting action
 private _condition = {
@@ -75,7 +73,6 @@ private _condition = {
 	(isNumber (configFile >> "CfgVehicles" >> typeOf _heli >> "ace_fastroping_enabled") && isNull (_heli getVariable ["ace_fastroping_FRIES", objNull]));
 };
 _actionList pushBack (["actionFRIES",localize "STR_GSRI_FREMM_heliEquipFRIES","",GSRI_fnc_heliEquipFRIES,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")]] call ace_interact_menu_fnc_createAction);
-//[_handle, 0, ["ACE_MainActions"], _actionFRIES] call ace_interact_menu_fnc_addActionToObject;
 
 private _leshLoaded = isClass (configFile >> "CfgPatches" >> "rksla3_aircraft_tug");
 if(_leshLoaded && isServer) then {
@@ -109,8 +106,7 @@ if(_leshLoaded && isServer) then {
 		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_deck");
 	};
 	_actionList pushBack (["actionDeck",localize "STR_GSRI_FREMM_heliToDeck","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction);
-	//[_handle, 0, ["ACE_MainActions"], _actionDeck] call ace_interact_menu_fnc_addActionToObject;
-
+	
 	// Place helicopter in hangar
 	// Will not be externalized
 	private _condition = {
@@ -129,10 +125,11 @@ if(_leshLoaded && isServer) then {
 		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_hangar");
 	};
 	_actionList pushBack (["actionHangar",localize "STR_GSRI_FREMM_heliToHangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction);
-	//[_handle, 0, ["ACE_MainActions"], _actionHangar] call ace_interact_menu_fnc_addActionToObject;
 };
 
 // Adding actions
+private _heliMain = ["actionHeliMain",localize "STR_GSRI_FREMM_heliMain","",{},{true},{},[],[0,0,-0.3]] call ace_interact_menu_fnc_createAction;
+[_handle, 0, [], _heliMain] call ace_interact_menu_fnc_addActionToObject;
 {
-	[_handle, 0, ["ACE_MainActions"], _x] call ace_interact_menu_fnc_addActionToObject;
+	[_handle, 0, ["actionHeliMain"], _x] call ace_interact_menu_fnc_addActionToObject;
 } forEach _actionList;
