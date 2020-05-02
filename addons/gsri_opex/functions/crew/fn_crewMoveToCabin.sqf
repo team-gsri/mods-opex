@@ -1,4 +1,4 @@
-if(time - (player getVariable "GSRI_FREMM_respawnTimestamp") < 10) then {
+if(time - (player getVariable ["GSRI_FREMM_respawnTimestamp",0]) < 10) then {
 	// Select a room and a relative pos (cabin)
 	private _ship = nearestObject [player, "Land_Destroyer_01_base_F"];
 	private _room = _ship getVariable format["GSRI_FREMM_crewQuarters%1", selectRandom ["RoomA", "RoomB"]];
