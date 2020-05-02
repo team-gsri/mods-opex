@@ -5,8 +5,7 @@ params["_ship"];
 private ["_handle","_fuel","_types","_helipad"];
 
 // Actions handle spawn
-_handle = "Land_Battery_F" createVehicleLocal [0,0,0];
-_handle attachTo [_ship, [-9.74,36.64,12.38]];
+_handle = ((_ship getVariable "GSRI_FREMM_screens") select 0);
 
 // Adding fuel pomp
 _fuel = "Land_FuelStation_01_pump_malevil_F" createVehicleLocal [0,0,0];
