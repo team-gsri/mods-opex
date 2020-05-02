@@ -18,6 +18,9 @@ private _shipDoors = [
 ];
 _ship setVariable ["GSRI_FREMM_moddedDoors", _shipDoors];
 
+// Screens
+[_ship] call GSRI_fnc_fremmAddScreens;
+
 // Ship features
 if(_ship getVariable "GSRI_FREMM_hasWeapons") then { [_ship] call GSRI_fnc_fremmAddWeapons };
 if(_ship getVariable "GSRI_FREMM_hasArsenal") then { [_ship] call GSRI_fnc_fremmAddArsenal };
@@ -56,9 +59,6 @@ if(isServer) then {
 		_sign setDir _dir;
 		if!(_texture == "") then { _sign setObjectTextureGlobal [0, _texture] };
 	} forEach _signs;
-
-	// Screens
-	[_ship] call GSRI_fnc_fremmAddScreens;
 
 	// Add Apex respawn position
     [west, _ship modelToWorldWorld [1.31018,-1.11719,7.27226], _ship getVariable ["GSRI_FREMM_fullname",""]] call BIS_fnc_addRespawnPosition;
