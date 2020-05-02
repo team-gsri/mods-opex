@@ -61,7 +61,7 @@ if(isServer) then {
 	[_ship] call GSRI_fnc_fremmAddScreens;
 
 	// Add Apex respawn position
-    [west, _ship modelToWorldWorld [1.31018,-1.11719,7.27226], " "] call BIS_fnc_addRespawnPosition;
+    [west, _ship modelToWorldWorld [1.31018,-1.11719,7.27226], _ship getVariable ["GSRI_FREMM_fullname",""]] call BIS_fnc_addRespawnPosition;
 };
 
 diag_log "initFremm finished.";
