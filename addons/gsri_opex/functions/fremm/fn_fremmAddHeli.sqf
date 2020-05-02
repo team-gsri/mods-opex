@@ -20,6 +20,7 @@ _types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_
 	_helipad attachTo [_ship, _x select 1];
 	_helipad setDir 180; //warning : relative to attached object !
 	_helipad setVariable ["GSRI_FREMM_heli_list", _types];
+	_helipad setVariable ["GSRI_FREMM_associatedShip", _ship];
 	_ship setVariable [_x select 0, _helipad];
 } forEach [["GSRI_FREMM_hangar", [0,44,8.81]], ["GSRI_FREMM_deck", [0.08,75,8.76]]];
 
