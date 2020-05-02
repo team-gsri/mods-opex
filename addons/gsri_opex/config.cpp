@@ -114,6 +114,7 @@ class CfgFunctions {
 			file="gsri_opex\functions\crew";
 			class crewGetDoor;
 			class crewConnectDoors;
+			class crewMoveToCabin;
 		}
 	};
 };

@@ -53,15 +53,25 @@ if!(isDedicated) then {
 	// When crew quarters are loaded, any respawn on the ship should be redirected to rooms
 	player addEventHandler ["Respawn", {
 		//params["_unit", "_corpse"];
-		waitUntil{vehicle player == player};
-		// Retrieve nearest ship, and if it is close enough then move to quarters
-		private _ship = nearestObject [player, "Land_Destroyer_01_base_F"];
-		systemChat str (player distance _ship);
-		if(player distance _ship < 20) then {
-			// Select a room and a relative pos (cabin)
-			private _room = _ship getVariable format["GSRI_FREMM_crewQuarters%1", selectRandom ["RoomA", "RoomB"]];
-			private _pos = [selectRandom[-4,-0.8,2.8,5.8], 5, -0.5];
-			player setPosWorld (_room modelToWorldWorld _pos);
-		};
+		params["_unit"];
+		_unit setVariable ["GSRI_FREMM_respawnTimestamp", time];
 	}];
+	private _trigger = createTrigger ["EmptyDetector", _ship, false];
+	_trigger setPosWorld (_ship modelToWorldWorld [1.31018,-1.11719,7.27226]);
+	_trigger setTriggerArea [2, 2, 0, false, 2];
+	_trigger setTriggerActivation ["WEST", "PRESENT", true];
+	_trigger setTriggerStatements ["this","call GSRI_fnc_crewMoveToCabin", ""];
 };
+
+/*
+waitUntil{vehicle player == player};
+// Retrieve nearest ship, and if it is close enough then move to quarters
+private _ship = nearestObject [player, "Land_Destroyer_01_base_F"];
+systemChat str (player distance _ship);
+if(player distance _ship < 20) then {
+	// Select a room and a relative pos (cabin)
+	private _room = _ship getVariable format["GSRI_FREMM_crewQuarters%1", selectRandom ["RoomA", "RoomB"]];
+	private _pos = [selectRandom[-4,-0.8,2.8,5.8], 5, -0.5];
+	player setPosWorld (_room modelToWorldWorld _pos);
+};
+*/
