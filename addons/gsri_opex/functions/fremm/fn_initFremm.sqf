@@ -43,18 +43,18 @@ if(isServer) then {
 
 	// Signs array
 	private _signs = [
-		["SignAd_Sponsor_F",[-1.912,6.641,8.27],270,"gsri_opex\images\zone_preparation.paa"],
-		["SignAd_Sponsor_F",[-2.91199,14.007,7.465],270,"gsri_opex\images\vers_sousmarin.paa"],
-		["SignAd_SponsorS_F",[-10.116,50.833,9.2],270,"gsri_opex\images\vers_heli.paa"]
+		["SCMS_Panneau1",[-1.09302,-16.8311,10.2468],270],
+		["SCMS_Panneau2",[-2.8988,14.0205,8.38586],180],
+		["SCMS_Panneau3",[-9.97888,51.6299,10.1794],180]
 	];
 
 	{
-		_x params ["_class", "_pos", "_dir", "_texture"];
+		_x params ["_class", "_pos", "_dir", ["_texture",""]];
 		private _sign = _class createVehicle [0,0,0];
 		_sign enableSimulation false;
 		_sign attachTo [_ship, _pos];
 		_sign setDir _dir;
-		_sign setObjectTextureGlobal [0, _texture];
+		if!(_texture == "") then { _sign setObjectTextureGlobal [0, _texture] };
 	} forEach _signs;
 
 	// Screens
