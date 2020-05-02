@@ -21,8 +21,8 @@ if(isServer) then {
 	// Adding modded doors to the crew quarters
 	// Room A and B are the same object, for now they should share handlePos and manPos of each doors
 	private _quartersDoors = [
-		["Land_Battery_F", "Door1", [7.35815,-1.12012,0.51501], [7.12843,-1.12391,-0.928343]],
-		["Land_Battery_F", "Door2", [-5.38441,-0.3727,0.620061], [-4.78034,-0.423262,-0.897619]]
+		["Land_Battery_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343]],
+		["Land_Battery_F", "Door2", [-5.42,-0.3727,0.620061], [-4.78034,-0.423262,-0.897619]]
 	];
 	_roomA setVariable ["GSRI_FREMM_moddedDoors", _quartersDoors, true];
 	_roomB setVariable ["GSRI_FREMM_moddedDoors", _quartersDoors, true];
