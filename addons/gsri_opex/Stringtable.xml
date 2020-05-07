@@ -98,12 +98,12 @@
 			<French>Ajoute un sous-marin d'escorte</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasCrewQuarters">
-			<Original>Submarine</Original>
-			<French>Sous-marin</French>
+			<Original>Crew quarters</Original>
+			<French>Quartiers d'équipe</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasCrewQuarters_tooltip">
-			<Original>Add an escort submarine to the ship</Original>
-			<French>Ajoute un sous-marin d'escorte</French>
+			<Original>Add crew quarters as a spawn location in the ship.</Original>
+			<French>Ajoute des quartiers d'équipages comme zone de spawn.</French>
 		</Key>
 	</Package>
 	
