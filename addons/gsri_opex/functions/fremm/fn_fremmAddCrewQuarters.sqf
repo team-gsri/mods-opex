@@ -56,7 +56,7 @@ if!(isDedicated) then {
 	private _doorCross = ["actionCrossDoor",localize "STR_GSRI_FREMM_crewCrossDoor","",_statement,{true}] call ace_interact_menu_fnc_createAction;
 
 	// A corridor is a link between two doors
-	//[name, doorSide1, doorSide2]
+	//[[SideAObject, SideADoorName],[SideBObject, SideBDoorName]]
 	private _corridors = [
 		[[_ship, "DoorQuarters"],[_ship getVariable "GSRI_FREMM_crewQuartersRoomA", "Door1"]],
 		[[_ship, "DoorBays"],[_ship getVariable "GSRI_FREMM_crewQuartersRoomB", "Door2"]],
@@ -79,16 +79,3 @@ if!(isDedicated) then {
 	_trigger setTriggerActivation ["WEST", "PRESENT", true];
 	_trigger setTriggerStatements ["this","call GSRI_fnc_crewMoveToCabin", ""];
 };
-
-/*
-waitUntil{vehicle player == player};
-// Retrieve nearest ship, and if it is close enough then move to quarters
-private _ship = nearestObject [player, "Land_Destroyer_01_base_F"];
-systemChat str (player distance _ship);
-if(player distance _ship < 20) then {
-	// Select a room and a relative pos (cabin)
-	private _room = _ship getVariable format["GSRI_FREMM_crewQuarters%1", selectRandom ["RoomA", "RoomB"]];
-	private _pos = [selectRandom[-4,-0.8,2.8,5.8], 5, -0.5];
-	player setPosWorld (_room modelToWorldWorld _pos);
-};
-*/
