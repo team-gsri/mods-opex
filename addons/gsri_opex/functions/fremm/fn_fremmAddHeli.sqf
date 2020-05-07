@@ -5,8 +5,7 @@ params["_ship"];
 private ["_handle","_fuel","_types","_helipad"];
 
 // Actions handle spawn
-_handle = "Land_Battery_F" createVehicleLocal [0,0,0];
-_handle attachTo [_ship, [-9.74,36.64,12.38]];
+_handle = ((_ship getVariable "GSRI_FREMM_screens") select 0);
 
 // Adding fuel pomp
 _fuel = "Land_FuelStation_01_pump_malevil_F" createVehicleLocal [0,0,0];
@@ -21,10 +20,12 @@ _types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_
 	_helipad attachTo [_ship, _x select 1];
 	_helipad setDir 180; //warning : relative to attached object !
 	_helipad setVariable ["GSRI_FREMM_heli_list", _types];
+	_helipad setVariable ["GSRI_FREMM_associatedShip", _ship];
 	_ship setVariable [_x select 0, _helipad];
 } forEach [["GSRI_FREMM_hangar", [0,44,8.81]], ["GSRI_FREMM_deck", [0.08,75,8.76]]];
 
 // Heli actions
+private _actionList = [];
 {
 	if(isClass (configFile >> "CfgVehicles" >> _x)) then {
 		private _display = [_x] call GSRI_fnc_heliMinifyName;
@@ -43,8 +44,7 @@ _types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_
 			private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
 			(([_newType] call GSRI_fnc_heliMinifyName) != ([_heli] call GSRI_fnc_heliMinifyName))
 		};
-		private _action = [format["action%1", _display],_display,"",GSRI_fnc_heliSpawn,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar"), _x],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction;
-		[_handle, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+		_actionList pushBack ([format["action%1", _display],_display,"",GSRI_fnc_heliSpawn,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar"), _x],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction);
 	};
 } forEach _types;
 
@@ -62,8 +62,7 @@ private _condition = {
 	_args params ["_hangar"];
 	!isNull ([_hangar] call GSRI_fnc_heliRetrieveCurrent)
 };
-private _actionClear = ["actionClear","Supprimer","",GSRI_fnc_heliRemove,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction;
-[_handle, 0, ["ACE_MainActions"], _actionClear] call ace_interact_menu_fnc_addActionToObject;
+_actionList pushBack (["actionClear","Supprimer","",GSRI_fnc_heliRemove,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction);
 
 // FRIES mounting action
 private _condition = {
@@ -73,8 +72,7 @@ private _condition = {
 	private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
 	(isNumber (configFile >> "CfgVehicles" >> typeOf _heli >> "ace_fastroping_enabled") && isNull (_heli getVariable ["ace_fastroping_FRIES", objNull]));
 };
-private _actionFRIES = ["actionFRIES",localize "STR_GSRI_FREMM_heliEquipFRIES","",GSRI_fnc_heliEquipFRIES,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")]] call ace_interact_menu_fnc_createAction;
-[_handle, 0, ["ACE_MainActions"], _actionFRIES] call ace_interact_menu_fnc_addActionToObject;
+_actionList pushBack (["actionFRIES",localize "STR_GSRI_FREMM_heliEquipFRIES","",GSRI_fnc_heliEquipFRIES,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")]] call ace_interact_menu_fnc_createAction);
 
 private _leshLoaded = isClass (configFile >> "CfgPatches" >> "rksla3_aircraft_tug");
 if(_leshLoaded && isServer) then {
@@ -107,9 +105,8 @@ if(_leshLoaded && isServer) then {
 		["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
 		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_deck");
 	};
-	private _actionDeck = ["actionDeck",localize "STR_GSRI_FREMM_heliToDeck","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
-	[_handle, 0, ["ACE_MainActions"], _actionDeck] call ace_interact_menu_fnc_addActionToObject;
-
+	_actionList pushBack (["actionDeck",localize "STR_GSRI_FREMM_heliToDeck","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction);
+	
 	// Place helicopter in hangar
 	// Will not be externalized
 	private _condition = {
@@ -127,6 +124,12 @@ if(_leshLoaded && isServer) then {
 		["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
 		_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_hangar");
 	};
-	private _actionHangar = ["actionHangar",localize "STR_GSRI_FREMM_heliToHangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction;
-	[_handle, 0, ["ACE_MainActions"], _actionHangar] call ace_interact_menu_fnc_addActionToObject;
+	_actionList pushBack (["actionHangar",localize "STR_GSRI_FREMM_heliToHangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction);
 };
+
+// Adding actions
+private _heliMain = ["actionHeliMain",localize "STR_GSRI_FREMM_heliMain","",{},{true},{},[],[0,0,-0.3]] call ace_interact_menu_fnc_createAction;
+[_handle, 0, [], _heliMain] call ace_interact_menu_fnc_addActionToObject;
+{
+	[_handle, 0, ["actionHeliMain"], _x] call ace_interact_menu_fnc_addActionToObject;
+} forEach _actionList;
