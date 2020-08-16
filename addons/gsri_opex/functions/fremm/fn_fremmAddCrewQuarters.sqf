@@ -28,7 +28,7 @@ if(isServer) then {
 	_roomB setVariable ["GSRI_FREMM_moddedDoors", _quartersDoors, true];
 
 	// Adding temporary props so a player can orient more easily
-	_mapName = ["Wall_F", format["Wall_%1_F", worldName]] select (worldName in ["Altis", "Stratis", "Malden", "Tanoa"]);
+	private _mapName = ["Wall_F", format["Wall_%1_F", worldName]] select (worldName in ["Altis", "Stratis", "Malden", "Tanoa"]);
 	private _board = (format["Land_MapBoard_01_%1", _mapName]) createVehicle getPos _roomA;
 	_board attachTo [_roomA, [-0.721924,-1.83594,0.5]];
 	_board setDir 180;
