@@ -5,7 +5,7 @@
 if!(isServer) exitWith {};
 
 params["_ship"];
-private ["_screenData", "_screenList" "_drivingScreens"];
+private ["_screenData", "_screenList" "_drivingScreens", "_meteoScreens"];
 
 // Editable screens all over the ship
 _screenData = [
@@ -58,3 +58,11 @@ _drivingScreens = [
 	_screen setVectorDirAndUp [(_x select 2), (_x select 3)];
 	_screen setObjectTextureGlobal[0, format["destroyer_habs\data\ecrans\ecran_meteo_%1.paa", _forEachIndex + 1]];
 } forEach _drivingScreens;
+
+// Add some textures and maps to bridge's screens, still making them overridable by mission editor
+_meteoScreens = ([_ship, "BRIDGE"] call GSRI_fnc_screenGetBySector);
+{
+	_x setObjectTextureGlobal[0, format["destroyer_habs\data\ecrans\ecran_meteo_%1.paa", _forEachIndex + 1]];
+} forEach (_meteoScreens select [0,7]);
+(_meteoScreens select 7) setObjectTextureGlobal[0, "destroyer_habs\data\ecrans\ecran_carte_1.paa"];
+// TODO : the above is usefull for the current textures naming. Seenri is about to rename some of them in order to allow a loop to be enough
