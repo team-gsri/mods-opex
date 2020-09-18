@@ -42,3 +42,18 @@ _screenList = [];
 	_screenList pushBack _screen;
 } forEach _screenData;
 _ship setVariable ["GSRI_FREMM_screens", _screenList, true];
+
+private _drivingScreens = [
+	["SCMS_Deck_screen",[-2.975,-39.874,20.325],[0,1,0],[-0.615634,0.000288829,0.788032],"Driving_01"],
+	["SCMS_Deck_screen",[-1.7749,-41.13,20.325],[-1,0,0],[0,-0.615661,0.788011],"Driving_02"],
+	["SCMS_Deck_screen",[-0.911621,-41.13,20.325],[-1,0,0],[0,-0.615661,0.788011],"Driving_03"],
+	["SCMS_Deck_screen",[0.908203,-41.13,20.325],[-1,0,0],[0,-0.615661,0.788011],"Driving_04"],
+	["SCMS_Deck_screen",[1.77002,-41.13,20.325],[-1,0,0],[0,-0.615661,0.788011],"Driving_05"],
+	["SCMS_Deck_screen",[2.975,-39.873,20.325],[0,-1,0],[0.615634,-0.000288824,0.788032],"Driving_06"]
+];
+{
+	private _screen = (_x select 0) createVehicle getPos _ship;
+	_screen attachTo [_ship, (_x select 1)];
+	_screen setVectorDirAndUp [(_x select 2), (_x select 3)];
+	_screen setObjectTextureGlobal[0, format["destroyer_habs\data\ecrans\ecran_meteo_%1.paa", _forEachIndex + 1]];
+} forEach _drivingScreens;
