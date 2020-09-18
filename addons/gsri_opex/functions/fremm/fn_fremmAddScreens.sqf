@@ -5,7 +5,7 @@
 if!(isServer) exitWith {};
 
 params["_ship"];
-private ["_screenData", "_screenList" "_drivingScreens", "_meteoScreens"];
+private ["_screenData", "_screenList", "_drivingScreens", "_meteoScreens"];
 
 // Editable screens all over the ship
 _screenData = [
@@ -56,7 +56,7 @@ _drivingScreens = [
 	private _screen = (_x select 0) createVehicle getPos _ship;
 	_screen attachTo [_ship, (_x select 1)];
 	_screen setVectorDirAndUp [(_x select 2), (_x select 3)];
-	_screen setObjectTextureGlobal[0, format["destroyer_habs\data\ecrans\ecran_meteo_%1.paa", _forEachIndex + 1]];
+	_screen setObjectTextureGlobal[0, format["destroyer_habs\data\ecrans\ecran_pont_0%1.paa", _forEachIndex + 1]];
 } forEach _drivingScreens;
 
 // Add some textures and maps to bridge's screens, still making them overridable by mission editor
