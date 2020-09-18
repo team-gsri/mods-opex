@@ -5,8 +5,9 @@
 if!(isServer) exitWith {};
 
 params["_ship"];
-private ["_screenData", "_screenList"];
+private ["_screenData", "_screenList" "_drivingScreens"];
 
+// Editable screens all over the ship
 _screenData = [
 	["SCMS_Small_screen",[-9.81152,34.2251,12.4915],[0.000790648,1,-0.000468702],[0.156811,0.000338923,0.987629],"Display_11"],
 	["SCMS_Small_screen",[8.64453,33.8545,12.9025],[-0.000759117,-1,0.000184258],[-0.519295,0.000551671,0.854595],"Display_12"],
@@ -32,7 +33,6 @@ _screenData = [
 	["SCMS_Small_screen",[-3.81152,-40.6567,21.5489],[-0.576136,0.817324,-0.00691386],[0.434226,0.313233,0.84459],"Display_07"],
 	["SCMS_Small_screen",[-4.21289,-39.3291,21.5346],[0.00115854,0.999999,-2.15322e-006],[0.510096,-0.00058911,0.860117],"Display_08"]
 ];
-
 _screenList = [];
 {
 	private _screen = (_x select 0) createVehicle getPos _ship;
@@ -43,7 +43,8 @@ _screenList = [];
 } forEach _screenData;
 _ship setVariable ["GSRI_FREMM_screens", _screenList, true];
 
-private _drivingScreens = [
+// "Uneditable" screens on the ship's driving console
+_drivingScreens = [
 	["SCMS_Deck_screen",[-2.975,-39.874,20.325],[0,1,0],[-0.615634,0.000288829,0.788032],"Driving_01"],
 	["SCMS_Deck_screen",[-1.7749,-41.13,20.325],[-1,0,0],[0,-0.615661,0.788011],"Driving_02"],
 	["SCMS_Deck_screen",[-0.911621,-41.13,20.325],[-1,0,0],[0,-0.615661,0.788011],"Driving_03"],
