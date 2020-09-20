@@ -63,7 +63,7 @@ _drivingScreens = [
 _meteoScreens = ([_ship, "BRIDGE"] call GSRI_fnc_screenGetBySector);
 {
 	_x setObjectTextureGlobal[0, format["destroyer_habs\data\ecrans\ecran_meteo_%1.paa", _forEachIndex + 1]];
-} forEach _meteoScreens;
+} forEach (_meteoScreens select [0,8]);
 
 // Add team members texture to the screen above lockers
 ([_ship, "Display_21"] call GSRI_fnc_screenGetById) setObjectTextureGlobal [0,"destroyer_habs\data\ecrans\ecran_effectifs_co.paa"];
