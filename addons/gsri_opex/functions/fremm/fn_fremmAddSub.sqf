@@ -2,7 +2,7 @@ params["_ship"];
 
 // Submarine and teleport handles spawn
 if(isServer) then {
-	private ["_sub","_mk","_toSub","_toShip"];
+	private ["_sub","_mk","_toSub","_toShip", "_crrcHandle", "_crrcSpawner"];
 	// Spawn and place sub
 	_sub = "Submarine_01_F" createVehicle [0,0,0];
 	_sub enableSimulation false;
@@ -27,6 +27,16 @@ if(isServer) then {
 	_toShip enableSimulation false;
 	_toShip attachTo [_ship getVariable "GSRI_FREMM_submarine", [0.0788574,-4.32037,3.1]];
 	_ship setVariable ["GSRI_FREMM_submarine_toShip", _toShip, true];
+
+	// CRRC handle and spawner
+	_crrcSpawner = "Land_HelipadEmpty_F" createVehicle [0,0,0];
+	_crrcSpawner attachTo [_sub, [0,17.4,5]];
+	_sub setVariable ["GSRI_FREMM_sub_crrcSpawner", _crrcSpawner, true];
+
+	_crrcHandle = "Land_Battery_F" createVehicle [0,0,0];
+	_crrcHandle attachTo [_sub, [0,12,3.74]];
+	_sub setVariable ["GSRI_FREMM_sub_crrcHandle", _crrcHandle, true];
+	_crrcHandle setVariable ["GSRI_FREMM_associatedSpawner", _crrcSpawner];
 };
 
 // Adding position selection eventHandler
@@ -80,16 +90,7 @@ if!(isDedicated) then {
 	} forEach ["toSub", "toShip"];
 	
 	// Add CRRC deploy/retrieve actions
-	private _sub = _ship getVariable "GSRI_FREMM_submarine";
-	private _spawner = "Land_HelipadEmpty_F" createVehicleLocal [0,0,0];
-	_spawner attachTo [_sub, [0,17.4,5]];
-	_sub setVariable ["GSRI_FREMM_sub_crrcSpawner", _spawner];
-
-	private _handle = "Land_Battery_F" createVehicleLocal [0,0,0];
-	_handle attachTo [_sub, [0,12,3.74]];
-	_handle setVariable ["GSRI_FREMM_associatedSub", _sub];
-	_handle setVariable ["GSRI_FREMM_associatedSpawner", _spawner];
-
+	private _handle = (_ship getVariable "GSRI_FREMM_submarine") getVariable "GSRI_FREMM_sub_crrcHandle";
 	private _crrcActions = [
 		["actionCRRC","CRRC",{},[]],
 		["actionCRRCSpawn",localize "STR_GSRI_FREMM_submarine_deployCRRC",GSRI_fnc_spawnCRRC,["actionCRRC"]],
