@@ -91,12 +91,12 @@ if!(isDedicated) then {
 	_handle setVariable ["GSRI_FREMM_associatedSpawner", _spawner];
 
 	private _crrcActions = [
-		["actionCRRC","CRRC",{}],
-		["actionCRRCSpawn","Spawn CRRC",GSRI_fnc_spawnCRRC],
-		["actionCRRCRetrieve","Retrieve CRRC",GSRI_fnc_retrieveCRRC]
+		["actionCRRC","CRRC",{},[]],
+		["actionCRRCSpawn",localize "STR_GSRI_FREMM_submarine_deployCRRC",GSRI_fnc_spawnCRRC,["actionCRRC"]],
+		["actionCRRCRetrieve",localize "STR_GSRI_FREMM_submarine_retrieveCRRC",GSRI_fnc_retrieveCRRC,["actionCRRC"]]
 	];
 	{
 		private _action = [_x select 0,_x select 1,"",_x select 2,{true}] call ace_interact_menu_fnc_createAction;
-		[_handle, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
+		[_handle, 0, _x select 3, _action] call ace_interact_menu_fnc_addActionToObject;
 	} forEach _crrcActions;
 };

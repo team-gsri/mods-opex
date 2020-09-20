@@ -245,6 +245,14 @@
 			<Original>Go to frigate</Original>
 			<French>Aller à la frégate</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_submarine_deployCRRC">
+			<Original>Deploy CRRC</Original>
+			<French>Déployer CRRC</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_submarine_retrieveCRRC">
+			<Original>Retrieve closest CRRC</Original>
+			<French>Récupérer CRRC le plus proche</French>
+		</Key>
 	</Package>
 
 	<Package name="FREMM_crew">
