@@ -93,8 +93,8 @@ if!(isDedicated) then {
 	private _handle = (_ship getVariable "GSRI_FREMM_submarine") getVariable "GSRI_FREMM_sub_crrcHandle";
 	private _crrcActions = [
 		["actionCRRC","CRRC",{},[]],
-		["actionCRRCSpawn",localize "STR_GSRI_FREMM_submarine_deployCRRC",GSRI_fnc_spawnCRRC,["actionCRRC"]],
-		["actionCRRCRetrieve",localize "STR_GSRI_FREMM_submarine_retrieveCRRC",GSRI_fnc_retrieveCRRC,["actionCRRC"]]
+		["actionCRRCSpawn",localize "STR_GSRI_FREMM_submarine_deployCRRC",GSRI_fnc_subDeployCRRC,["actionCRRC"]],
+		["actionCRRCRetrieve",localize "STR_GSRI_FREMM_submarine_retrieveCRRC",GSRI_fnc_subRetrieveCRRC,["actionCRRC"]]
 	];
 	{
 		private _action = [_x select 0,_x select 1,"",_x select 2,{true}] call ace_interact_menu_fnc_createAction;
