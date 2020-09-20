@@ -27,7 +27,6 @@ if(isServer) then {
 	_toShip enableSimulation false;
 	_toShip attachTo [_ship getVariable "GSRI_FREMM_submarine", [0.0788574,-4.32037,3.1]];
 	_ship setVariable ["GSRI_FREMM_submarine_toShip", _toShip, true];
-	diag_log "addSub, server part finished.";
 };
 
 // Adding position selection eventHandler
@@ -43,7 +42,6 @@ addMissionEventHandler ["Map", {
 		if!(player getVariable ["GSRI_FREMM_submarine_hadMap",true]) then { player unlinkItem "ItemMap"; player setVariable ["GSRI_FREMM_submarine_hadMap", nil] };
 	};
 }];
-diag_log "addSub, common part finished.";
 
 // Clientside jobs
 if!(isDedicated) then {
@@ -80,5 +78,25 @@ if!(isDedicated) then {
 		private _actionGo = [format["action_%1",_x], localize format ["STR_GSRI_FREMM_submarine_go_%1", _x], "",_statement,{true},{},[_ship, _targetName]] call ace_interact_menu_fnc_createAction;
 		[(_ship getVariable format ["GSRI_FREMM_submarine_%1",_x]), 0, [], _actionGo] call ace_interact_menu_fnc_addActionToObject;
 	} forEach ["toSub", "toShip"];
-	diag_log "addSub, client part finished.";
+	
+	// Add CRRC deploy/retrieve actions
+	private _sub = _ship getVariable "GSRI_FREMM_submarine";
+	private _spawner = "Land_HelipadEmpty_F" createVehicleLocal [0,0,0];
+	_spawner attachTo [_sub, [0,17.4,5]];
+	_sub setVariable ["GSRI_FREMM_sub_crrcSpawner", _spawner];
+
+	private _handle = "Land_Battery_F" createVehicleLocal [0,0,0];
+	_handle attachTo [_sub, [0,12,3.74]];
+	_handle setVariable ["GSRI_FREMM_associatedSub", _sub];
+	_handle setVariable ["GSRI_FREMM_associatedSpawner", _spawner];
+
+	private _crrcActions = [
+		["actionCRRC","CRRC",{}],
+		["actionCRRCSpawn","Spawn CRRC",GSRI_fnc_spawnCRRC],
+		["actionCRRCRetrieve","Retrieve CRRC",GSRI_fnc_retrieveCRRC]
+	];
+	{
+		private _action = [_x select 0,_x select 1,"",_x select 2,{true}] call ace_interact_menu_fnc_createAction;
+		[_handle, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
+	} forEach _crrcActions;
 };
