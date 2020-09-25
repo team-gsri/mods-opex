@@ -61,6 +61,7 @@ class GSRI_FREMM_Templates {
         hasHelicopter=1;
         hasSubmarine=1;
 		hasCrewQuarters=1;
+		hasBriefingRoom=1;
     };
 };
 
@@ -82,6 +83,7 @@ class CfgFunctions {
 			class fremmAddSub {};
 			class fremmAddScreens {};
 			class fremmAddCrewQuarters {};
+			class fremmAddBriefingRoom {};
 		};
         class bays {
             file="gsri_opex\functions\bays";

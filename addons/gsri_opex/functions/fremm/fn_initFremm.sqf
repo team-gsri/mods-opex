@@ -14,7 +14,8 @@ private _varList = (configProperties [configFile >> "GSRI_FREMM_Templates" >> _t
 // eventually should be moved to config ?
 private _shipDoors = [
 	["Land_Battery_F","DoorQuarters", [4.87646,-19.46,12.075], [4.78271,-19.7825,10.4181]],
-	["Land_Battery_F","DoorBays", [-0.270996,12.98,13.6152], [-0.178818,13.2195,11.9315]]
+	["Land_Battery_F","DoorBays", [-0.270996,12.98,13.6152], [-0.178818,13.2195,11.9315]],
+	["Land_Battery_F","DoorBriefing", [1.6,-36.0449,11.9], [0.826172,-36.323,10.3553]]
 ];
 _ship setVariable ["GSRI_FREMM_moddedDoors", _shipDoors];
 
@@ -29,6 +30,7 @@ if(_ship getVariable "GSRI_FREMM_hasBoatBays") then { [_ship] call GSRI_fnc_frem
 if(_ship getVariable "GSRI_FREMM_hasHelicopter") then { [_ship] call GSRI_fnc_fremmAddHeli };
 if(_ship getVariable "GSRI_FREMM_hasSubmarine") then { [_ship] call GSRI_fnc_fremmAddSub };
 if(_ship getVariable "GSRI_FREMM_hasCrewQuarters") then { [_ship] call GSRI_fnc_fremmAddCrewQuarters };
+if(_ship getVariable "GSRI_FREMM_hasBriefingRoom") then { [_ship] call GSRI_fnc_fremmAddBriefingRoom };
 
 if(isServer) then {
 	// Identifier, flag, nameplate textures
