@@ -26,6 +26,8 @@ _this spawn {
 	_marker = format ["marker_submarine_%1", _sub getVariable "GSRI_FREMM_shipIndex"];
 	_marker setMarkerPos getPosASL _sub;
 	(_ship getVariable "GSRI_FREMM_submarine_toShip") attachTo [_sub, [0.0788574,-4.32037,3.1]];
+	(_sub getVariable "GSRI_FREMM_sub_crrcHandle") attachTo [_sub, [0,12,3.74]];
+	(_sub getVariable "GSRI_FREMM_sub_crrcSpawner") attachTo [_sub, [0,17.4,5]];
 	["SubmarineOk", [["submerged", "surfaced"] select _shift]] call BIS_fnc_showNotification;
 
 	// Finally, map must be closed, flag and map are removed by another eventHandler (see initSubmarine)
