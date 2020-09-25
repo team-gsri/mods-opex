@@ -2,7 +2,7 @@ params["_ship"];
 
 // Submarine and teleport handles spawn
 if(isServer) then {
-	private ["_sub","_mk","_toSub","_toShip"];
+	private ["_sub","_mk","_toSub","_toShip", "_crrcHandle", "_crrcSpawner"];
 	// Spawn and place sub
 	_sub = "Submarine_01_F" createVehicle [0,0,0];
 	_sub enableSimulation false;
@@ -27,7 +27,16 @@ if(isServer) then {
 	_toShip enableSimulation false;
 	_toShip attachTo [_ship getVariable "GSRI_FREMM_submarine", [0.0788574,-4.32037,3.1]];
 	_ship setVariable ["GSRI_FREMM_submarine_toShip", _toShip, true];
-	diag_log "addSub, server part finished.";
+
+	// CRRC handle and spawner
+	_crrcSpawner = "Land_HelipadEmpty_F" createVehicle [0,0,0];
+	_crrcSpawner attachTo [_sub, [0,17.4,5]];
+	_sub setVariable ["GSRI_FREMM_sub_crrcSpawner", _crrcSpawner, true];
+
+	_crrcHandle = "Land_Battery_F" createVehicle [0,0,0];
+	_crrcHandle attachTo [_sub, [0,12,3.74]];
+	_sub setVariable ["GSRI_FREMM_sub_crrcHandle", _crrcHandle, true];
+	_crrcHandle setVariable ["GSRI_FREMM_associatedSpawner", _crrcSpawner];
 };
 
 // Adding position selection eventHandler
@@ -43,7 +52,6 @@ addMissionEventHandler ["Map", {
 		if!(player getVariable ["GSRI_FREMM_submarine_hadMap",true]) then { player unlinkItem "ItemMap"; player setVariable ["GSRI_FREMM_submarine_hadMap", nil] };
 	};
 }];
-diag_log "addSub, common part finished.";
 
 // Clientside jobs
 if!(isDedicated) then {
@@ -80,5 +88,16 @@ if!(isDedicated) then {
 		private _actionGo = [format["action_%1",_x], localize format ["STR_GSRI_FREMM_submarine_go_%1", _x], "",_statement,{true},{},[_ship, _targetName]] call ace_interact_menu_fnc_createAction;
 		[(_ship getVariable format ["GSRI_FREMM_submarine_%1",_x]), 0, [], _actionGo] call ace_interact_menu_fnc_addActionToObject;
 	} forEach ["toSub", "toShip"];
-	diag_log "addSub, client part finished.";
+	
+	// Add CRRC deploy/retrieve actions
+	private _handle = (_ship getVariable "GSRI_FREMM_submarine") getVariable "GSRI_FREMM_sub_crrcHandle";
+	private _crrcActions = [
+		["actionCRRC","CRRC",{},[]],
+		["actionCRRCSpawn",localize "STR_GSRI_FREMM_submarine_deployCRRC",GSRI_fnc_subDeployCRRC,["actionCRRC"]],
+		["actionCRRCRetrieve",localize "STR_GSRI_FREMM_submarine_retrieveCRRC",GSRI_fnc_subRetrieveCRRC,["actionCRRC"]]
+	];
+	{
+		private _action = [_x select 0,_x select 1,"",_x select 2,{true}] call ace_interact_menu_fnc_createAction;
+		[_handle, 0, _x select 3, _action] call ace_interact_menu_fnc_addActionToObject;
+	} forEach _crrcActions;
 };

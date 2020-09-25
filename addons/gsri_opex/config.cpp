@@ -99,6 +99,8 @@ class CfgFunctions {
 		class sub {
 			file="gsri_opex\functions\sub";
 			class subSelectPos {};
+			class subDeployCRRC {};
+			class subRetrieveCRRC {};
 		};
 		class preslots {
 			file="gsri_opex\functions\preslots";
