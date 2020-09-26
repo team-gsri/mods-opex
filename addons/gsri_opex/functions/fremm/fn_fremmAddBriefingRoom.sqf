@@ -5,7 +5,7 @@ if(isServer) then {
 	private _briefing = "SCMS_Brief_base" createVehicle [0,0,0];
 	_briefing setPosASL [50, ((_ship getVariable "GSRI_FREMM_shipIndex")*50), 10];
 	_briefing setVectorUp [0,0,1];
-	_briefing setDir (getDir _ship - 90);
+	_briefing setDir (getDir _ship + 90);
 	_briefing call BIS_fnc_Destroyer01PosUpdate;
 	_ship setVariable ["GSRI_FREMM_briefingRoom", _briefing, true];
 

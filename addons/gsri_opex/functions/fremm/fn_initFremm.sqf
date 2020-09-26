@@ -15,7 +15,7 @@ private _varList = (configProperties [configFile >> "GSRI_FREMM_Templates" >> _t
 private _shipDoors = [
 	["Land_Battery_F","DoorQuarters", [4.87646,-19.46,12.075], [4.78271,-19.7825,10.4181]],
 	["Land_Battery_F","DoorBays", [-0.270996,12.98,13.6152], [-0.178818,13.2195,11.9315]],
-	["Land_Battery_F","DoorBriefing", [1.6,-36.0449,11.9], [0.826172,-36.323,10.3553]]
+	["Land_Battery_F","DoorBriefing", [-1.96,-22.82,11.92], [-1.25085,-22.73,10.3624]]
 ];
 _ship setVariable ["GSRI_FREMM_moddedDoors", _shipDoors];
 
@@ -50,7 +50,8 @@ if(isServer) then {
 	private _signs = [
 		["SCMS_Panneau1",[-1.09302,-16.8311,10.2468],270],
 		["SCMS_Panneau2",[-2.8988,14.0205,8.38586],180],
-		["SCMS_Panneau3",[-9.97888,51.6299,10.1794],180]
+		["SCMS_Panneau3",[-9.97888,51.6299,10.1794],180],
+		["SCMS_Panneau4",[-1.91,-22.82,11.92],180]
 	];
 
 	{
