@@ -59,15 +59,9 @@ if(isServer) then {
 };
 
 if!(isDedicated) then {
-	private _statement = {
-		params["_target", "_player"];
-		_player setPosWorld (_target getVariable "GSRI_FREMM_goTo");
-	};
-	private _doorCross = ["actionCrossDoor",localize "STR_GSRI_FREMM_crewCrossDoor","",_statement,{true}] call ace_interact_menu_fnc_createAction;
-
 	private _corridors = [
 		[[_ship, "DoorBriefing"],[_ship getVariable "GSRI_FREMM_briefingRoom", "Door1"]]
 	];
 
-	{ [_x, _doorCross] call GSRI_fnc_doorConnect } forEach _corridors;
+	{ [_x] call GSRI_fnc_doorConnect } forEach _corridors;
 };

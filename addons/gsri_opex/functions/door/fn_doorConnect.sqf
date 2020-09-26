@@ -1,9 +1,18 @@
 // With two doors, connect each one's handle to the other's doorstep
 // (and create the handle, too...)
 // a custom action can be provided
-params["_corridor", "_action"];
+params["_corridor", ["_action", []]];
 (_corridor select 0) params ["_objectA","_doorNameA"];
 (_corridor select 1) params ["_objectB","_doorNameB"];
+
+if(count _action == 0) then {
+	// Composing default action
+	private _statement = {
+		params["_target", "_player"];
+		_player setPosWorld (_target getVariable "GSRI_FREMM_goTo");
+	};
+	_action = ["actionCrossDoor",localize "STR_GSRI_FREMM_crewCrossDoor","",_statement,{true}] call ace_interact_menu_fnc_createAction;
+};
 
 private _doorA = [_objectA, _doorNameA] call GSRI_fnc_doorGetById;
 private _doorB = [_objectB, _doorNameB] call GSRI_fnc_doorGetById;

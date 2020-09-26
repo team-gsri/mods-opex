@@ -47,14 +47,6 @@ if(isServer) then {
 
 if!(isDedicated) then {
 	//clientCanLoad set when executing this, so rooms should already exists
-
-	// Generic door crossing ACE action
-	private _statement = {
-		params["_target", "_player"];
-		_player setPosWorld (_target getVariable "GSRI_FREMM_goTo");
-	};
-	private _doorCross = ["actionCrossDoor",localize "STR_GSRI_FREMM_crewCrossDoor","",_statement,{true}] call ace_interact_menu_fnc_createAction;
-
 	// A corridor is a link between two doors
 	//[[SideAObject, SideADoorName],[SideBObject, SideBDoorName]]
 	private _corridors = [
@@ -64,7 +56,7 @@ if!(isDedicated) then {
 	];
 	{
 		// Connect doors
-		[_x, _doorCross] call GSRI_fnc_doorConnect;
+		[_x] call GSRI_fnc_doorConnect;
 	} forEach _corridors;
 
 	// When crew quarters are loaded, any respawn on the ship should be redirected to rooms
