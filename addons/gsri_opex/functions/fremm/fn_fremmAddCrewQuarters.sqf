@@ -64,7 +64,7 @@ if!(isDedicated) then {
 	];
 	{
 		// Connect doors
-		[_x, _doorCross] call GSRI_fnc_crewConnectDoors;
+		[_x, _doorCross] call GSRI_fnc_doorConnect;
 	} forEach _corridors;
 
 	// When crew quarters are loaded, any respawn on the ship should be redirected to rooms

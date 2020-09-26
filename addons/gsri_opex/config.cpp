@@ -116,14 +116,17 @@ class CfgFunctions {
 		};
 		class crew {
 			file="gsri_opex\functions\crew";
-			class crewGetDoor {};
-			class crewConnectDoors {};
 			class crewMoveToCabin {};
 		};
 		class screen {
 			file="gsri_opex\functions\screen";
 			class screenGetById {};
 			class screenGetBySector {};
+		};
+		class door {
+			file="gsri_opex\functions\door";
+			class doorConnect {};
+			class doorGetById {};
 		};
 	};
 };

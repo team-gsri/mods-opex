@@ -69,5 +69,5 @@ if!(isDedicated) then {
 		[[_ship, "DoorBriefing"],[_ship getVariable "GSRI_FREMM_briefingRoom", "Door1"]]
 	];
 
-	{ [_x, _doorCross] call GSRI_fnc_crewConnectDoors } forEach _corridors;
+	{ [_x, _doorCross] call GSRI_fnc_doorConnect } forEach _corridors;
 };
