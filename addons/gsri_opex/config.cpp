@@ -64,6 +64,28 @@ class GSRI_FREMM_Templates {
 			hasCrewQuarters=1;
 			hasBriefingRoom=1;
 		};
+		class AvailableBoats {
+			class B_Boat_Transport_01_F {
+				name="CRRC";
+				liveries={"Black","Rescue","Civilian"};
+			};
+			class B_Boat_Armed_01_minigun_F {
+				name=$STR_GSRI_FREMM_boatArmored;
+				liveries={"Blufor"};
+			};
+			class UK3CB_BAF_RHIB_HMG {
+				name=$STR_GSRI_FREMM_boat3CB;
+				liveries={};
+			};
+			class C_Boat_Transport_02_F {
+				name="RHIB";
+				liveries={"Black","Civilian"};
+			};
+			class B_SDV_01_F {
+				name="SDV";
+				liveries={};
+			};
+		};
 	};
 };
 
@@ -91,6 +113,7 @@ class CfgFunctions {
 			file="gsri_opex\functions\bays";
 			class bayReplace {};
 			class bayDoorControl {};
+			class bayParseList {};
 		};
 		class heli {
 			file="gsri_opex\functions\heli";
