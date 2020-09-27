@@ -71,7 +71,7 @@ class GSRI_FREMM_Templates {
 			};
 			class B_Boat_Armed_01_minigun_F {
 				name=$STR_GSRI_FREMM_boatArmored;
-				liveries={"Blufor"};
+				liveries={};
 			};
 			class UK3CB_BAF_RHIB_HMG {
 				name=$STR_GSRI_FREMM_boat3CB;
