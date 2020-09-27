@@ -9,7 +9,7 @@ private _varList = (configProperties [configFile >> "GSRI_FREMM_Templates" >> _t
   _ship setVariable [_name, call compile _feature ];
 } forEach _varList;
 
-// Adding doors to the ship (useful for crew quarters and stuff), in format [classname, name, handlePos, manPos, handleDir(optionnal)]
+// Adding doors to the ship (useful for crew quarters and stuff), in format [classname, name, handlePos, manPos, handleDir(optionnal), goToShip(optionnal)]
 // executed on every client the same way, so no need for a global setVariable
 // eventually should be moved to config ?
 private _shipDoors = [

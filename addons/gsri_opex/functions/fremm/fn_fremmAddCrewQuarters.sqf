@@ -19,13 +19,16 @@ if(isServer) then {
 	_ship setVariable ["GSRI_FREMM_CrewQuartersRoomB", _roomB, true];
 
 	// Adding modded doors to the crew quarters
-	// Room A and B are the same object, for now they should share handlePos and manPos of each doors
-	private _quartersDoors = [
-		["Land_Battery_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343]],
+	private _quartersDoorsA = [
+		["Land_Battery_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343],0,true],
 		["Land_Battery_F", "Door2", [-5.42,-0.3727,0.620061], [-4.78034,-0.423262,-0.897619]]
 	];
-	_roomA setVariable ["GSRI_FREMM_moddedDoors", _quartersDoors, true];
-	_roomB setVariable ["GSRI_FREMM_moddedDoors", _quartersDoors, true];
+	_roomA setVariable ["GSRI_FREMM_moddedDoors", _quartersDoorsA, true];
+	private _quartersDoorsB = [
+		["Land_Battery_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343]],
+		["Land_Battery_F", "Door2", [-5.42,-0.3727,0.620061], [-4.78034,-0.423262,-0.897619],0,true]
+	];
+	_roomB setVariable ["GSRI_FREMM_moddedDoors", _quartersDoorsB, true];
 
 	// Adding temporary props so a player can orient more easily
 	private _mapName = ["Wall_F", format["Wall_%1_F", worldName]] select (worldName in ["Altis", "Stratis", "Malden", "Tanoa"]);
