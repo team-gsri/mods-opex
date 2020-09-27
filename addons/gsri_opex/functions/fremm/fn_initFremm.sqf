@@ -2,7 +2,7 @@ params["_ship"];
 
 // Parsing settings based on selected template
 private _template = _ship getVariable "GSRI_FREMM_selectTemplate";
-private _varList = (configProperties [configFile >> "GSRI_FREMM_Templates" >> _template]) apply {configName _x};
+private _varList = (configProperties [configFile >> "GSRI_FREMM_Templates" >> _template >> "Properties"]) apply {configName _x};
 {
   private _name = format ["%1_%2", "GSRI_FREMM", _x];
   private _feature = format ["%1_%2", _template, _x];

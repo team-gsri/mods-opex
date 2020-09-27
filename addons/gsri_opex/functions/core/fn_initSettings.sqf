@@ -4,16 +4,16 @@ private ["_templates", "_settings"];
 _templates = ((configFile >> "GSRI_FREMM_Templates") call BIS_fnc_getCfgSubClasses);
 
 // Retrieve all properties to consider, based on the only "absolute" template
-_settings = (configProperties [configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie"]) apply {configName _x};
+_settings = (configProperties [configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> "Properties"]) apply {configName _x};
 
 // Automatic creation of needed server-forced settings for
 {
 	private _template = _x;
 	{
-		private _settingType = ["CHECKBOX","EDITBOX"] select (isText (configFile >> "GSRI_FREMM_Templates" >> _template >> _x));
+		private _settingType = ["CHECKBOX","EDITBOX"] select (isText (configFile >> "GSRI_FREMM_Templates" >> _template >> "Properties" >> _x));
 		private _defaultValue = switch (_settingType) do {
-			case "CHECKBOX": { [false,true] select ((configFile >> "GSRI_FREMM_Templates" >> _template >> _x) call BIS_fnc_getCfgData) };
-			default { (configFile >> "GSRI_FREMM_Templates" >> _template >> _x) call BIS_fnc_getCfgData };
+			case "CHECKBOX": { [false,true] select ((configFile >> "GSRI_FREMM_Templates" >> _template >> "Properties" >> _x) call BIS_fnc_getCfgData) };
+			default { (configFile >> "GSRI_FREMM_Templates" >> _template >> "Properties" >> _x) call BIS_fnc_getCfgData };
 		};
 		[
 			format["%1_%2", _template, _x],
@@ -30,10 +30,10 @@ _settings = (configProperties [configFile >> "GSRI_FREMM_Templates" >> "GSRI_Nor
 
 // Custom template based on Normandie that can be edited as a mission setting instead of serverside
 {
-	private _settingType = ["CHECKBOX","EDITBOX"] select (isText (configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> _x));
+	private _settingType = ["CHECKBOX","EDITBOX"] select (isText (configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> "Properties" >> _x));
 	private _defaultValue = switch (_settingType) do {
-		case "CHECKBOX": { [false,true] select ((configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> _x) call BIS_fnc_getCfgData) };
-		default { (configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> _x) call BIS_fnc_getCfgData };
+		case "CHECKBOX": { [false,true] select ((configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> "Properties" >> _x) call BIS_fnc_getCfgData) };
+		default { (configFile >> "GSRI_FREMM_Templates" >> "GSRI_Normandie" >> "Properties" >> _x) call BIS_fnc_getCfgData };
 	};
 	[
 		format["GSRI_CustomFremm_%1", _x],
