@@ -20,13 +20,13 @@ private _doorB = [_objectB, _doorNameB] call GSRI_fnc_doorGetById;
 
 private _handle1 = (_doorA select 0) createVehicleLocal [0,0,0];
 _handle1 attachTo [_objectA, (_doorA select 2)];
-if!(isNil {_doorA select 3}) then { _handle1 setDir (_doorA select 3) };
 _handle1 setVariable ["GSRI_FREMM_goTo", _objectB modelToWorldWorld (_doorB select 3)];
+if!(isNil {_doorA select 4}) then { _handle1 setDir (_doorA select 4) };
 
 private _handle2 = (_doorB select 0) createVehicleLocal [0,0,0];
 _handle2 attachTo [_objectB, (_doorB select 2)];
-if!(isNil {_doorB select 3}) then { _handle2 setDir (_doorB select 3) };
 _handle2 setVariable ["GSRI_FREMM_goTo", _objectA modelToWorldWorld (_doorA select 3)];
+if!(isNil {_doorB select 4}) then { _handle2 setDir (_doorB select 4) };
 
 [_handle1, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
 [_handle2, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
