@@ -7,11 +7,8 @@ params["_ship"];
 if(isServer) then {
 	{
 		private _bay = createVehicle ["Land_Destroyer_01_Boat_Rack_01_F", [0,0,0], [], 0, "NONE"];
-		_bay enableSimulation false;
-		_bay allowDamage false;
-		_bay setDir (getDir _ship + 180);
-		_bay setPosATL ASLToATL (_ship modelToWorldWorld (_x select 1));
-		_bay enableSimulation true;
+		_bay attachTo [_ship, _x select 1];
+		_bay setDir 180;
 		[_bay] remoteExecCall ["BIS_fnc_BoatRack01Init", 0, true];
 
 		private _door = "SCMS_HangarDoor" createVehicle [0,0,0];
@@ -28,8 +25,8 @@ if(isServer) then {
 		_door setVariable ["GSRI_FREMM_associatedCom", _com, true];
 		_ship setVariable [(_x select 0), _bay, true];
 	} forEach [
-		["GSRI_FREMM_Starboard_bay",[-11.5,14.43,7.5],[-4.4,18.29,8.9],[-14.73,14.25,9.96], 178.75],
-		["GSRI_FREMM_Portboard_bay",[11.5,14.43,7.5],[4.4,18.29,8.9],[14.73,14.25,9.96], 1.23]
+		["GSRI_FREMM_Starboard_bay",[-11.5,14.43,6.76],[-4.4,18.29,8.9],[-14.73,14.25,9.96], 178.75],
+		["GSRI_FREMM_Portboard_bay",[11.5,14.43,6.76],[4.4,18.29,8.9],[14.73,14.25,9.96], 1.23]
 	];
 };
 
