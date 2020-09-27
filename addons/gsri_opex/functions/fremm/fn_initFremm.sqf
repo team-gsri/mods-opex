@@ -2,14 +2,14 @@ params["_ship"];
 
 // Parsing settings based on selected template
 private _template = _ship getVariable "GSRI_FREMM_selectTemplate";
-private _varList = (configProperties [configFile >> "GSRI_FREMM_Templates" >> _template]) apply {configName _x};
+private _varList = (configProperties [configFile >> "GSRI_FREMM_Templates" >> _template >> "Properties"]) apply {configName _x};
 {
   private _name = format ["%1_%2", "GSRI_FREMM", _x];
   private _feature = format ["%1_%2", _template, _x];
   _ship setVariable [_name, call compile _feature ];
 } forEach _varList;
 
-// Adding doors to the ship (useful for crew quarters and stuff), in format [classname, name, handlePos, manPos]
+// Adding doors to the ship (useful for crew quarters and stuff), in format [classname, name, handlePos, manPos, handleDir(optionnal), goToShip(optionnal)]
 // executed on every client the same way, so no need for a global setVariable
 // eventually should be moved to config ?
 private _shipDoors = [

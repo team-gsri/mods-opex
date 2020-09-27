@@ -53,21 +53,15 @@ if(isServer) then {
 		["SCMS_Large_screen", [4.67773,1.0271,0.3], 180]
 	];
 	private _briefModdedDoors = [
-		["Land_Battery_F", "Door1", [0.895508,3.12,0.3], [0.837891,2.5752,-1.29856]]
+		["Land_Battery_F", "Door1", [0.895508,3.12,0.3], [0.837891,2.5752,-1.29856], 0, true]
 	];
 	_briefing setVariable ["GSRI_FREMM_moddedDoors",_briefModdedDoors, true];
 };
 
 if!(isDedicated) then {
-	private _statement = {
-		params["_target", "_player"];
-		_player setPosWorld (_target getVariable "GSRI_FREMM_goTo");
-	};
-	private _doorCross = ["actionCrossDoor",localize "STR_GSRI_FREMM_crewCrossDoor","",_statement,{true}] call ace_interact_menu_fnc_createAction;
-
 	private _corridors = [
 		[[_ship, "DoorBriefing"],[_ship getVariable "GSRI_FREMM_briefingRoom", "Door1"]]
 	];
 
-	{ [_x, _doorCross] call GSRI_fnc_crewConnectDoors } forEach _corridors;
+	{ [_x] call GSRI_fnc_doorConnect } forEach _corridors;
 };

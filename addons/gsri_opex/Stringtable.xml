@@ -105,6 +105,14 @@
 			<Original>Add crew quarters as a spawn location in the ship.</Original>
 			<French>Ajoute des quartiers d'équipages comme zone de spawn.</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBriefingRoom">
+			<Original>Briefing room</Original>
+			<French>Salle de briefing</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBriefingRoom_tooltip">
+			<Original>Add a briefing room in the ship.</Original>
+			<French>Ajoute une salle de briefing sur le navire.</French>
+		</Key>
 	</Package>
 	
 	<Package name="FREMM_Arsenal">
@@ -186,6 +194,14 @@
 		<Key ID="STR_GSRI_FREMM_bayDoorControl">
 			<Original>Operate bay shield</Original>
 			<French>Actionner le bouclier</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_boatArmored">
+			<Original>Armored speedboat</Original>
+			<French>Hors-bord blindé</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_boat3CB">
+			<Original>Offshore Raiding Craft</Original>
+			<French>Offshore Raiding Craft</French>
 		</Key>
 	</Package>
 

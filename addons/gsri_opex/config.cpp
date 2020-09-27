@@ -49,19 +49,46 @@ class Extended_PreInit_EventHandlers {
 
 class GSRI_FREMM_Templates {
 	class GSRI_Normandie {
-		fullname="D-651 Normandie";
-		identifier="651";
-		name="Normandie";
-		flag="gsri_opex\images\flag_fr.paa";
-		nameplate="gsri_opex\images\normandie.paa";
-		hasWeapons=1;
-		hasArsenal=1;
-		hasBridge=1;
-		hasBoatBays=1;
-		hasHelicopter=1;
-		hasSubmarine=1;
-		hasCrewQuarters=1;
-		hasBriefingRoom=1;
+		class Properties {
+			fullname="D-651 Normandie";
+			identifier="651";
+			name="Normandie";
+			flag="gsri_opex\images\flag_fr.paa";
+			nameplate="gsri_opex\images\normandie.paa";
+			hasWeapons=1;
+			hasArsenal=1;
+			hasBridge=1;
+			hasBoatBays=1;
+			hasHelicopter=1;
+			hasSubmarine=1;
+			hasCrewQuarters=1;
+			hasBriefingRoom=1;
+		};
+		class AvailableBoats {
+			class B_Boat_Transport_01_F {
+				name="CRRC";
+				liveries[]={"Black","Rescue","Civilian"};
+			};
+			class B_Boat_Armed_01_minigun_F {
+				name=$STR_GSRI_FREMM_boatArmored;
+				liveries[]={};
+			};
+			class UK3CB_BAF_RHIB_HMG {
+				name=$STR_GSRI_FREMM_boat3CB;
+				liveries[]={};
+			};
+			class C_Boat_Transport_02_F {
+				name="RHIB";
+				liveries[]={"Black","Civilian"};
+			};
+			class B_SDV_01_F {
+				name="SDV";
+				liveries[]={};
+			};
+		};
+		class AvailableHelis {
+			list[]={"B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "B_Heli_Light_01_F", "B_T_UAV_03_dynamicLoadout_F", "MELB_AH6M", "MELB_MH6M", "UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited"};
+		};
 	};
 };
 
@@ -89,6 +116,7 @@ class CfgFunctions {
 			file="gsri_opex\functions\bays";
 			class bayReplace {};
 			class bayDoorControl {};
+			class bayParseList {};
 		};
 		class heli {
 			file="gsri_opex\functions\heli";
@@ -116,14 +144,17 @@ class CfgFunctions {
 		};
 		class crew {
 			file="gsri_opex\functions\crew";
-			class crewGetDoor {};
-			class crewConnectDoors {};
 			class crewMoveToCabin {};
 		};
 		class screen {
 			file="gsri_opex\functions\screen";
 			class screenGetById {};
 			class screenGetBySector {};
+		};
+		class door {
+			file="gsri_opex\functions\door";
+			class doorConnect {};
+			class doorGetById {};
 		};
 	};
 };
