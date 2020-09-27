@@ -195,6 +195,14 @@
 			<Original>Operate bay shield</Original>
 			<French>Actionner le bouclier</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_boatArmored">
+			<Original>Armored speedboat</Original>
+			<French>Hors-bord blindé</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_boat3CB">
+			<Original>Offshore Raiding Craft</Original>
+			<French>Offshore Raiding Craft</French>
+		</Key>
 	</Package>
 
 	<Package name="FREMM_Helicopter">
