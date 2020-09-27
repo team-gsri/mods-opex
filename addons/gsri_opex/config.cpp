@@ -67,23 +67,23 @@ class GSRI_FREMM_Templates {
 		class AvailableBoats {
 			class B_Boat_Transport_01_F {
 				name="CRRC";
-				liveries={"Black","Rescue","Civilian"};
+				liveries[]={"Black","Rescue","Civilian"};
 			};
 			class B_Boat_Armed_01_minigun_F {
 				name=$STR_GSRI_FREMM_boatArmored;
-				liveries={};
+				liveries[]={};
 			};
 			class UK3CB_BAF_RHIB_HMG {
 				name=$STR_GSRI_FREMM_boat3CB;
-				liveries={};
+				liveries[]={};
 			};
 			class C_Boat_Transport_02_F {
 				name="RHIB";
-				liveries={"Black","Civilian"};
+				liveries[]={"Black","Civilian"};
 			};
 			class B_SDV_01_F {
 				name="SDV";
-				liveries={};
+				liveries[]={};
 			};
 		};
 	};
