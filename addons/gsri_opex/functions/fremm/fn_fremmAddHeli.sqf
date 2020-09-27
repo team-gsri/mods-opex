@@ -2,23 +2,21 @@
 if(isDedicated) exitWith {};
 
 params["_ship"];
-private ["_handle","_fuel","_types","_helipad"];
 
 // Actions handle spawn
-_handle = ((_ship getVariable "GSRI_FREMM_screens") select 0);
+private _handle = ((_ship getVariable "GSRI_FREMM_screens") select 0);
 
 // Adding fuel pomp
-_fuel = "Land_FuelStation_01_pump_malevil_F" createVehicleLocal [0,0,0];
+private _fuel = "Land_FuelStation_01_pump_malevil_F" createVehicleLocal [0,0,0];
 _fuel attachTo [_ship, [9.63,40.13,10.15]];
 _fuel setDir 90;
 
 // Dummy objects for hangar and flight deck
-_types = ["B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "B_Heli_Light_01_F", "B_T_UAV_03_dynamicLoadout_F","MELB_AH6M","MELB_MH6M","UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited"];
+private _types = getArray (configFile >> "GSRI_FREMM_Templates" >> (_ship getVariable "GSRI_FREMM_selectTemplate") >> "AvailableHelis" >> "list");
 {
-	_helipad = "Land_HelipadEmpty_F" createVehicleLocal [0,0,0];
-	_helipad enableSimulation false;
+	private _helipad = "Land_HelipadEmpty_F" createVehicleLocal [0,0,0];
 	_helipad attachTo [_ship, _x select 1];
-	_helipad setDir 180; //warning : relative to attached object !
+	_helipad setDir 180;
 	_helipad setVariable ["GSRI_FREMM_heli_list", _types];
 	_helipad setVariable ["GSRI_FREMM_associatedShip", _ship];
 	_ship setVariable [_x select 0, _helipad];
@@ -44,7 +42,7 @@ private _actionList = [];
 			private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
 			(([_newType] call GSRI_fnc_heliMinifyName) != ([_heli] call GSRI_fnc_heliMinifyName))
 		};
-		_actionList pushBack ([format["action%1", _display],_display,"",GSRI_fnc_heliSpawn,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar"), _x],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction);
+		_actionList pushBack ([format["action_%1", _display],_display,"",GSRI_fnc_heliSpawn,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar"), _x],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction);
 	};
 } forEach _types;
 
