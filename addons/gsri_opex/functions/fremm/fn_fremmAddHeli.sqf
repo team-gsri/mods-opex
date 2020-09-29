@@ -11,10 +11,9 @@ if(isServer) then {
 	};
 	_ship setVariable ["GSRI_FREMM_leshLoaded", _leshLoaded];
 
-	// Adding fuel pomp
-	private _fuel = "Land_FuelStation_01_pump_malevil_F" createVehicle [0,0,0];
-	_fuel attachTo [_ship, [9.63,40.13,10.15]];
-	_fuel setDir 90;
+	private _fuelpump = "Land_FuelStation_01_pump_malevil_F" createVehicle [0,0,0];
+	_fuelpump attachTo [_ship, [9.63,40.13,10.15]];
+	_fuelpump setDir 90;
 
 	private _types = getArray (configFile >> "GSRI_FREMM_Templates" >> (_ship getVariable "GSRI_FREMM_selectTemplate") >> "AvailableHelis" >> "list");
 	{
@@ -29,9 +28,6 @@ if(isServer) then {
 
 // Clientside-only : basically ACE actions
 if!(isDedicated) then {
-	// Actions handle spawn
-	private _handle = ((_ship getVariable "GSRI_FREMM_screens") select 0);
-
 	// Heli actions
 	private _actionList = [];
 	{
@@ -121,6 +117,7 @@ if!(isDedicated) then {
 	};
 
 	// Finally adding all generated actions
+	private _handle = [_ship, "Display_11"] call GSRI_fnc_screenGetById;
 	private _heliMain = ["actionHeliMain",localize "STR_GSRI_FREMM_heliMain","",{},{true},{},[],[0,0,-0.3]] call ace_interact_menu_fnc_createAction;
 	[_handle, 0, [], _heliMain] call ace_interact_menu_fnc_addActionToObject;
 	{
