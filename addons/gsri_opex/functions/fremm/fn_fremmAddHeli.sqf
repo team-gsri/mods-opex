@@ -1,5 +1,7 @@
 params["_ship"];
 
+[_ship] call GSRI_fnc_heliAddFuelPump;
+
 // Server-side, executed BEFORE clientCanLoad
 if(isServer) then {
 	private _leshLoaded = isClass (configFile >> "CfgPatches" >> "rksla3_aircraft_tug");
@@ -10,10 +12,6 @@ if(isServer) then {
 		_ship setVariable ["GSRI_FREMM_tug", _tug, true];
 	};
 	_ship setVariable ["GSRI_FREMM_leshLoaded", _leshLoaded];
-
-	private _fuelpump = "Land_FuelStation_01_pump_malevil_F" createVehicle [0,0,0];
-	_fuelpump attachTo [_ship, [9.63,40.13,10.15]];
-	_fuelpump setDir 90;
 
 	private _types = getArray (configFile >> "GSRI_FREMM_Templates" >> (_ship getVariable "GSRI_FREMM_selectTemplate") >> "AvailableHelis" >> "list");
 	{
