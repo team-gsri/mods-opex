@@ -1,9 +1,7 @@
 params["_ship"];
 
-[_ship] call GSRI_fnc_heliAddFuelPump;
-[_ship] call GSRI_fnc_heliAddDeckTractor;
-
-// Server-side, executed BEFORE clientCanLoad
+// Server-side spawning of required helipads and useful data
+// This executed BEFORE clientCanLoad
 if(isServer) then {
 	private _types = getArray (configFile >> "GSRI_FREMM_Templates" >> (_ship getVariable "GSRI_FREMM_selectTemplate") >> "AvailableHelis" >> "list");
 	{
@@ -16,7 +14,7 @@ if(isServer) then {
 	} forEach [["GSRI_FREMM_hangar", [0,44,8.81]], ["GSRI_FREMM_deck", [0.08,75,8.76]]];
 };
 
-// Clientside-only : basically ACE actions
+// Clientside-only : basically ACE actions, AFTER clientCanLoad
 if!(isDedicated) then {
 	// Heli actions
 	private _actionList = [];
@@ -68,44 +66,6 @@ if!(isDedicated) then {
 	};
 	_actionList pushBack (["actionFRIES",localize "STR_GSRI_FREMM_heliEquipFRIES","",GSRI_fnc_heliEquipFRIES,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")]] call ace_interact_menu_fnc_createAction);
 
-	if!(_ship getVariable "GSRI_FREMM_leshLoaded") then {
-		// Place helicopter on rear deck
-		private _condition = {
-			// params["_target", "_player", "_args"];
-			params["", "", "_args"];
-			_args params ["_ship"];
-			// Return true if there is a heli in hangar and if there is no heli on deck
-			!(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and (isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
-		};
-		private _statement = {
-			// params["_target", "_player", "_args"];
-			params["", "", "_args"];
-			_args params ["_ship"];
-			private _heli = [(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent;
-			["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
-			_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_deck");
-		};
-		_actionList pushBack (["actionDeck",localize "STR_GSRI_FREMM_heliToDeck","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction);
-		
-		// Place helicopter in hangar
-		private _condition = {
-			// params["_target", "_player", "_args"];
-			params["", "", "_args"];
-			_args params ["_ship"];
-			// Return true if there is no heli in hangar and if there is a heli on deck
-			(isNull ([(_ship getVariable "GSRI_FREMM_hangar")] call GSRI_fnc_heliRetrieveCurrent)) and !(isNull ([(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent))
-		};
-		private _statement = {
-			// params["_target", "_player", "_args"];
-			params["", "", "_args"];
-			_args params ["_ship"];
-			private _heli = [(_ship getVariable "GSRI_FREMM_deck")] call GSRI_fnc_heliRetrieveCurrent;
-			["HeliMoved", [getText (configFile >> "CfgVehicles" >> typeOf _heli >> "displayName")]] call BIS_fnc_showNotification;
-			_heli setPosASL getPosASL (_ship getVariable "GSRI_FREMM_hangar");
-		};
-		_actionList pushBack (["actionHangar",localize "STR_GSRI_FREMM_heliToHangar","",_statement,_condition,{},[_ship]] call ace_interact_menu_fnc_createAction);
-	};
-
 	// Finally adding all generated actions
 	private _handle = [_ship, "Display_11"] call GSRI_fnc_screenGetById;
 	private _heliMain = ["actionHeliMain",localize "STR_GSRI_FREMM_heliMain","",{},{true},{},[],[0,0,-0.3]] call ace_interact_menu_fnc_createAction;
@@ -114,3 +74,7 @@ if!(isDedicated) then {
 		[_handle, 0, ["actionHeliMain"], _x] call ace_interact_menu_fnc_addActionToObject;
 	} forEach _actionList;
 };
+
+// Useful complementary features
+[_ship] call GSRI_fnc_heliAddFuelPump;
+[_ship] call GSRI_fnc_heliAddDeckTractor;
