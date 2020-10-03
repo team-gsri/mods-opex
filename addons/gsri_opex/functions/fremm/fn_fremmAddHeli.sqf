@@ -56,16 +56,6 @@ if!(isDedicated) then {
 	};
 	_actionList pushBack (["actionClear","Supprimer","",GSRI_fnc_heliRemove,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")],"",2,[false, false, false, false, false], _modifier] call ace_interact_menu_fnc_createAction);
 
-	// FRIES mounting action
-	private _condition = {
-		// params ["_target", "_player", "_args"];
-		params ["", "", "_args"];
-		_args params ["_hangar"];
-		private _heli = [_hangar] call GSRI_fnc_heliRetrieveCurrent;
-		(isNumber (configFile >> "CfgVehicles" >> typeOf _heli >> "ace_fastroping_enabled") && isNull (_heli getVariable ["ace_fastroping_FRIES", objNull]));
-	};
-	_actionList pushBack (["actionFRIES",localize "STR_GSRI_FREMM_heliEquipFRIES","",GSRI_fnc_heliEquipFRIES,_condition,{},[(_ship getVariable "GSRI_FREMM_hangar")]] call ace_interact_menu_fnc_createAction);
-
 	// Finally adding all generated actions
 	private _handle = [_ship, "Display_11"] call GSRI_fnc_screenGetById;
 	private _heliMain = ["actionHeliMain",localize "STR_GSRI_FREMM_heliMain","",{},{true},{},[],[0,0,-0.3]] call ace_interact_menu_fnc_createAction;
@@ -78,3 +68,4 @@ if!(isDedicated) then {
 // Useful complementary features
 [_ship] call GSRI_fnc_heliAddFuelPump;
 [_ship] call GSRI_fnc_heliAddDeckTractor;
+[_ship] call GSRI_fnc_heliAddFRIES;

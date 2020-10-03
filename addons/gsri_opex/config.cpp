@@ -127,6 +127,7 @@ class CfgFunctions {
 			class heliEquipFRIES {};
 			class heliAddFuelPump {};
 			class heliAddDeckTractor {};
+			class heliAddFRIES {};
 		};
 		class sub {
 			file="gsri_opex\functions\sub";
