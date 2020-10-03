@@ -145,6 +145,7 @@ class CfgFunctions {
 		class crew {
 			file="gsri_opex\functions\crew";
 			class crewMoveToCabin {};
+			class crewAddProps {};
 		};
 		class screen {
 			file="gsri_opex\functions\screen";
