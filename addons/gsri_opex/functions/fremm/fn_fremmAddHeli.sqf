@@ -1,18 +1,10 @@
 params["_ship"];
 
 [_ship] call GSRI_fnc_heliAddFuelPump;
+[_ship] call GSRI_fnc_heliAddDeckTractor;
 
 // Server-side, executed BEFORE clientCanLoad
 if(isServer) then {
-	private _leshLoaded = isClass (configFile >> "CfgPatches" >> "rksla3_aircraft_tug");
-	if(_leshLoaded) then {
-		private _tug = createVehicle ["rksla3_aircraft_tug_blufor", ASLToATL (_ship modelToWorldWorld [7.45,47.77,8.81]), [], 0, "NONE"];
-		_tug setDir getDir _ship;
-		_tug animateSource ["option_cabin_hide_source", 0, true];
-		_ship setVariable ["GSRI_FREMM_tug", _tug, true];
-	};
-	_ship setVariable ["GSRI_FREMM_leshLoaded", _leshLoaded];
-
 	private _types = getArray (configFile >> "GSRI_FREMM_Templates" >> (_ship getVariable "GSRI_FREMM_selectTemplate") >> "AvailableHelis" >> "list");
 	{
 		private _helipad = "Land_HelipadEmpty_F" createVehicle [0,0,0];
