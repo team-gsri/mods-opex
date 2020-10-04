@@ -10,6 +10,7 @@ if(isServer) then {
 	_roomA call BIS_fnc_Destroyer01PosUpdate;
 	_ship setVariable ["GSRI_FREMM_CrewQuartersRoomA", _roomA, true];
 	[_roomA, "A"] call GSRI_fnc_crewAddProps;
+	[_roomA] call GSRI_fnc_crewAddChairs;
 
 	private _roomB = "SCMS_Destroyer_Interior" createVehicle [0,0,0];
 	private _pos = _roomA getRelPos [15, 270];
@@ -19,6 +20,7 @@ if(isServer) then {
 	_roomB call BIS_fnc_Destroyer01PosUpdate;
 	_ship setVariable ["GSRI_FREMM_CrewQuartersRoomB", _roomB, true];
 	[_roomB, "B"] call GSRI_fnc_crewAddProps;
+	[_roomB] call GSRI_fnc_crewAddChairs;
 
 	// Adding modded doors to the crew quarters
 	private _quartersDoorsA = [
