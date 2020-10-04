@@ -1,3 +1,9 @@
+[
+	"ace_stoodUp",
+	{params["_player", "_seat", "_seatPos"];
+	if(_seat getVariable ["isRestRoom", false]) then { _player setPosWorld (_seat modelToWorldWorld [-0.5,0,-0.4]) };
+}] call CBA_fnc_addEventHandler;
+
 if!(isServer) exitWith {};
 
 params["_room"];
@@ -27,4 +33,5 @@ private _chairs_data = [
 	private _chair = "SCMS_Chaise" createVehicle getPos _room;
 	_chair attachTo [_room, (_x select 0)];
 	_chair setDir (_x select 1);
+	_chair setVariable ["isRestRoom", true, true];
 } forEach _chairs_data;
