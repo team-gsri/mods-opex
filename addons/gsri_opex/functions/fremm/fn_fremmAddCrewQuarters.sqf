@@ -18,7 +18,7 @@ if(isServer) then {
 	_roomB setDir (getDir _ship + 90);
 	_roomB call BIS_fnc_Destroyer01PosUpdate;
 	_ship setVariable ["GSRI_FREMM_CrewQuartersRoomB", _roomB, true];
-	[_roomA, "B"] call GSRI_fnc_crewAddProps;
+	[_roomB, "B"] call GSRI_fnc_crewAddProps;
 
 	// Adding modded doors to the crew quarters
 	private _quartersDoorsA = [
