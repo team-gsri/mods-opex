@@ -3,12 +3,15 @@ params["_ship"];
 // Submarine and teleport handles spawn
 if(isServer) then {
 	// Spawn and place sub
-	private _sub = "Submarine_01_F" createVehicle [0,0,0];
-	_sub enableSimulation false;
+	private _engine = createVehicle ["B_SDV_01_F", (getPosWorld _ship^vectorAdd [100,100,0])];
+	private _sub = "Submarine_01_F" createVehicle getPosWorld _sub;
 	_ship setVariable ["GSRI_FREMM_submarine", _sub, true];
-	_sub setPosASL [(getPosASL _ship select 0) + 100, (getPosASL _ship select 1) + 100, (getPosASL _ship select 2)-10];
-	_sub setDir getDir _ship;
+	_engine setDir getDir _ship;
+	_sub attachTo [_engine, [0,0,0]];
+	_sub setDir 180;
 	_sub setVariable ["GSRI_FREMM_shipIndex", _ship getVariable "GSRI_FREMM_shipIndex"];
+	_sub setVariable ["GSRI_FREMM_engine", _engine];
+	_engine setVariable ["GSRI_FREMM_sub", _sub];
 
 	// Add map marker
 	private _mk = createMarker [format["marker_submarine_%1", _sub getVariable "GSRI_FREMM_shipIndex"], _sub];
