@@ -2,9 +2,8 @@ params["_ship"];
 
 // Submarine and teleport handles spawn
 if(isServer) then {
-	private ["_sub","_mk", "_crrcHandle", "_crrcSpawner"];
 	// Spawn and place sub
-	_sub = "Submarine_01_F" createVehicle [0,0,0];
+	private _sub = "Submarine_01_F" createVehicle [0,0,0];
 	_sub enableSimulation false;
 	_ship setVariable ["GSRI_FREMM_submarine", _sub, true];
 	_sub setPosASL [(getPosASL _ship select 0) + 100, (getPosASL _ship select 1) + 100, (getPosASL _ship select 2)-10];
@@ -12,16 +11,16 @@ if(isServer) then {
 	_sub setVariable ["GSRI_FREMM_shipIndex", _ship getVariable "GSRI_FREMM_shipIndex"];
 
 	// Add map marker
-	_mk = createMarker [format["marker_submarine_%1", _sub getVariable "GSRI_FREMM_shipIndex"], _sub];
+	private _mk = createMarker [format["marker_submarine_%1", _sub getVariable "GSRI_FREMM_shipIndex"], _sub];
 	_mk setMarkerType "flag_France";
 	_mk setMarkerText "S-625 Devigny";
 
 	// CRRC handle and spawner
-	_crrcSpawner = "Land_HelipadEmpty_F" createVehicle [0,0,0];
+	private _crrcSpawner = "Land_HelipadEmpty_F" createVehicle [0,0,0];
 	_crrcSpawner attachTo [_sub, [0,17.4,5]];
 	_sub setVariable ["GSRI_FREMM_sub_crrcSpawner", _crrcSpawner, true];
 
-	_crrcHandle = "Land_Battery_F" createVehicle [0,0,0];
+	private _crrcHandle = "Land_Battery_F" createVehicle [0,0,0];
 	_crrcHandle attachTo [_sub, [0,12,3.74]];
 	_sub setVariable ["GSRI_FREMM_sub_crrcHandle", _crrcHandle, true];
 	_crrcHandle setVariable ["GSRI_FREMM_associatedSpawner", _crrcSpawner];
