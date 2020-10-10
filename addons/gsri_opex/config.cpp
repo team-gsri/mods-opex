@@ -148,6 +148,12 @@ class CfgFunctions {
 			class parajumpInit {};
 			class parajumpLaunchPlane {};
 			class parajumpRemoveWaiting {};
+		class sub {
+			file="gsri_opex\functions\sub";
+			class subAddInterior {};
+			class subDeployCRRC {};
+			class subRetrieveCRRC {};
+			class subSelectPos {};
 		};
 		class preslots {
 			file="gsri_opex\functions\preslots";

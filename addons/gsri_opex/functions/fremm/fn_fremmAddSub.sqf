@@ -37,6 +37,10 @@ if(isServer) then {
 	_crrcHandle attachTo [_sub, [0,12,3.74]];
 	_sub setVariable ["GSRI_FREMM_sub_crrcHandle", _crrcHandle, true];
 	_crrcHandle setVariable ["GSRI_FREMM_associatedSpawner", _crrcSpawner];
+
+	private _subDoors = [["Land_SewerCover_02_F", "Trapdoor", [0,-2.96,3.2], [0,-2.96,3.1]]];
+	_sub setVariable ["GSRI_FREMM_moddedDoors", _subDoors, true];
+	[_sub] call GSRI_fnc_subAddInterior;
 };
 
 // Adding position selection eventHandler
