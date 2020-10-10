@@ -52,7 +52,7 @@ addMissionEventHandler ["Map", {
 	params ["_opened"];
 	// Detect if map is closed but do not check if the event is linked to this module
 	if!(_opened) then {
-		player setVariable ["GSRI_FREMM_submarine_token", false];
+		player setVariable ["GSRI_FREMM_engine", nil];
 		if!(player getVariable ["GSRI_FREMM_submarine_hadMap",true]) then { player unlinkItem "ItemMap"; player setVariable ["GSRI_FREMM_submarine_hadMap", nil] };
 	};
 }];
@@ -66,17 +66,13 @@ if!(isDedicated) then {
 
 	// Add actions with map selection
 	private _statement = {
+		params["_target", "_player", "_params"];
 		if!("ItemMap" in assignedItems player) then { player setVariable ["GSRI_FREMM_submarine_hadMap", false]; player linkItem "ItemMap" };
-		// Open the map
 		openMap true;
-
-		// Set the "submarine token" for the eventHandler to fire correctly
-		player setVariable ["GSRI_FREMM_submarine_token", true];
-
-		// Help notification
+		player setVariable ["GSRI_FREMM_engine", (_params select 0)];
 		["SubmarineInfo"] call BIS_fnc_showNotification;
 	};
-	private _actionSelectPos = ["submarineSelectPosition",localize "STR_GSRI_FREMM_submarine_selectPos","",_statement,{true}] call ace_interact_menu_fnc_createAction;
+	private _actionSelectPos = ["submarineSelectPosition",localize "STR_GSRI_FREMM_submarine_selectPos","",_statement,{true},{},[_ship getVariable "GSRI_FREMM_submarine" getVariable "GSRI_FREMM_engine"]] call ace_interact_menu_fnc_createAction;
 	[_com, 0, [], _actionSelectPos] call ace_interact_menu_fnc_addActionToObject;
 	
 	// Add CRRC deploy/retrieve actions
