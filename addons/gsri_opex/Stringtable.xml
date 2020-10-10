@@ -261,14 +261,6 @@
 			<Original>Select position for the submarine.</Original>
 			<French>Choisir une destination pour le sous-marin</French>
 		</Key>
-		<Key ID="STR_GSRI_FREMM_submarine_go_toSub">
-			<Original>Go to submarine</Original>
-			<French>Aller au sous-marin</French>
-		</Key>
-		<Key ID="STR_GSRI_FREMM_submarine_go_toShip">
-			<Original>Go to frigate</Original>
-			<French>Aller à la frégate</French>
-		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_deployCRRC">
 			<Original>Deploy CRRC</Original>
 			<French>Déployer CRRC</French>

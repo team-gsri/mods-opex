@@ -2,7 +2,7 @@ params["_ship"];
 
 // Submarine and teleport handles spawn
 if(isServer) then {
-	private ["_sub","_mk","_toSub","_toShip", "_crrcHandle", "_crrcSpawner"];
+	private ["_sub","_mk", "_crrcHandle", "_crrcSpawner"];
 	// Spawn and place sub
 	_sub = "Submarine_01_F" createVehicle [0,0,0];
 	_sub enableSimulation false;
@@ -15,18 +15,6 @@ if(isServer) then {
 	_mk = createMarker [format["marker_submarine_%1", _sub getVariable "GSRI_FREMM_shipIndex"], _sub];
 	_mk setMarkerType "flag_France";
 	_mk setMarkerText "S-625 Devigny";
-
-	// Create handle for TP to sub
-	_toSub = "Land_Battery_F" createVehicle [0,0,0];
-	_toSub enableSimulation false;
-	_toSub attachTo [_ship,[-2.21198,13.976,7.537]];
-	_ship setVariable ["GSRI_FREMM_submarine_toSub", _toSub, true];
-
-	// Handle for TP to ship
-	_toShip = "Land_Battery_F" createVehicle [0,0,0];
-	_toShip enableSimulation false;
-	_toShip attachTo [_ship getVariable "GSRI_FREMM_submarine", [0.0788574,-4.32037,3.1]];
-	_ship setVariable ["GSRI_FREMM_submarine_toShip", _toShip, true];
 
 	// CRRC handle and spawner
 	_crrcSpawner = "Land_HelipadEmpty_F" createVehicle [0,0,0];
@@ -78,20 +66,6 @@ if!(isDedicated) then {
 	};
 	private _actionSelectPos = ["submarineSelectPosition",localize "STR_GSRI_FREMM_submarine_selectPos","",_statement,{true}] call ace_interact_menu_fnc_createAction;
 	[_com, 0, [], _actionSelectPos] call ace_interact_menu_fnc_addActionToObject;
-
-	// Add teleport action
-	{
-		// Select the handle opposite to the one the player is interacting with
-		private _targetName = ["toSub", "toShip"] select (_x == "toSub");
-		private _statement = {
-			// params["_target", "_player", "_params"];
-			params["", "_player", "_params"];
-			_params params["_ship","_targetName"];
-			_player setPosASL getPosASL (_ship getVariable (format["GSRI_FREMM_submarine_%1", _targetName]));
-		};
-		private _actionGo = [format["action_%1",_x], localize format ["STR_GSRI_FREMM_submarine_go_%1", _x], "",_statement,{true},{},[_ship, _targetName]] call ace_interact_menu_fnc_createAction;
-		[(_ship getVariable format ["GSRI_FREMM_submarine_%1",_x]), 0, [], _actionGo] call ace_interact_menu_fnc_addActionToObject;
-	} forEach ["toSub", "toShip"];
 	
 	// Add CRRC deploy/retrieve actions
 	private _handle = (_ship getVariable "GSRI_FREMM_submarine") getVariable "GSRI_FREMM_sub_crrcHandle";
