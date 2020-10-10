@@ -14,7 +14,7 @@ if(isServer) then {
 	private _sub = "Submarine_01_F" createVehicle getPosWorld _engine;
 	_sub attachTo [_engine, [0,-15,-3.5]];
 	_sub allowDamage false;
-	_sub enableSimulation false; //sub simul is always off, whereas engine simul varies following commander's choice to move the sub or make it still.
+	_sub enableSimulationGlobal false; //sub simul is always off, whereas engine simul varies following commander's choice to move the sub or make it still.
 	_sub setDir 180;
 
 	// A few needed variables for action functions
