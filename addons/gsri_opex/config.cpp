@@ -153,7 +153,7 @@ class CfgFunctions {
 			class subAddInterior {};
 			class subDeployCRRC {};
 			class subRetrieveCRRC {};
-			class subSelectPos {};
+			class subStop {};
 		};
 		class preslots {
 			file="gsri_opex\functions\preslots";
