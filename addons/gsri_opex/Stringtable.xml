@@ -246,20 +246,20 @@
 
 	<Package name="FREMM_submarine">
 		<Key ID="STR_GSRI_FREMM_submarineOk">
-			<Original>Submarine has moved to the designated location (%1).</Original>
-			<French>Le sous-marin s'est déplacé aux coordonnées indiquées (%1).</French>
+			<Original>Submarine has moved to the designated location.</Original>
+			<French>Le sous-marin s'est déplacé aux coordonnées indiquées.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarineFail">
-			<Original>Submarine cannot go here.</Original>
-			<French>Le sous-marin ne peut pas se déplacer ici.</French>
+			<Original>Submarine cannot go here, 30m+ depth is required.</Original>
+			<French>Le sous-marin ne peut pas se déplacer ici, profondeur de 30m+ requise.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarineInfo">
-			<Original>Left-click to move, shift+click to move in surface.</Original>
-			<French>Clic-gauche pour déplacer, maj+clic pour déplacer à la surface.</French>
+			<Original>Left-click to fast-move the submarine, 30m+ depth is required.</Original>
+			<French>Clic-gauche pour déplacement rapide, profondeur de 30m+ requise.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_selectPos">
-			<Original>Select position for the submarine.</Original>
-			<French>Choisir une destination pour le sous-marin</French>
+			<Original>Fast-move for the submarine.</Original>
+			<French>Déplacement rapide du sous-marin</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_deployCRRC">
 			<Original>Deploy CRRC</Original>

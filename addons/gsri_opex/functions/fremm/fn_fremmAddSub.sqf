@@ -2,15 +2,23 @@ params["_ship"];
 
 // Submarine and teleport handles spawn
 if(isServer) then {
-	// Spawn and place sub
+	// Engine is the SDV which serve as a moving target object for the submarine
 	private _engine = createVehicle ["B_SDV_01_F", (getPosWorld _ship vectorAdd [100,100,0])];
 	createVehicleCrew _engine;
-	private _sub = "Submarine_01_F" createVehicle getPosWorld _engine;
-	_ship setVariable ["GSRI_FREMM_submarine", _sub, true];
 	_engine setDir (getDir _ship + 180);
-	_engine animateSource ["periscope", 1];
-	_sub attachTo [_engine, [0,0,-2]];
+	_engine allowDamage false;
+	driver _engine allowDamage false;
+	driver _engine disableAI "ALL";
+
+	// Sub is the submarine's skin and model, and also (for convenience) the attaching reference of action handles and stuff like that
+	private _sub = "Submarine_01_F" createVehicle getPosWorld _engine;
+	_sub attachTo [_engine, [0,-15,-3.5]];
+	_sub allowDamage false;
+	_sub enableSimulation false; //sub simul is always off, whereas engine simul varies following commander's choice to move the sub or make it still.
 	_sub setDir 180;
+
+	// A few needed variables for action functions
+	_ship setVariable ["GSRI_FREMM_submarine", _sub, true];
 	_sub setVariable ["GSRI_FREMM_shipIndex", _ship getVariable "GSRI_FREMM_shipIndex"];
 	_sub setVariable ["GSRI_FREMM_engine", _engine];
 	_engine setVariable ["GSRI_FREMM_sub", _sub];
