@@ -2,7 +2,7 @@ params["_sub"];
 
 if(isServer) then {
 	private _shipIndex = _sub getVariable "GSRI_FREMM_shipIndex";
-	private _inside = createVehicle ["Land_Carrier_01_island_02_F", ASLToATL [25, (_shipIndex*100), 10]];
+	private _inside = createVehicle ["Land_Carrier_01_island_02_F", ASLToATL [75, (_shipIndex*50), 10]];
 	_inside setVectorUp [0,0,1];
 	_sub setVariable ["GSRI_FREMM_sub_interior", _inside, true];
 
