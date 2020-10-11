@@ -71,4 +71,9 @@ if(isServer) then {
 if!(isDedicated) then {
 	private _corridors = [ [[_sub getVariable "GSRI_FREMM_sub_interior", "Trapdoor"],[_sub, "Trapdoor"]] ];
 	{ [_x] call GSRI_fnc_doorConnect } forEach _corridors;
+
+	private _com = "Land_Tablet_02_black_F" createVehicle getPos _sub;
+	_com attachTo [_sub getVariable "GSRI_FREMM_sub_interior", [3.81714,-0.507,0.14]];
+	_com setVectorDirAndUp [[0,0,-1],[1,0,0]];
+	[_sub, _com] call GSRI_fnc_subAddControls;
 };
