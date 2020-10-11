@@ -150,6 +150,7 @@ class CfgFunctions {
 			class parajumpRemoveWaiting {};
 		class sub {
 			file="gsri_opex\functions\sub";
+			class subAddControls {};
 			class subAddInterior {};
 			class subDeployCRRC {};
 			class subRetrieveCRRC {};

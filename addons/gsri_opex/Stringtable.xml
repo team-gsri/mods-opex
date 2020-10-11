@@ -257,9 +257,21 @@
 			<Original>Left-click to fast-move the submarine, 30m+ depth is required.</Original>
 			<French>Clic-gauche pour déplacement rapide, profondeur de 30m+ requise.</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_submarine_control">
+			<Original>Submarine controls</Original>
+			<French>Contrôles du sous-marin</French>
+		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_selectPos">
-			<Original>Fast-move for the submarine.</Original>
-			<French>Déplacement rapide du sous-marin</French>
+			<Original>Select fast-travel destination</Original>
+			<French>Choisir une destination pour le voyage rapide</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_submarine_doStop">
+			<Original>Full stop</Original>
+			<French>Arrêt complet</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_submarine_doMove">
+			<Original>Engine start</Original>
+			<French>Démarrage moteur</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_deployCRRC">
 			<Original>Deploy CRRC</Original>

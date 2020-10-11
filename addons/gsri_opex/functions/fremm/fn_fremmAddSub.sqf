@@ -60,24 +60,15 @@ addMissionEventHandler ["Map", {
 
 // Clientside jobs
 if!(isDedicated) then {
+	private _sub = _ship getVariable "GSRI_FREMM_submarine";
 	// Create handle for sub movement
 	private _com = "Land_Battery_F" createVehicleLocal [0,0,0];
 	_com enableSimulation false;
-	_com attachTo [_ship, [-2.94995,-34.0001,20.6]];
-
-	// Add actions with map selection
-	private _statement = {
-		params["_target", "_player", "_params"];
-		if!("ItemMap" in assignedItems player) then { player setVariable ["GSRI_FREMM_submarine_hadMap", false]; player linkItem "ItemMap" };
-		openMap true;
-		player setVariable ["GSRI_FREMM_engine", (_params select 0)];
-		["SubmarineInfo"] call BIS_fnc_showNotification;
-	};
-	private _actionSelectPos = ["submarineSelectPosition",localize "STR_GSRI_FREMM_submarine_selectPos","",_statement,{true},{},[_ship getVariable "GSRI_FREMM_submarine" getVariable "GSRI_FREMM_engine"]] call ace_interact_menu_fnc_createAction;
-	[_com, 0, [], _actionSelectPos] call ace_interact_menu_fnc_addActionToObject;
+	_com attachTo [_ship, [-2.94995,-34,20.6]];
+	[_sub, _com] call GSRI_fnc_subAddControls;
 	
 	// Add CRRC deploy/retrieve actions
-	private _handle = (_ship getVariable "GSRI_FREMM_submarine") getVariable "GSRI_FREMM_sub_crrcHandle";
+	private _handle = _sub getVariable "GSRI_FREMM_sub_crrcHandle";
 	private _crrcActions = [
 		["actionCRRC","CRRC",{},[]],
 		["actionCRRCSpawn",localize "STR_GSRI_FREMM_submarine_deployCRRC",GSRI_fnc_subDeployCRRC,["actionCRRC"]],
