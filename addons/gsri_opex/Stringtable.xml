@@ -120,6 +120,9 @@
 		<Key ID="STR_GSRI_FREMM_hasParajump_tooltip">
 			<Original>Add a parajump feature allowing players to deploy basically anywhere.</Original>
 			<French>Ajoute une solution de saut en parachute permettant un déploiement n'importe où.</French>
+		<Key ID="STR_GSRI_FREMM_navalGroup">
+			<Original>Naval detachment %1</Original>
+			<French>Détachement naval %1</French>
 		</Key>
 	</Package>
 	

@@ -43,9 +43,22 @@ if(isServer) then {
 	([_ship, 'Land_Destroyer_01_hull_05_F'] call bis_fnc_destroyer01GetShipPart) setObjectTextureGlobal [0, (_ship getVariable "GSRI_FREMM_nameplate")];
 
 	// Add map marker
-	private _mk = createMarker [format["marker_destroyer_%1", _ship getVariable "GSRI_FREMM_shipIndex"], _ship];
-	_mk setMarkerType "flag_France";
-	_mk setMarkerText (_ship getVariable "GSRI_FREMM_fullname");
+	private _fullname = _ship getVariable ["GSRI_FREMM_fullname", ""];
+	private _index = _ship getVariable "GSRI_FREMM_shipIndex";
+	[
+		west,
+		format["taskDestroyer%1_root", _index],
+		[format [localize "STR_GSRI_FREMM_navalGroup", _fullname], format [localize "STR_GSRI_FREMM_navalGroup", _fullname], ""],
+		objNull,
+		"CREATED", -1, false, "defend"
+	] call BIS_fnc_taskCreate;
+	[
+		west,
+		[format["taskDestroyer%1", _index], format["taskDestroyer%1_root", _index]],
+		[_fullname, _fullname, ""],
+		[_ship, true],
+		"CREATED", -1, false, "boat"
+	] call BIS_fnc_taskCreate;
 
 	// Signs array
 	private _signs = [
@@ -65,7 +78,7 @@ if(isServer) then {
 	} forEach _signs;
 
 	// Add Apex respawn position
-    [west, _ship modelToWorldWorld [1.31018,-1.11719,7.27226], _ship getVariable ["GSRI_FREMM_fullname",""]] call BIS_fnc_addRespawnPosition;
+    [west, _ship modelToWorldWorld [1.31018,-1.11719,7.27226], _fullname] call BIS_fnc_addRespawnPosition;
 };
 
 diag_log "initFremm finished.";

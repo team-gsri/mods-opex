@@ -24,9 +24,13 @@ if(isServer) then {
 	_engine setVariable ["GSRI_FREMM_sub", _sub];
 
 	// Add map marker
-	private _mk = createMarker [format["marker_submarine_%1", _sub getVariable "GSRI_FREMM_shipIndex"], _sub];
-	_mk setMarkerType "flag_France";
-	_mk setMarkerText "S-625 Devigny";
+	[
+		west,
+		[format["taskSubmarine%1", _ship getVariable "GSRI_FREMM_shipIndex"], format["taskDestroyer%1_root", _ship getVariable "GSRI_FREMM_shipIndex"]],
+		["S-625 Devigny", "S-625 Devigny", ""],
+		[_engine, true],
+		"CREATED", -1, false, "boat"
+	] call BIS_fnc_taskCreate;
 
 	// CRRC handle and spawner
 	private _crrcSpawner = "Land_HelipadEmpty_F" createVehicle [0,0,0];
