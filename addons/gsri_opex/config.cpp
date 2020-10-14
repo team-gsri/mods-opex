@@ -140,6 +140,12 @@ class CfgFunctions {
 			class heliRetrieveCurrent {};
 			class heliSpawn {};
 		};
+		class parajump {
+			class jumpAddWaiting {};
+			class jumpInit {};
+			class jumpLaunchPlane {};
+			class jumpRemoveWaiting {};
+		};
 		class preslots {
 			file="gsri_opex\functions\preslots";
 			class getDiver {};
