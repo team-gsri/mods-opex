@@ -143,10 +143,11 @@ class CfgFunctions {
 			class heliSpawn {};
 		};
 		class parajump {
-			class jumpAddWaiting {};
-			class jumpInit {};
-			class jumpLaunchPlane {};
-			class jumpRemoveWaiting {};
+			file="gsri_opex\functions\parajump";
+			class parajumpAddWaiting {};
+			class parajumpInit {};
+			class parajumpLaunchPlane {};
+			class parajumpRemoveWaiting {};
 		};
 		class preslots {
 			file="gsri_opex\functions\preslots";
