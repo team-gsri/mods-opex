@@ -10,11 +10,11 @@ if(isServer) then {
 if!(isDedicated) then {
 	private _handle = _ship getVariable "GSRI_FREMM_parajump_handle";
 
-	private _mainAction = ["actionParaMain","Para","",{},{true}] call ace_interact_menu_fnc_createAction;
-	private _initAction = ["actionParaInit","Init","",GSRI_fnc_parajumpInit,{true}] call ace_interact_menu_fnc_createAction;
-	private _addWaitingAction = ["actionParaAddWaiting","Add waiting","",GSRI_fnc_parajumpAddWaiting,{true}] call ace_interact_menu_fnc_createAction;
-	private _removeWaitingAction = ["actionParaRemoveWaiting","Remove waiting","",GSRI_fnc_parajumpRemoveWaiting,{true}] call ace_interact_menu_fnc_createAction;
-	private _launchPlaneAction = ["actionParaLaunchPlane","Launch plane","",GSRI_fnc_parajumpLaunchPlane,{true}] call ace_interact_menu_fnc_createAction;
+	private _mainAction = ["actionParaMain",localize "STR_GSRI_FREMM_parajump","",{},{true}] call ace_interact_menu_fnc_createAction;
+	private _initAction = ["actionParaInit",localize "STR_GSRI_FREMM_parajump_init","",GSRI_fnc_parajumpInit,{true}] call ace_interact_menu_fnc_createAction;
+	private _addWaitingAction = ["actionParaAddWaiting",localize "STR_GSRI_FREMM_parajump_addWaiting","",GSRI_fnc_parajumpAddWaiting,{true}] call ace_interact_menu_fnc_createAction;
+	private _removeWaitingAction = ["actionParaRemoveWaiting",localize "STR_GSRI_FREMM_parajump_removeWaiting","",GSRI_fnc_parajumpRemoveWaiting,{true}] call ace_interact_menu_fnc_createAction;
+	private _launchPlaneAction = ["actionParaLaunchPlane",localize "STR_GSRI_FREMM_parajump_launchPlane","",GSRI_fnc_parajumpLaunchPlane,{true}] call ace_interact_menu_fnc_createAction;
 
 	[_handle, 0, [], _mainAction] call ace_interact_menu_fnc_addActionToObject;
 	[_handle, 0, ["actionParaMain"], _initAction] call ace_interact_menu_fnc_addActionToObject;

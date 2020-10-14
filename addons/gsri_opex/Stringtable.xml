@@ -285,6 +285,29 @@
 			<French>Franchir cette porte</French>
 		</Key>
 	</Package>
+
+	<Package name="FREMM_parajump">
+		<Key ID="STR_GSRI_FREMM_parajump">
+			<Original>Parajump</Original>
+			<French>Parachutage</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_parajump_init">
+			<Original>Set the plane's course</Original>
+			<French>Définir l'itinéraire de l'avion</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_parajump_addWaiting">
+			<Original>Add self to the waitlist</Original>
+			<French>S'inscrire en liste d'attente</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_parajump_removeWaiting">
+			<Original>Remove self from the waitlist</Original>
+			<French>Se désinscrire de la liste d'attente</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_parajump_launchPlane">
+			<Original>Launch the plane</Original>
+			<French>Lancer l'avion</French>
+		</Key>
+	</Package>
 	
 	<Package name="GSRI_heli_notifications">
 		<Key ID="STR_GSRI_FREMM_heliInfo">
