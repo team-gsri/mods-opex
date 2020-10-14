@@ -113,6 +113,14 @@
 			<Original>Add a briefing room in the ship.</Original>
 			<French>Ajoute une salle de briefing sur le navire.</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_hasParajump">
+			<Original>Parajump</Original>
+			<French>Parachutage</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasParajump_tooltip">
+			<Original>Add a parajump feature allowing players to deploy basically anywhere.</Original>
+			<French>Ajoute une solution de saut en parachute permettant un déploiement n'importe où.</French>
+		</Key>
 	</Package>
 	
 	<Package name="FREMM_Arsenal">
