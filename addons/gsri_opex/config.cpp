@@ -94,72 +94,72 @@ class GSRI_FREMM_Templates {
 
 class CfgFunctions {
 	class GSRI {
+		class bays {
+			file="gsri_opex\functions\bays";
+			class bayDoorControl {};
+			class bayParseList {};
+			class bayReplace {};
+		};
 		class core {
 			file="gsri_opex\functions\core";
 			class initMission { postInit = 1 };
 			class initSettings {};
 		};
+		class crew {
+			file="gsri_opex\functions\crew";
+			class crewAddChairs {};
+			class crewAddProps {};
+			class crewMoveToCabin {};
+		};
+		class door {
+			file="gsri_opex\functions\door";
+			class doorConnect {};
+			class doorGetById {};
+		};
 		class fremm {
 			file="gsri_opex\functions\fremm";
-			class initFremm {};
-			class fremmAddWeapons {};
 			class fremmAddArsenal {};
-			class fremmAddBridge {};
 			class fremmAddBoatBays {};
-			class fremmAddHeli {};
-			class fremmAddSub {};
-			class fremmAddScreens {};
-			class fremmAddCrewQuarters {};
+			class fremmAddBridge {};
 			class fremmAddBriefingRoom {};
-		};
-		class bays {
-			file="gsri_opex\functions\bays";
-			class bayReplace {};
-			class bayDoorControl {};
-			class bayParseList {};
+			class fremmAddCrewQuarters {};
+			class fremmAddHeli {};
+			class fremmAddScreens {};
+			class fremmAddSub {};
+			class fremmAddWeapons {};
+			class initFremm {};
 		};
 		class heli {
 			file="gsri_opex\functions\heli";
-			class heliMinifyName {};
-			class heliRetrieveCurrent {};
-			class heliSpawn {};
-			class heliRemove {};
-			class heliEquipFRIES {};
-			class heliAddFuelPump {};
 			class heliAddDeckTractor {};
 			class heliAddFRIES {};
-		};
-		class sub {
-			file="gsri_opex\functions\sub";
-			class subSelectPos {};
-			class subDeployCRRC {};
-			class subRetrieveCRRC {};
+			class heliAddFuelPump {};
+			class heliEquipFRIES {};
+			class heliMinifyName {};
+			class heliRemove {};
+			class heliRetrieveCurrent {};
+			class heliSpawn {};
 		};
 		class preslots {
 			file="gsri_opex\functions\preslots";
-			class getSoldier {};
-			class getGrenadier {};
-			class getMedic {};
-			class getGunner {};
 			class getDiver {};
 			class getEmpty {};
+			class getGrenadier {};
+			class getGunner {};
+			class getMedic {};
+			class getSoldier {};
 			class setAsLocker {};
-		};
-		class crew {
-			file="gsri_opex\functions\crew";
-			class crewMoveToCabin {};
-			class crewAddProps {};
-			class crewAddChairs {};
 		};
 		class screen {
 			file="gsri_opex\functions\screen";
 			class screenGetById {};
 			class screenGetBySector {};
 		};
-		class door {
-			file="gsri_opex\functions\door";
-			class doorConnect {};
-			class doorGetById {};
+		class sub {
+			file="gsri_opex\functions\sub";
+			class subDeployCRRC {};
+			class subRetrieveCRRC {};
+			class subSelectPos {};
 		};
 	};
 };
