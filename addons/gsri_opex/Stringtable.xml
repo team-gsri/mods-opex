@@ -253,12 +253,12 @@
 			<French>Le sous-marin s'est déplacé aux coordonnées indiquées.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarineFail">
-			<Original>Submarine cannot go here, 30m+ depth is required.</Original>
-			<French>Le sous-marin ne peut pas se déplacer ici, profondeur de 30m+ requise.</French>
+			<Original>Submarine cannot go here, 30m depth or more is required.</Original>
+			<French>Le sous-marin ne peut pas se déplacer ici, profondeur de 30m ou plus requise.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarineInfo">
-			<Original>Left-click to fast-move the submarine, 30m+ depth is required.</Original>
-			<French>Clic-gauche pour déplacement rapide, profondeur de 30m+ requise.</French>
+			<Original>Left-click to fast-move the submarine, 30m depth or more is required.</Original>
+			<French>Clic-gauche pour déplacement rapide, profondeur de 30m ou plus requise.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_control">
 			<Original>Submarine controls</Original>
