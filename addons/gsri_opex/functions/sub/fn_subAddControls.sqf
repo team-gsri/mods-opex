@@ -6,7 +6,10 @@ private _rootAction = ["submarineControl",localize "STR_GSRI_FREMM_submarine_con
 // Sub's teleporter
 private _statement = {
 	params["_target", "_player", "_params"];
-	if!("ItemMap" in assignedItems player) then { player setVariable ["GSRI_FREMM_submarine_hadMap", false]; player linkItem "ItemMap" };
+	if!("ItemMap" in assignedItems player) then {
+		player setVariable ["GSRI_FREMM_submarine_hadMap", false];
+		player linkItem "ItemMap";
+	};
 	openMap true;
 	player setVariable ["GSRI_FREMM_engine", (_params select 0) getVariable "GSRI_FREMM_engine"];
 	["SubmarineInfo"] call BIS_fnc_showNotification;
