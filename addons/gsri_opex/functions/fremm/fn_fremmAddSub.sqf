@@ -56,10 +56,9 @@ addMissionEventHandler ["Map", {
 	// params ["_opened", "_forced"];
 	params ["_opened"];
 	// Detect if map is closed but do not check if the event is linked to this module
-	if!(_opened) then {
-		player setVariable ["GSRI_FREMM_engine", nil];
-		if!(player getVariable ["GSRI_FREMM_submarine_hadMap",true]) then { player unlinkItem "ItemMap"; player setVariable ["GSRI_FREMM_submarine_hadMap", nil] };
-	};
+	if!(_opened) exitWith {};
+	player setVariable ["GSRI_FREMM_engine", nil];
+	if!(player getVariable ["GSRI_FREMM_submarine_hadMap",true]) then { player unlinkItem "ItemMap"; player setVariable ["GSRI_FREMM_submarine_hadMap", nil] };
 }];
 
 // Clientside jobs
