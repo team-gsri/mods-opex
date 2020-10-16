@@ -45,19 +45,27 @@ if(isServer) then {
 	// Add map marker
 	private _fullname = _ship getVariable ["GSRI_FREMM_fullname", ""];
 	private _index = _ship getVariable "GSRI_FREMM_shipIndex";
+	private _navalGroupName = format [localize "STR_GSRI_FREMM_navalGroup", _fullname];
+	private _navalGroupTaskId = format["taskDestroyer%1_root", _index];
 	[
 		west,
-		format["taskDestroyer%1_root", _index],
-		[format [localize "STR_GSRI_FREMM_navalGroup", _fullname], format [localize "STR_GSRI_FREMM_navalGroup", _fullname], ""],
+		_navalGroupTaskId,
+		[_navalGroupName, _navalGroupName, ""],
 		objNull,
-		"CREATED", -1, false, "defend"
+		"CREATED",
+		-1,
+		false,
+		"defend"
 	] call BIS_fnc_taskCreate;
 	[
 		west,
-		[format["taskDestroyer%1", _index], format["taskDestroyer%1_root", _index]],
+		[format["taskDestroyer%1", _index], _navalGroupTaskId],
 		[_fullname, _fullname, ""],
 		[_ship, true],
-		"CREATED", -1, false, "boat"
+		"CREATED",
+		-1,
+		false,
+		"boat"
 	] call BIS_fnc_taskCreate;
 
 	// Signs array
