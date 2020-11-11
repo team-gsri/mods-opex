@@ -10,7 +10,7 @@ if(isServer) then {
 		_helipad setDir 180;
 		_helipad setVariable ["GSRI_FREMM_heli_list", _types, true];
 		_helipad setVariable ["GSRI_FREMM_associatedShip", _ship, true];
-		_ship setVariable [_x select 0, _helipad];
+		_ship setVariable [_x select 0, _helipad, true];
 	} forEach [["GSRI_FREMM_hangar", [0,44,8.81]], ["GSRI_FREMM_deck", [0.08,75,8.76]]];
 };
 
