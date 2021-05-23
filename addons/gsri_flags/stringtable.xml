@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="gsri_flags">
+	<Package name="gsri_flags">
+		<Container name="Flag names">
+			<Key ID="STR_GSRI_FLAG_GSRI">
+				<English>Flag (GSRI)</English>
+				<French>Drapeau (GSRI)</French>				
+			</Key>
+			<Key ID="STR_GSRI_FLAG_FR">
+				<English>Flag (French)</English>
+				<French>Drapeau (Frnaçais)</French>				
+			</Key>
+		</Container>
+	</Package>
+</Project>
