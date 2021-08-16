@@ -3,125 +3,157 @@
 	<Package name="GSRI-Opex_Settings">
 		<Key ID="STR_GRSI_FREMM_selectTemplate">
 			<Original>Select template</Original>
+			<English>Select template</English>
 			<French>Sélectionner un template</French>
 		</Key>
 		<Key ID="STR_GRSI_FREMM_selectTemplate_tooltip">
 			<Original>Templates are configured from CBA addons settings menu</Original>
+			<English>Templates are configured from CBA addons settings menu</English>
 			<French>Les templates sont configurés via le menu de configuration des addons CBA</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_fullname">
 			<Original>Full name</Original>
+			<English>Full name</English>
 			<French>Nom complet</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_fullname_tooltip">
 			<Original>Used by the corresponding map marker</Original>
+			<English>Used by the corresponding map marker</English>
 			<French>Utilisé pour nommer le marqueur sur carte</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_identifier">
 			<Original>Identifier</Original>
+			<English>Identifier</English>
 			<French>Immatriculation</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_identifier_tooltip">
 			<Original>Displayed on the ship's hull</Original>
+			<English>Displayed on the ship's hull</English>
 			<French>Affiché sur la coque du navire</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_name">
 			<Original>Short name</Original>
+			<English>Short name</English>
 			<French>Nom court</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_name_tooltip">
 			<Original>Name without identifier</Original>
+			<English>Name without identifier</English>
 			<French>Nom sans immatriculation</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_flag">
 			<Original>Flag's texture path</Original>
+			<English>Flag's texture path</English>
 			<French>Texture du drapeau</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_flag_tooltip">
 			<Original>Hanging on the ship's flight deck</Original>
+			<English>Hanging on the ship's flight deck</English>
 			<French>Flottant sur le pont d'envol du navire</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_nameplate">
 			<Original>Nameplate's texture path</Original>
+			<English>Nameplate's texture path</English>
 			<French>Texture de la plaque nominative</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_nameplate_tooltip">
 			<Original>Displayed on the ship's stern</Original>
+			<English>Displayed on the ship's stern</English>
 			<French>Visible à la poupe du navire</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasWeapons">
 			<Original>Armament</Original>
+			<English>Armament</English>
 			<French>Armement</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasWeapons_tooltip">
 			<Original>Add heavy weapons to the ship</Original>
+			<English>Add heavy weapons to the ship</English>
 			<French>Ajoute des armes lourdes au navire</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasArsenal">
 			<Original>Arsenal</Original>
+			<English>Arsenal</English>
 			<French>Arsenal</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasArsenal_tooltip">
 			<Original>Add arsenal on ship's lockers</Original>
+			<English>Add arsenal on ship's lockers</English>
 			<French>Ajoute un arsenal aux casiers du navire</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasBridge">
 			<Original>Bridge crew</Original>
+			<English>Bridge crew</English>
 			<French>Personnel navigant</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasBridge_tooltip">
 			<Original>Add AI crew on the bridge</Original>
+			<English>Add AI crew on the bridge</English>
 			<French>Ajoute un équipage sur la passerelle</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasBoatBays">
 			<Original>Boat bays</Original>
+			<English>Boat bays</English>
 			<French>Baies latérales</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasBoatBays_tooltip">
 			<Original>Add working boat bays on ship's sides</Original>
+			<English>Add working boat bays on ship's sides</English>
 			<French>Ajoute des baies à embarcations fonctionnelles</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasHelicopter">
 			<Original>Helicopter</Original>
+			<English>Helicopter</English>
 			<French>Hélicoptère</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasHelicopter_tooltip">
 			<Original>Add a selectable helicopter to the ship's hangar</Original>
+			<English>Add a selectable helicopter to the ship's hangar</English>
 			<French>Ajoute un hélicoptère sélectionnable dans le hangar</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasSubmarine">
 			<Original>Submarine</Original>
+			<English>Submarine</English>
 			<French>Sous-marin</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasSubmarine_tooltip">
 			<Original>Add an escort submarine to the ship</Original>
+			<English>Add an escort submarine to the ship</English>
 			<French>Ajoute un sous-marin d'escorte</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasCrewQuarters">
 			<Original>Crew quarters</Original>
+			<English>Crew quarters</English>
 			<French>Quartiers d'équipe</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasCrewQuarters_tooltip">
 			<Original>Add crew quarters as a spawn location in the ship.</Original>
+			<English>Add crew quarters as a spawn location in the ship.</English>
 			<French>Ajoute des quartiers d'équipages comme zone de spawn.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasBriefingRoom">
 			<Original>Briefing room</Original>
+			<English>Briefing room</English>
 			<French>Salle de briefing</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasBriefingRoom_tooltip">
 			<Original>Add a briefing room in the ship.</Original>
+			<English>Add a briefing room in the ship.</English>
 			<French>Ajoute une salle de briefing sur le navire.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasParajump">
 			<Original>Parajump</Original>
+			<English>Parajump</English>
 			<French>Parachutage</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_hasParajump_tooltip">
 			<Original>Add a parajump feature allowing players to deploy basically anywhere.</Original>
+			<English>Add a parajump feature allowing players to deploy basically anywhere.</English>
 			<French>Ajoute une solution de saut en parachute permettant un déploiement n'importe où.</French>
+		</Key>
 		<Key ID="STR_GSRI_FREMM_navalGroup">
 			<Original>Naval detachment %1</Original>
+			<English>Naval detachment %1</English>
 			<French>Détachement naval %1</French>
 		</Key>
 	</Package>
@@ -129,62 +161,77 @@
 	<Package name="FREMM_Arsenal">
 		<Key ID="STR_GSRI_FREMM_lockerMain">
 			<Original>Locker</Original>
+			<English>Locker</English>
 			<French>Casier</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_arsenalMain">
 			<Original>Arsenal</Original>
+			<English>Arsenal</English>
 			<French>Arsenal</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_preslotMain">
 			<Original>Preslots</Original>
+			<English>Preslots</English>
 			<French>Preslots</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_openArsenalBI">
 			<Original>Full BI arsenal</Original>
+			<English>Full BI arsenal</English>
 			<French>Arsenal BI complet</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_openArsenalACE">
 			<Original>Full ACE arsenal</Original>
+			<English>Full ACE arsenal</English>
 			<French>Arsenal ACE complet</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsRifleman">
 			<Original>Rifleman outfit</Original>
+			<English>Rifleman outfit</English>
 			<French>Tenue de fusilier</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsGunner">
 			<Original>Gunner outfit</Original>
+			<English>Gunner outfit</English>
 			<French>Tenue de mitrailleur</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsGrenadier">
 			<Original>Grenadier outfit</Original>
+			<English>Grenadier outfit</English>
 			<French>Tenue de grenadier</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsMedic">
 			<Original>Medic outfit</Original>
+			<English>Medic outfit</English>
 			<French>Tenue d'infirmier</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsDiver">
 			<Original>Diver outfit</Original>
+			<English>Diver outfit</English>
 			<French>Tenue de nageur de combat</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_gearAsEmpty">
 			<Original>Regular fatigues</Original>
+			<English>Regular fatigues</English>
 			<French>Tenue régulière</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_medicalMain">
 			<Original>Medical skills</Original>
+			<English>Medical skills</English>
 			<French>Compétences médicales</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_medicalNoMed">
 			<Original>Not trained</Original>
+			<English>Not trained</English>
 			<French>Non entraîné</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_medicalMedic">
 			<Original>Medic</Original>
+			<English>Medic</English>
 			<French>Infirmier</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_medicalDoctor">
 			<Original>Doctor</Original>
+			<English>Doctor</English>
 			<French>Médecin</French>
 		</Key>
 	</Package>
@@ -192,26 +239,32 @@
 	<Package name="FREMM_BoatBays">
 		<Key ID="STR_GSRI_FREMM_bayRoot">
 			<Original>Bay control</Original>
+			<English>Bay control</English>
 			<French>Contrôle de la baie</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_emptyBay">
 			<Original>Empty</Original>
+			<English>Empty</English>
 			<French>Vide</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_spawnInBay">
 			<Original>Equip bay with...</Original>
+			<English>Equip bay with...</English>
 			<French>Equiper la baie avec...</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_bayDoorControl">
 			<Original>Operate bay shield</Original>
+			<English>Operate bay shield</English>
 			<French>Actionner le bouclier</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_boatArmored">
 			<Original>Armored speedboat</Original>
+			<English>Armored speedboat</English>
 			<French>Hors-bord blindé</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_boat3CB">
 			<Original>Offshore Raiding Craft</Original>
+			<English>Offshore Raiding Craft</English>
 			<French>Offshore Raiding Craft</French>
 		</Key>
 	</Package>
@@ -219,30 +272,37 @@
 	<Package name="FREMM_Helicopter">
 		<Key ID="STR_GSRI_FREMM_heliMain">
 			<Original>Helicopters</Original>
+			<English>Helicopters</English>
 			<French>Hélicoptères</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_heliReplace">
 			<Original>Replace %1 by %2</Original>
+			<English>Replace %1 by %2</English>
 			<French>Remplacer %1 par %2</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_heliGet">
 			<Original>Request %2</Original>
+			<English>Request %2</English>
 			<French>Demander %2</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_heliRemove">
 			<Original>Remove %1</Original>
+			<English>Remove %1</English>
 			<French>Supprimer %1</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_heliEquipFRIES">
 			<Original>Equip FRIES</Original>
+			<English>Equip FRIES</English>
 			<French>Equiper FRIES</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_heliToDeck">
 			<Original>Move aircraft to flight deck</Original>
+			<English>Move aircraft to flight deck</English>
 			<French>Placer l'appareil sur le pont d'envol</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_heliToHangar">
 			<Original>Move aircraft to hangar</Original>
+			<English>Move aircraft to hangar</English>
 			<French>Placer l'appareil dans le hangar</French>
 		</Key>
 	</Package>
@@ -250,38 +310,47 @@
 	<Package name="FREMM_submarine">
 		<Key ID="STR_GSRI_FREMM_submarineOk">
 			<Original>Submarine has moved to the designated location.</Original>
+			<English>Submarine has moved to the designated location.</English>
 			<French>Le sous-marin s'est déplacé aux coordonnées indiquées.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarineFail">
 			<Original>Submarine cannot go here, 30m depth or more is required.</Original>
+			<English>Submarine cannot go here, 30m depth or more is required.</English>
 			<French>Le sous-marin ne peut pas se déplacer ici, profondeur de 30m ou plus requise.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarineInfo">
 			<Original>Left-click to fast-move the submarine, 30m depth or more is required.</Original>
+			<English>Left-click to fast-move the submarine, 30m depth or more is required.</English>
 			<French>Clic-gauche pour déplacement rapide, profondeur de 30m ou plus requise.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_control">
 			<Original>Submarine controls</Original>
+			<English>Submarine controls</English>
 			<French>Contrôles du sous-marin</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_selectPos">
 			<Original>Select fast-travel destination</Original>
+			<English>Select fast-travel destination</English>
 			<French>Choisir une destination pour le voyage rapide</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_doStop">
 			<Original>Full stop</Original>
+			<English>Full stop</English>
 			<French>Arrêt complet</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_doMove">
 			<Original>Engine start</Original>
+			<English>Engine start</English>
 			<French>Démarrage moteur</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_deployCRRC">
 			<Original>Deploy CRRC</Original>
+			<English>Deploy CRRC</English>
 			<French>Déployer CRRC</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_submarine_retrieveCRRC">
 			<Original>Retrieve closest CRRC</Original>
+			<English>Retrieve closest CRRC</English>
 			<French>Récupérer CRRC le plus proche</French>
 		</Key>
 	</Package>
@@ -289,6 +358,7 @@
 	<Package name="FREMM_crew">
 		<Key ID="STR_GSRI_FREMM_crewCrossDoor">
 			<Original>Cross this door</Original>
+			<English>Cross this door</English>
 			<French>Franchir cette porte</French>
 		</Key>
 	</Package>
@@ -296,22 +366,27 @@
 	<Package name="FREMM_parajump">
 		<Key ID="STR_GSRI_FREMM_parajump">
 			<Original>Parajump</Original>
+			<English>Parajump</English>
 			<French>Parachutage</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_parajump_init">
 			<Original>Set the plane's course</Original>
+			<English>Set the plane's course</English>
 			<French>Définir l'itinéraire de l'avion</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_parajump_addWaiting">
 			<Original>Add self to the waitlist</Original>
+			<English>Add self to the waitlist</English>
 			<French>S'inscrire en liste d'attente</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_parajump_removeWaiting">
 			<Original>Remove self from the waitlist</Original>
+			<English>Remove self from the waitlist</English>
 			<French>Se désinscrire de la liste d'attente</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_parajump_launchPlane">
 			<Original>Launch the plane</Original>
+			<English>Launch the plane</English>
 			<French>Lancer l'avion</French>
 		</Key>
 	</Package>
@@ -319,18 +394,22 @@
 	<Package name="GSRI_heli_notifications">
 		<Key ID="STR_GSRI_FREMM_heliInfo">
 			<Original>%1 is available in hangar.</Original>
+			<English>%1 is available in hangar.</English>
 			<French>%1 est disponible dans le hangar.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_heliDelete">
 			<Original>%1 has been deleted.</Original>
+			<English>%1 has been deleted.</English>
 			<French>%1 a été supprimé.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_heliMoved">
 			<Original>%1 has been moved.</Original>
+			<English>%1 has been moved.</English>
 			<French>%1 a été déplacé.</French>
 		</Key>
 		<Key ID="STR_GSRI_FREMM_heliFRIES">
 			<Original>%1 is now equipped with FRIES.</Original>
+			<English>%1 is now equipped with FRIES.</English>
 			<French>%1 a été équipé d'un FRIES.</French>
 		</Key>
 	</Package>
