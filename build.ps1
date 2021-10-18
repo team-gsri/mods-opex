@@ -7,7 +7,7 @@ Get-ChildItem .\addons -Directory | ForEach-Object {
   $pboPrefixFilename = "$addonFullPath\`$PBOPREFIX$"
   $includeFilename = "$addonFullPath\`$PBOINCLUDE$"
   $prefix = if(Test-Path $pboPrefixFilename) { "-prefix='$(Get-Content $pboPrefixFilename)'" }
-  $include = if(Test-Path $includeFilename) { "-include='$(Get-Content $includeFilename)'" }
+  $include = if(Test-Path $includeFilename) { "-include='$includeFilename'" }
 
   Write-Host
   Write-Host "--- Build addon ---"  
