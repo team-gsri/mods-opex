@@ -28,7 +28,12 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build addons
-      run: ./build.ps1
+      uses: team-gsri/actions-addon-builder@master
+      with:
+        target: addons
+        source: addons/gsri_opex
+        includes: '*.sqf;*.wss;*.paa;*.xml'
+        flags: -clear
 
     - name: Upload pbo files
       uses: actions/upload-artifact@v2
