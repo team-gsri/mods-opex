@@ -1,0 +1,61 @@
+name: release
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - addons/**
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout files
+      uses: actions/checkout@v2
+
+    - name: Lint sources
+      uses: jokoho48/sqflint@master
+      with:
+        args: --exit e --directory addons
+
+  build:
+    needs: lint
+    runs-on: self-hosted
+    steps:
+
+    - name: Checkout files
+      uses: actions/checkout@v2
+
+    - name: Build addons
+      uses: team-gsri/actions-addon-builder@master
+      with:
+        target: addons
+        source: addons/gsri_opex
+        includes: '*.sqf;*.wss;*.paa;*.xml'
+        flags: -clear
+
+    - name: Upload pbo files
+      uses: actions/upload-artifact@v2
+      with:
+        name: addons
+        path: addons/*.pbo
+      
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Download pbo files
+      uses: actions/download-artifact@v2
+      with:
+        name: addons
+        path: ./addons
+
+    - name: Create Github release
+      run: >
+        gh release create
+          "ver-${{ github.sha::7 }}"
+          --title "Version ${{ github.sha::7 }}"
+          --notes "${{ github.event.head_commit.message }}"
+          ./addons/*.pbo
