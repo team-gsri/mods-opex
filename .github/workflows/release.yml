@@ -3,8 +3,6 @@ name: release
 on:
   push:
     branches: [ master ]
-    paths:
-      - addons/**
 
 jobs:
   lint:
@@ -30,10 +28,10 @@ jobs:
     - name: Build addons
       uses: team-gsri/actions-addon-builder@master
       with:
-        target: addons
-        source: addons/gsri_opex
+        source: 'addons/gsri_opex'
+        target: 'addons'
         includes: '*.sqf;*.wss;*.paa;*.xml'
-        flags: -clear
+        flags: '-clear'
 
     - name: Upload pbo files
       uses: actions/upload-artifact@v2
@@ -53,9 +51,11 @@ jobs:
         path: ./addons
 
     - name: Create Github release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: >
-        gh release create
-          "ver-${{ github.sha::7 }}"
-          --title "Version ${{ github.sha::7 }}"
-          --notes "${{ github.event.head_commit.message }}"
-          ./addons/*.pbo
+        gh release create "ver-${GITHUB_SHA::7}"
+        --title "Version ${GITHUB_SHA::7}"
+        --notes "${{ github.event.head_commit.message }}"
+        --repo ${{ github.repository }}
+        ./addons/*.pbo
