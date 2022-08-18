@@ -1,8 +1,10 @@
 name: release
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
+    paths: ['addons/**']
 
 jobs:
   lint:
@@ -19,7 +21,7 @@ jobs:
 
   build:
     needs: lint
-    runs-on: self-hosted
+    runs-on: [self-hosted, arma-tools]
     steps:
 
     - name: Checkout files
