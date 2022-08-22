@@ -54,8 +54,8 @@ class GSRI_FREMM_Templates {
 			fullname="D-651 Normandie";
 			identifier="651";
 			name="Normandie";
-			flag="gsri_opex\images\flag_fr.paa";
-			nameplate="gsri_opex\images\normandie.paa";
+			flag="fr\gsri\opex\images\flag_fr.paa";
+			nameplate="fr\gsri\opex\images\normandie.paa";
 			hasWeapons=1;
 			hasArsenal=1;
 			hasBridge=1;
@@ -97,29 +97,29 @@ class GSRI_FREMM_Templates {
 class CfgFunctions {
 	class GSRI {
 		class bays {
-			file="gsri_opex\functions\bays";
+			file="fr\gsri\opex\functions\bays";
 			class bayDoorControl {};
 			class bayParseList {};
 			class bayReplace {};
 		};
 		class core {
-			file="gsri_opex\functions\core";
+			file="fr\gsri\opex\functions\core";
 			class initMission { postInit = 1 };
 			class initSettings {};
 		};
 		class crew {
-			file="gsri_opex\functions\crew";
+			file="fr\gsri\opex\functions\crew";
 			class crewAddChairs {};
 			class crewAddProps {};
 			class crewMoveToCabin {};
 		};
 		class door {
-			file="gsri_opex\functions\door";
+			file="fr\gsri\opex\functions\door";
 			class doorConnect {};
 			class doorGetById {};
 		};
 		class fremm {
-			file="gsri_opex\functions\fremm";
+			file="fr\gsri\opex\functions\fremm";
 			class fremmAddArsenal {};
 			class fremmAddBoatBays {};
 			class fremmAddBridge {};
@@ -133,7 +133,7 @@ class CfgFunctions {
 			class initFremm {};
 		};
 		class heli {
-			file="gsri_opex\functions\heli";
+			file="fr\gsri\opex\functions\heli";
 			class heliAddDeckTractor {};
 			class heliAddFRIES {};
 			class heliAddFuelPump {};
@@ -144,14 +144,14 @@ class CfgFunctions {
 			class heliSpawn {};
 		};
 		class parajump {
-			file="gsri_opex\functions\parajump";
+			file="fr\gsri\opex\functions\parajump";
 			class parajumpAddWaiting {};
 			class parajumpInit {};
 			class parajumpLaunchPlane {};
 			class parajumpRemoveWaiting {};
 		};
 		class preslots {
-			file="gsri_opex\functions\preslots";
+			file="fr\gsri\opex\functions\preslots";
 			class getDiver {};
 			class getEmpty {};
 			class getGrenadier {};
@@ -161,12 +161,12 @@ class CfgFunctions {
 			class setAsLocker {};
 		};
 		class screen {
-			file="gsri_opex\functions\screen";
+			file="fr\gsri\opex\functions\screen";
 			class screenGetById {};
 			class screenGetBySector {};
 		};
 		class sub {
-			file="gsri_opex\functions\sub";
+			file="fr\gsri\opex\functions\sub";
 			class subAddControls {};
 			class subAddInterior {};
 			class subDeployCRRC {};
