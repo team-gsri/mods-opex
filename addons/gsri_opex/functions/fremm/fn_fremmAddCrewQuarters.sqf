@@ -24,13 +24,13 @@ if(isServer) then {
 
 	// Adding modded doors to the crew quarters
 	private _quartersDoorsA = [
-		["Land_Battery_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343],0,true],
-		["Land_Battery_F", "Door2", [-5.42,-0.3727,0.620061], [-4.78034,-0.423262,-0.897619]]
+		["Sign_Sphere10cm_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343],0,true],
+		["Sign_Sphere10cm_F", "Door2", [-5.42,-0.3727,0.620061], [-4.78034,-0.423262,-0.897619]]
 	];
 	_roomA setVariable ["GSRI_FREMM_moddedDoors", _quartersDoorsA, true];
 	private _quartersDoorsB = [
-		["Land_Battery_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343]],
-		["Land_Battery_F", "Door2", [-5.42,-0.3727,0.620061], [-4.78034,-0.423262,-0.897619],0,true]
+		["Sign_Sphere10cm_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343]],
+		["Sign_Sphere10cm_F", "Door2", [-5.42,-0.3727,0.620061], [-4.78034,-0.423262,-0.897619],0,true]
 	];
 	_roomB setVariable ["GSRI_FREMM_moddedDoors", _quartersDoorsB, true];
 };

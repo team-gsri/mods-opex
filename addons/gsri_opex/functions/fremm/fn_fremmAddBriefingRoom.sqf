@@ -53,7 +53,7 @@ if(isServer) then {
 		["SCMS_Large_screen", [4.67773,1.0271,0.3], 180]
 	];
 	private _briefModdedDoors = [
-		["Land_Battery_F", "Door1", [0.895508,3.12,0.3], [0.837891,2.5752,-1.29856], 0, true]
+		["Sign_Sphere10cm_F", "Door1", [0.895508,3.12,0.3], [0.837891,2.5752,-1.29856], 0, true]
 	];
 	_briefing setVariable ["GSRI_FREMM_moddedDoors",_briefModdedDoors, true];
 };

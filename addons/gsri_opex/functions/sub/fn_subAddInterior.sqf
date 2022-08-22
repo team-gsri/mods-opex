@@ -63,7 +63,7 @@ if(isServer) then {
 	} forEach _props;
 
 	private _insideDoors = [
-		["Land_Battery_F", "Trapdoor", [4.85742,-4.23633,0.934311], [4.8999,-4.08594,-1.36511]]
+		["Sign_Sphere10cm_F", "Trapdoor", [4.85742,-4.23633,0.934311], [4.8999,-4.08594,-1.36511]]
 	];
 	_inside setVariable ["GSRI_FREMM_moddedDoors", _insideDoors, true];
 };

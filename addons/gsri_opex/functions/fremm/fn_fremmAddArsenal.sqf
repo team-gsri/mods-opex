@@ -9,7 +9,8 @@ private _start = [-2.42944,15.6,8.7];
 
 private _i = 0;
 for [{_i = 0}, {_i < 9}, {_i = _i+1}] do {
-	private _handle = "Land_Battery_F" createVehicleLocal [0,0,0];
+	private _handle = "Sign_Sphere10cm_F" createVehicleLocal [0,0,0];
+	_handle setObjectTexture [0, ""];
 	_handle enableSimulation false;
 	_handle attachTo [_ship, (_start vectorAdd [0,(0.61*_i),0])];
 	[_handle] call GSRI_fnc_setAsLocker;
