@@ -4,6 +4,7 @@ class CfgPatches {
 		requiredVersion=0.1;
 		requiredAddons[]={"A3_Boat_F_Destroyer", "cba_settings"};
 		author="www.gsri.team";
+		is3DENmod=1;
 	};
 };
 
