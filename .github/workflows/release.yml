@@ -32,8 +32,8 @@ jobs:
       with:
         source: 'addons/gsri_opex'
         target: 'addons'
-        includes: '*.sqf;*.wss;*.paa;*.xml'
-        flags: '-clear'
+        includes: '*.sqf;*.wss;*.paa;*.jpg;*.xml;*.ogg'
+        flags: '"-clear","-prefix=fr\gsri\opex"'
 
     - name: Upload pbo files
       uses: actions/upload-artifact@v2
