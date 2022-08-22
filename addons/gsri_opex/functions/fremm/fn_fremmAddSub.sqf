@@ -37,7 +37,8 @@ if(isServer) then {
 	_crrcSpawner attachTo [_sub, [0,17.4,5]];
 	_sub setVariable ["GSRI_FREMM_sub_crrcSpawner", _crrcSpawner, true];
 
-	private _crrcHandle = "Land_Battery_F" createVehicle [0,0,0];
+	private _crrcHandle = "Sign_Sphere10cm_F" createVehicle [0,0,0];
+	_crrcHandle setObjectTexture [0, ""];
 	_crrcHandle attachTo [_sub, [0,12,3.74]];
 	_sub setVariable ["GSRI_FREMM_sub_crrcHandle", _crrcHandle, true];
 	_crrcHandle setVariable ["GSRI_FREMM_associatedSpawner", _crrcSpawner];
@@ -68,7 +69,8 @@ addMissionEventHandler ["Map", {
 if!(isDedicated) then {
 	private _sub = _ship getVariable "GSRI_FREMM_submarine";
 	// Create handle for sub movement
-	private _com = "Land_Battery_F" createVehicleLocal [0,0,0];
+	private _com = "Sign_Sphere10cm_F" createVehicleLocal [0,0,0];
+	_com setObjectTexture [0, ""];
 	_com enableSimulation false;
 	_com attachTo [_ship, [-2.94995,-34,20.6]];
 	[_sub, _com] call GSRI_fnc_subAddControls;
