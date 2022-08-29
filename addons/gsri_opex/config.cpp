@@ -150,16 +150,6 @@ class CfgFunctions {
 			class parajumpLaunchPlane {};
 			class parajumpRemoveWaiting {};
 		};
-		class preslots {
-			file="fr\gsri\opex\functions\preslots";
-			class getDiver {};
-			class getEmpty {};
-			class getGrenadier {};
-			class getGunner {};
-			class getMedic {};
-			class getSoldier {};
-			class setAsLocker {};
-		};
 		class screen {
 			file="fr\gsri\opex\functions\screen";
 			class screenGetById {};
