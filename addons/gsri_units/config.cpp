@@ -138,3 +138,44 @@ class CfgVehicles {
         respawnMagazines[] = {mag_5("150Rnd_556x45_Drum_Mag_Tracer_F"), mag_4("SmokeShell"), mag_2("ACE_M84")};
     };
 };
+
+class CfgGroups {
+    class West {
+        class GSRI {
+            name = $STR_GSRI_faction;
+            class GSRI_Commandos {
+                name = $STR_GSRI_grouptype_commando;
+                class GSRI_Commandos_Delta {
+                    name = STR_GSRI_group_delta;
+                    faction = "GSRI";
+                    side = 1;
+                    icon = "\A3\ui_f\data\map\markers\nato\b_inf.paa";
+                    class Unit0 {
+                        side = 1;
+                        vehicle = "GSRI_Soldier_operator";
+                        rank = "SERGEANT";
+                        position[] = {0,0,0};
+                    };
+                    class Unit1 {
+                        side = 1;
+                        vehicle = "GSRI_Soldier_abl";
+                        rank = "SOLDIER";
+                        position[] = {-2,-2,0};
+                    };
+                    class Unit2 {
+                        side = 1;
+                        vehicle = "GSRI_Soldier_medic";
+                        rank = "SOLDIER";
+                        position[] = {2,-2,0};
+                    };
+                    class Unit3 {
+                        side = 1;
+                        vehicle = "GSRI_Soldier_tad";
+                        rank = "SOLDIER";
+                        position[] = {4,-4,0};
+                    };
+                };
+            };
+        };
+    };
+};
