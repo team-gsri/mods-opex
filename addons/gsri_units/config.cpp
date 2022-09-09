@@ -46,6 +46,37 @@ class CfgWeapons {
 };
 
 class CfgVehicles {
+    class GSRI_Kitbag;
+    class GSRI_backpack_medic : GSRI_Kitbag {
+        scope = 1;
+        class TransportItems {
+            class _xx_ACE_packingBandage {
+                name = "ACE_packingBandage";
+                count = 30;
+            };
+            class _xx_ACE_salineIV_500 {
+                name = "ACE_salineIV_500";
+                count = 15;
+            };
+            class _xx_ACE_morphine {
+                name = "ACE_morphine";
+                count = 10;
+            };
+            class _xx_ACE_epinephrine {
+                name = "ACE_epinephrine";
+                count = 10;
+            };
+            class _xx_ACE_splint {
+                name = "ACE_splint";
+                count = 10;
+            };
+            class _xx_ACE_surgicalKit {
+                name = "ACE_surgicalKit";
+                count = 1;
+            };
+        };
+    };
+
     class B_Soldier_F;
     class GSRI_Soldier_base : B_Soldier_F {
         faction = "GSRI";
@@ -77,5 +108,8 @@ class CfgVehicles {
         weapons[] += {"tf47_at4_heat"};
         respawnWeapons[] += {"tf47_at4_heat"};
     };
+    class GSRI_Soldier_medic : GSRI_Soldier_operator {
+        displayName = $STR_GSRI_soldier_medic;
+        backpack = "GSRI_backpack_medic";
     };
 };

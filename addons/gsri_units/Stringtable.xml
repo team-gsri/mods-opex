@@ -21,5 +21,10 @@
 			<English>Light anti-tank</English>
 			<French>Anti-blindé léger</French>
 		</Key>
+        <Key ID="STR_GSRI_soldier_medic">
+			<Original>Medic</Original>
+			<English>Medic</English>
+			<French>Médecin</French>
+		</Key>
 	</Package>
 </Project>
