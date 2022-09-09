@@ -69,7 +69,13 @@ class CfgVehicles {
         respawnLinkedItems[] = {"GSRI_vest_carrier", "GSRI_helmet_modular", "GSRI_balaclava_v2_dark", "TFAR_anprc152", "ItemWatch"};
         magazines[] = {mag_10("ACE_30Rnd_556x45_Stanag_Mk318_mag"), mag_3("SmokeShell"), mag_3("ACE_M84")};
         respawnMagazines[] = {mag_10("ACE_30Rnd_556x45_Stanag_Mk318_mag"), mag_3("SmokeShell"), mag_3("ACE_M84")};
-        items[] = {mag_10("ACE_quikclot"), mag_4("ACE_splint"), mag_4("ACE_tourniquet"), mag_2("ACE_morphine"), "ACE_EarPlugs", mag_4("ACE_CableTie"), mag_2("ACE_MRE_LambCurry"), mag_4("ACE_WaterBottle")};
-        respawnItems[] = {mag_10("ACE_quikclot"), mag_4("ACE_splint"), mag_4("ACE_tourniquet"), mag_2("ACE_morphine"), "ACE_EarPlugs", mag_4("ACE_CableTie"), mag_2("ACE_MRE_LambCurry"), mag_4("ACE_WaterBottle")};
+        items[] = {mag_10("ACE_quikclot"), mag_4("ACE_splint"), mag_4("ACE_tourniquet"), mag_2("ACE_morphine"), "ACE_EarPlugs", mag_4("ACE_CableTie"), mag_2("ACE_MRE_LambCurry"), mag_4("ACE_WaterBottle"), "A3_GPNVG18_F"};
+        respawnItems[] = {mag_10("ACE_quikclot"), mag_4("ACE_splint"), mag_4("ACE_tourniquet"), mag_2("ACE_morphine"), "ACE_EarPlugs", mag_4("ACE_CableTie"), mag_2("ACE_MRE_LambCurry"), mag_4("ACE_WaterBottle"), "A3_GPNVG18_F"};
+    };
+    class GSRI_Soldier_abl : GSRI_Soldier_operator {
+        displayName = $STR_GSRI_abl;
+        weapons[] += {"tf47_at4_heat"};
+        respawnWeapons[] += {"tf47_at4_heat"};
+    };
     };
 };

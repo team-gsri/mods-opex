@@ -16,5 +16,10 @@
 			<English>Operator</English>
 			<French>Opérateur</French>
 		</Key>
+        <Key ID="STR_GSRI_abl">
+			<Original>Light anti-tank</Original>
+			<English>Light anti-tank</English>
+			<French>Anti-blindé léger</French>
+		</Key>
 	</Package>
 </Project>
