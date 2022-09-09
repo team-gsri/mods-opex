@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project name="GSRI-Units">
+	<Package name="GSRI-Units">
+		<Key ID="STR_GRSI_faction">
+			<Original>GSRI</Original>
+			<English>GSRI</English>
+			<French>GSRI</French>
+		</Key>
+        <Key ID="STR_GRSI_regular">
+			<Original>Man (unarmed)</Original>
+			<English>Man (unarmed)</English>
+			<French>Homme (non-armé)</French>
+		</Key>
+	</Package>
+</Project>
