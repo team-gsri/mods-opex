@@ -152,27 +152,61 @@ class CfgGroups {
                     icon = "\A3\ui_f\data\map\markers\nato\b_inf.paa";
                     class Unit0 {
                         side = 1;
-                        vehicle = "GSRI_Soldier_operator";
+                        vehicle = "GSRI_Soldier_base";
                         rank = "SERGEANT";
                         position[] = {0,0,0};
                     };
                     class Unit1 {
                         side = 1;
-                        vehicle = "GSRI_Soldier_abl";
+                        vehicle = "GSRI_Soldier_base";
                         rank = "SOLDIER";
-                        position[] = {-2,-2,0};
+                        position[] = {2,0,0};
                     };
-                    class Unit2 {
-                        side = 1;
-                        vehicle = "GSRI_Soldier_medic";
-                        rank = "SOLDIER";
+                    class Unit2 : Unit1 {
+                        position[] = {4,0,0};
+                    };
+                    class Unit3 : Unit1 {
+                        position[] = {6,0,0};
+                    };
+                };
+                class GSRI_Commandos_Section : GSRI_Commandos_Delta {
+                    class Unit1;
+                    name = STR_GSRI_group_section;
+                    class Unit4 : Unit1 {
+                        position[] = {0,-2,0};
+                    };
+                    class Unit5 : Unit1 {
                         position[] = {2,-2,0};
                     };
-                    class Unit3 {
-                        side = 1;
-                        vehicle = "GSRI_Soldier_tad";
-                        rank = "SOLDIER";
+                    class Unit6 : Unit1 {
+                        position[] = {4,-2,0};
+                    };
+                    class Unit7 : Unit1 {
+                        position[] = {6,-2,0};
+                    };
+                    class Unit8 : Unit1 {
+                        position[] = {0,-4,0};
+                    };
+                    class Unit9 : Unit1 {
+                        position[] = {2,-4,0};
+                    };
+                    class Unit10 : Unit1 {
                         position[] = {4,-4,0};
+                    };
+                    class Unit11 : Unit1 {
+                        position[] = {6,-4,0};
+                    };
+                    class Unit12 : Unit1 {
+                        position[] = {0,-6,0};
+                    };
+                    class Unit13 : Unit1{
+                        position[] = {2,-6,0};
+                    };
+                    class Unit14 : Unit1{
+                        position[] = {4,-6,0};
+                    };
+                    class Unit15 : Unit1 {
+                        position[] = {6,-6,0};
                     };
                 };
             };

@@ -45,5 +45,10 @@
 			<English>Standard Delta team</English>
 			<French>Équipe Delta standard</French>
 		</Key>
+		<Key ID="STR_GSRI_group_section">
+			<Original>Standard section</Original>
+			<English>Standard section</English>
+			<French>Section standard</French>
+		</Key>
 	</Package>
 </Project>
