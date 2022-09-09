@@ -100,7 +100,7 @@ class CfgVehicles {
         faction = "GSRI";
         author = "www.gsri.team";
         displayName = $STR_GSRI_soldier_regular;
-        uniformClass = "GSRI_uniform";
+        uniformClass = "GSRI_shirt_green";
         weapons[] = {"Throw", "Put"};
         respawnWeapons[] = {"Throw", "Put"};
         items[] = {};
@@ -111,6 +111,7 @@ class CfgVehicles {
         respawnMagazines[] = {};
     };
     class GSRI_Soldier_operator : GSRI_Soldier_base {
+        uniformClass = "GSRI_uniform_raised_collar";
         displayName = $STR_GSRI_soldier_operator;
         weapons[] += {"GSRI_rifle_base"};
         respawnWeapons[] += {"GSRI_rifle_base"};
@@ -141,12 +142,14 @@ class CfgVehicles {
 
 class CfgGroups {
     class West {
+        name = "BLUFOR";
+        side = 1;
         class GSRI {
             name = $STR_GSRI_faction;
             class GSRI_Commandos {
                 name = $STR_GSRI_grouptype_commando;
                 class GSRI_Commandos_Delta {
-                    name = STR_GSRI_group_delta;
+                    name = $STR_GSRI_group_delta;
                     faction = "GSRI";
                     side = 1;
                     icon = "\A3\ui_f\data\map\markers\nato\b_inf.paa";
@@ -156,9 +159,7 @@ class CfgGroups {
                         rank = "SERGEANT";
                         position[] = {0,0,0};
                     };
-                    class Unit1 {
-                        side = 1;
-                        vehicle = "GSRI_Soldier_base";
+                    class Unit1 : Unit0 {
                         rank = "SOLDIER";
                         position[] = {2,0,0};
                     };
@@ -170,43 +171,64 @@ class CfgGroups {
                     };
                 };
                 class GSRI_Commandos_Section : GSRI_Commandos_Delta {
-                    class Unit1;
-                    name = STR_GSRI_group_section;
-                    class Unit4 : Unit1 {
+                    name = $STR_GSRI_group_section;
+                    class Unit0 {
+                        side = 1;
+                        vehicle = "GSRI_Soldier_base";
+                        rank = "SERGEANT";
+                        position[] = {2,0,0};
+                    };
+                    class Unit1 : Unit0{
+                        rank = "SOLDIER";
+                        position[] = {4,0,0};
+                    };
+                    class Unit2 : Unit1 {
                         position[] = {0,-2,0};
                     };
-                    class Unit5 : Unit1 {
+                    class Unit3 : Unit1 {
                         position[] = {2,-2,0};
                     };
-                    class Unit6 : Unit1 {
+                    class Unit4 : Unit1 {
                         position[] = {4,-2,0};
                     };
-                    class Unit7 : Unit1 {
+                    class Unit5 : Unit1 {
                         position[] = {6,-2,0};
                     };
-                    class Unit8 : Unit1 {
+                    class Unit6 : Unit1 {
                         position[] = {0,-4,0};
                     };
-                    class Unit9 : Unit1 {
+                    class Unit7 : Unit1 {
                         position[] = {2,-4,0};
                     };
-                    class Unit10 : Unit1 {
+                    class Unit8 : Unit1 {
                         position[] = {4,-4,0};
                     };
-                    class Unit11 : Unit1 {
+                    class Unit9 : Unit1 {
                         position[] = {6,-4,0};
                     };
-                    class Unit12 : Unit1 {
+                    class Unit10 : Unit1 {
                         position[] = {0,-6,0};
                     };
-                    class Unit13 : Unit1{
+                    class Unit11 : Unit1 {
                         position[] = {2,-6,0};
                     };
-                    class Unit14 : Unit1{
+                    class Unit12 : Unit1 {
                         position[] = {4,-6,0};
                     };
-                    class Unit15 : Unit1 {
+                    class Unit13 : Unit1{
                         position[] = {6,-6,0};
+                    };
+                    class Unit14 : Unit1{
+                        position[] = {0,-8,0};
+                    };
+                    class Unit15 : Unit1 {
+                        position[] = {2,-8,0};
+                    };
+                    class Unit16 : Unit1 {
+                        position[] = {4,-8,0};
+                    };
+                    class Unit17 : Unit1 {
+                        position[] = {6,-8,0};
                     };
                 };
             };
