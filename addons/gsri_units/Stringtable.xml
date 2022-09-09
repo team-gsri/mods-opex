@@ -6,17 +6,17 @@
 			<English>GSRI</English>
 			<French>GSRI</French>
 		</Key>
-        <Key ID="STR_GSRI_regular">
+        <Key ID="STR_GSRI_soldier_regular">
 			<Original>Man (unarmed)</Original>
 			<English>Man (unarmed)</English>
 			<French>Homme (non-armé)</French>
 		</Key>
-        <Key ID="STR_GSRI_operator">
+        <Key ID="STR_GSRI_soldier_operator">
 			<Original>Operator</Original>
 			<English>Operator</English>
 			<French>Opérateur</French>
 		</Key>
-        <Key ID="STR_GSRI_abl">
+        <Key ID="STR_GSRI_soldier_abl">
 			<Original>Light anti-tank</Original>
 			<English>Light anti-tank</English>
 			<French>Anti-blindé léger</French>

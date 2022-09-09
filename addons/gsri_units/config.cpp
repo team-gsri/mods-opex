@@ -50,7 +50,7 @@ class CfgVehicles {
     class GSRI_Soldier_base : B_Soldier_F {
         faction = "GSRI";
         author = "www.gsri.team";
-        displayName = $STR_GSRI_regular;
+        displayName = $STR_GSRI_soldier_regular;
         uniformClass = "GSRI_uniform";
         weapons[] = {"Throw", "Put"};
         respawnWeapons[] = {"Throw", "Put"};
@@ -62,7 +62,7 @@ class CfgVehicles {
         respawnMagazines[] = {};
     };
     class GSRI_Soldier_operator : GSRI_Soldier_base {
-        displayName = $STR_GSRI_operator;
+        displayName = $STR_GSRI_soldier_operator;
         weapons[] += {"GSRI_rifle_base"};
         respawnWeapons[] += {"GSRI_rifle_base"};
         linkedItems[] = {"GSRI_vest_carrier", "GSRI_helmet_modular", "GSRI_balaclava_v2_dark", "TFAR_anprc152", "ItemWatch"};
@@ -73,7 +73,7 @@ class CfgVehicles {
         respawnItems[] = {mag_10("ACE_quikclot"), mag_4("ACE_splint"), mag_4("ACE_tourniquet"), mag_2("ACE_morphine"), "ACE_EarPlugs", mag_4("ACE_CableTie"), mag_2("ACE_MRE_LambCurry"), mag_4("ACE_WaterBottle"), "A3_GPNVG18_F"};
     };
     class GSRI_Soldier_abl : GSRI_Soldier_operator {
-        displayName = $STR_GSRI_abl;
+        displayName = $STR_GSRI_soldier_abl;
         weapons[] += {"tf47_at4_heat"};
         respawnWeapons[] += {"tf47_at4_heat"};
     };
