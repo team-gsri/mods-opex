@@ -43,6 +43,24 @@ class CfgWeapons {
             };
         };
     };
+    class arifle_SPAR_01_blk_F;
+    class GSRI_autorifle_base : arifle_SPAR_01_blk_F {
+        scope = 1;
+        class LinkedItems {
+            class LinkedItemsOptic {
+                slot = "CowsSlot";
+                item = "optic_MRCO";
+            };
+            class LinkedItemsBipod {
+                slot = "UnderBarrelSlot";
+                item = "bipod_01_F_blk";
+            };
+            class LinkedItemsMuzzle {
+                slot = "MuzzleSlot";
+                item = "muzzle_snds_M";
+            };
+        };
+    };
 };
 
 class CfgVehicles {
@@ -111,5 +129,12 @@ class CfgVehicles {
     class GSRI_Soldier_medic : GSRI_Soldier_operator {
         displayName = $STR_GSRI_soldier_medic;
         backpack = "GSRI_backpack_medic";
+    };
+    class GSRI_Soldier_tad : GSRI_Soldier_operator {
+        displayName = $STR_GSRI_soldier_tad;
+        weapons[] = {"GSRI_autorifle_base", "Throw", "Put"};
+        respawnWeapons[] = {"GSRI_autorifle_base", "Throw", "Put"};
+        magazines[] = {mag_5("150Rnd_556x45_Drum_Mag_Tracer_F"), mag_4("SmokeShell"), mag_2("ACE_M84")};
+        respawnMagazines[] = {mag_5("150Rnd_556x45_Drum_Mag_Tracer_F"), mag_4("SmokeShell"), mag_2("ACE_M84")};
     };
 };

@@ -26,5 +26,10 @@
 			<English>Medic</English>
 			<French>Médecin</French>
 		</Key>
+        <Key ID="STR_GSRI_soldier_tad">
+			<Original>Autorifleman</Original>
+			<English>Autorifleman</English>
+			<French>Tireur appui direct</French>
+		</Key>
 	</Package>
 </Project>
