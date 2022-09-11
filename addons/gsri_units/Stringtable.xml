@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project name="GSRI-Meta">
+	<Package name="GSRI-Units">
+		<Key ID="STR_GSRI_faction">
+			<Original>GSRI</Original>
+			<English>GSRI</English>
+			<French>GSRI</French>
+		</Key>
+	</Package>
+	<Package name="GSRI-Soldiers">
+        <Key ID="STR_GSRI_soldier_regular">
+			<Original>Man (unarmed)</Original>
+			<English>Man (unarmed)</English>
+			<French>Homme (non-armé)</French>
+		</Key>
+        <Key ID="STR_GSRI_soldier_operator">
+			<Original>Operator</Original>
+			<English>Operator</English>
+			<French>Opérateur</French>
+		</Key>
+        <Key ID="STR_GSRI_soldier_abl">
+			<Original>Light anti-tank</Original>
+			<English>Light anti-tank</English>
+			<French>Anti-blindé léger</French>
+		</Key>
+        <Key ID="STR_GSRI_soldier_medic">
+			<Original>Medic</Original>
+			<English>Medic</English>
+			<French>Médecin</French>
+		</Key>
+        <Key ID="STR_GSRI_soldier_tad">
+			<Original>Autorifleman</Original>
+			<English>Autorifleman</English>
+			<French>Tireur appui direct</French>
+		</Key>
+	</Package>
+	<Package name="GSRI-Groups">
+		<Key ID="STR_GSRI_grouptype_commando">
+			<Original>Commandos</Original>
+			<English>Commandos</English>
+			<French>Commandos</French>
+		</Key>
+		<Key ID="STR_GSRI_group_delta">
+			<Original>Standard Delta team</Original>
+			<English>Standard Delta team</English>
+			<French>Équipe Delta standard</French>
+		</Key>
+		<Key ID="STR_GSRI_group_section">
+			<Original>Standard section</Original>
+			<English>Standard section</English>
+			<French>Section standard</French>
+		</Key>
+	</Package>
+</Project>
