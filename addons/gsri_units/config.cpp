@@ -12,7 +12,7 @@ class CfgPatches {
     class gsri_units {
         units[]={};
         requiredVersion=0.1;
-        requiredAddons[]={};
+        requiredAddons[]={"gsri_equipment"};
         author="www.gsri.team";
     };
 };
