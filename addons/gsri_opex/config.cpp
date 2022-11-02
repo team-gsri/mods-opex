@@ -2,7 +2,7 @@ class CfgPatches {
 	class gsri_opex {
 		units[]={};
 		requiredVersion=0.1;
-		requiredAddons[]={"A3_Boat_F_Destroyer", "cba_settings", "gsri_flags"};
+		requiredAddons[]={"A3_Boat_F_Destroyer", "cba_settings", "gsri_equipment", "gsri_props", "ace_interact_menu"};
 		author="www.gsri.team";
 		is3DENmod=1;
 	};
@@ -54,7 +54,7 @@ class GSRI_FREMM_Templates {
 			fullname="D-651 Normandie";
 			identifier="651";
 			name="Normandie";
-			flag="fr\gsri\flags\flag_fr_CO.paa";
+			flag="fr\gsri\props\flags\Data\flag_fr_CO.paa";
 			nameplate="fr\gsri\opex\images\normandie.paa";
 			hasWeapons=1;
 			hasArsenal=1;
