@@ -2,7 +2,7 @@ class CfgPatches {
 	class gsri_opex {
 		units[]={};
 		requiredVersion=0.1;
-		requiredAddons[]={"A3_Boat_F_Destroyer", "cba_settings", "gsri_equipment", "gsri_props", "ace_interact_menu"};
+		requiredAddons[]={"A3_Boat_F_Destroyer", "cba_settings", "gsri_equipment", "gsri_props", "ace_interact_menu", "Habs", "emr_main"};
 		author="www.gsri.team";
 		is3DENmod=1;
 	};
@@ -75,10 +75,6 @@ class GSRI_FREMM_Templates {
 				name=$STR_GSRI_FREMM_boatArmored;
 				liveries[]={};
 			};
-			class UK3CB_BAF_RHIB_HMG {
-				name=$STR_GSRI_FREMM_boat3CB;
-				liveries[]={};
-			};
 			class C_Boat_Transport_02_F {
 				name="RHIB";
 				liveries[]={"Black","Civilian"};
@@ -89,7 +85,7 @@ class GSRI_FREMM_Templates {
 			};
 		};
 		class AvailableHelis {
-			list[]={"B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "B_Heli_Light_01_F", "B_T_UAV_03_dynamicLoadout_F", "MELB_AH6M", "MELB_MH6M", "UK3CB_BAF_Apache_AH1_DynamicLoadoutUnlimited"};
+			list[]={"B_Heli_Transport_01_F", "B_Heli_Attack_01_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "B_Heli_Light_01_F", "B_T_UAV_03_dynamicLoadout_F", "MELB_AH6M", "MELB_MH6M"};
 		};
 	};
 };

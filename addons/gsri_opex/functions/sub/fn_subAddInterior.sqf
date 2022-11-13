@@ -52,8 +52,7 @@ if(isServer) then {
 		["Land_PortableCabinet_01_4drawers_black_F",[6.09436,-3.39209,-0.140753],[1,0,0],[0,0,1]],
 		["Land_PortableCabinet_01_4drawers_black_F",[6.09448,-2.37256,-0.140755],[1,0,0],[0,0,1]],
 		["Land_PortableCabinet_01_4drawers_black_F",[6.09436,-2.88281,-0.140278],[1,0,0],[0,0,1]],
-		["Land_SewerCover_02_F",[4.85742,-4.23633,0.934311],[0,-1,0],[0,-0,-1]],
-		["plp_cts_HighSecContGreyNoDollyO",[4.8634,-4.61865,3.86745],[0,0,-1],[0,1,0]]
+		["Land_SewerCover_02_F",[4.85742,-4.23633,0.934311],[0,-1,0],[0,-0,-1]]
 	];
 
 	{
