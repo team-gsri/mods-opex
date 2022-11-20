@@ -101,12 +101,29 @@ if(isServer) then {
                 _prop setDir _propDirection;
                 if(_propType == "SCMS_Chaise") then { _prop setVariable ["SCMS_custom_seat_exit", [-0.6, 0, -0.35], true] };
             } forEach _propsData;
-        }
+        };
     } forEach _data;
+
+    // Helpers to distinguish between real/modded doors and fake ones.
+    private _signs = [
+        ["SCMS_Panneau2","Panneau_interdit_co.paa",0,[6.11804,-16.3101,12.5]],
+        ["SCMS_Panneau2","Panneau_interdit_co.paa",90,[-5.10596,-13.9141,12.5]],
+        ["SCMS_Panneau2","Panneau_elec_co.paa",0,[6.10303,-13.2354,12.5]],
+        ["SCMS_Panneau2","Panneau_interdit_co.paa",180,[-9.96204,-2.7793,12.5]],
+        ["SCMS_Panneau2","Panneau_elec_co.paa",270,[-4.375,-1.16602,12.5]]
+    ];
+    {
+        _x params ["_signType", "_signTexture", "_signDir", "_signPos"];
+        private _sign = createVehicle [_signType, getPos _ship];
+        _sign attachTo [_ship, _signPos];
+        _sign setDir _signDir;
+        _sign setObjectTextureGlobal[0, "fr\gsri\opex\images\"+_signTexture];
+    } forEach _signs;
 
     // This will be used both for client-side ACE actions and for spawn management
     _ship setVariable ["gsri_opex_availableBedrooms", _bedrooms, true];
 
+/*
     // Adding modded doors to the crew quarters
     private _quartersDoorsA = [
         ["Sign_Sphere10cm_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343],0,true],
@@ -119,6 +136,7 @@ if(isServer) then {
     ];
     _roomB setVariable ["GSRI_FREMM_moddedDoors", _quartersDoorsB, true];
 };
+*/
 
 if!(isDedicated) then {
     //clientCanLoad set when executing this, so rooms should already exists
@@ -128,6 +146,7 @@ if!(isDedicated) then {
         [_x] call gsri_fnc_crewInitBedroom;
     } forEach (_ship getVariable ["gsri_opex_availableBedrooms", []]);
 
+/*
     // A corridor is a link between two doors
     //[[SideAObject, SideADoorName],[SideBObject, SideBDoorName]]
     private _corridors = [
@@ -139,6 +158,7 @@ if!(isDedicated) then {
         // Connect doors
         [_x] call GSRI_fnc_doorConnect;
     } forEach _corridors;
+*/
 
     // When crew quarters are loaded, any respawn on the ship should be redirected to rooms
     player addEventHandler ["Respawn", {
