@@ -64,12 +64,12 @@ if(isServer) then {
 	private _insideDoors = [
 		["Sign_Sphere10cm_F", "Trapdoor", [4.85742,-4.23633,0.934311], [4.8999,-4.08594,-1.36511]]
 	];
-	_inside setVariable ["GSRI_FREMM_moddedDoors", _insideDoors, true];
+	//_inside setVariable ["GSRI_FREMM_moddedDoors", _insideDoors, true];
 };
 
 if!(isDedicated) then {
 	private _corridors = [ [[_sub getVariable "GSRI_FREMM_sub_interior", "Trapdoor"],[_sub, "Trapdoor"]] ];
-	{ [_x] call GSRI_fnc_doorConnect } forEach _corridors;
+	//{ [_x] call GSRI_fnc_doorConnect } forEach _corridors;
 
 	private _com = "Land_Tablet_02_black_F" createVehicle getPos _sub;
 	_com attachTo [_sub getVariable "GSRI_FREMM_sub_interior", [3.81714,-0.507,0.14]];

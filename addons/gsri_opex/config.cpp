@@ -114,6 +114,7 @@ class CfgFunctions {
             file="fr\gsri\opex\functions\door";
             class doorConnect {};
             class doorGetById {};
+            class createModdedDoor {};
         };
         class fremm {
             file="fr\gsri\opex\functions\fremm";

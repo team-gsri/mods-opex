@@ -44,7 +44,7 @@ if(isServer) then {
 	_crrcHandle setVariable ["GSRI_FREMM_associatedSpawner", _crrcSpawner];
 
 	private _subDoors = [["Land_SewerCover_02_F", "Trapdoor", [0,-2.96,3.2], [0,-2.96,3.1]]];
-	_sub setVariable ["GSRI_FREMM_moddedDoors", _subDoors, true];
+	//_sub setVariable ["GSRI_FREMM_moddedDoors", _subDoors, true];
 	[_sub] call GSRI_fnc_subAddInterior;
 	[_sub, true] call GSRI_fnc_subStop;
 };

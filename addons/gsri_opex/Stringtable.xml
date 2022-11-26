@@ -129,8 +129,8 @@
 
 	<Package name="FREMM_crew">
 		<Key ID="STR_GSRI_FREMM_crewCrossDoor">
-			<Original>Cross this door</Original>
-			<English>Cross this door</English>
+			<Original>Go through this door</Original>
+			<English>Go through this door</English>
 			<French>Franchir cette porte</French>
 		</Key>
 	</Package>

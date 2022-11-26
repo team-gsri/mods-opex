@@ -110,7 +110,10 @@ if(isServer) then {
         ["SCMS_Panneau2","Panneau_interdit_co.paa",90,[-5.10596,-13.9141,12.5]],
         ["SCMS_Panneau2","Panneau_elec_co.paa",0,[6.10303,-13.2354,12.5]],
         ["SCMS_Panneau2","Panneau_interdit_co.paa",180,[-9.96204,-2.7793,12.5]],
-        ["SCMS_Panneau2","Panneau_elec_co.paa",270,[-4.375,-1.16602,12.5]]
+        ["SCMS_Panneau2","Panneau_elec_co.paa",270,[-4.375,-1.16602,12.5]],
+        ["SCMS_Panneau2","Panneau_interdit_co.paa",270,[5.40601,-4.47168,12.5]],
+        ["SCMS_Panneau2","Panneau_interdit_co.paa",0,[2.79834,-3.52734,12.5]],
+        ["SCMS_Panneau2","Panneau_interdit_co.paa",180,[-6.64978,-12.502,12.5]]
     ];
     {
         _x params ["_signType", "_signTexture", "_signDir", "_signPos"];
@@ -123,42 +126,24 @@ if(isServer) then {
     // This will be used both for client-side ACE actions and for spawn management
     _ship setVariable ["gsri_opex_availableBedrooms", _bedrooms, true];
 
-/*
-    // Adding modded doors to the crew quarters
-    private _quartersDoorsA = [
-        ["Sign_Sphere10cm_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343],0,true],
-        ["Sign_Sphere10cm_F", "Door2", [-5.42,-0.3727,0.620061], [-4.78034,-0.423262,-0.897619]]
-    ];
-    _roomA setVariable ["GSRI_FREMM_moddedDoors", _quartersDoorsA, true];
-    private _quartersDoorsB = [
-        ["Sign_Sphere10cm_F", "Door1", [7.42,-1.12012,0.51501], [7.12843,-1.12391,-0.928343]],
-        ["Sign_Sphere10cm_F", "Door2", [-5.42,-0.3727,0.620061], [-4.78034,-0.423262,-0.897619],0,true]
-    ];
-    _roomB setVariable ["GSRI_FREMM_moddedDoors", _quartersDoorsB, true];
+    // Modded doors
+    private _moddedDoors = _ship getVariable ["GSRI_FREMM_moddedDoors", []];
+    _moddedDoors pushBack [_ship, [4.7,-16.7,12.4], [4.85,-20,10.4], 180]; // from quarters to deck
+    _moddedDoors pushBack [_ship, [4.85,-19.5,12], [4.7,-16,10.9], 0]; // from deck to quarters
+    _ship setVariable ["GSRI_FREMM_moddedDoors", _moddedDoors, true];
 };
-*/
 
 if!(isDedicated) then {
-    //clientCanLoad set when executing this, so rooms should already exists
+    //clientCanLoad already set when executing this
 
     // This will trigger client-side init of bedrooms
     {
         [_x] call gsri_fnc_crewInitBedroom;
     } forEach (_ship getVariable ["gsri_opex_availableBedrooms", []]);
 
-/*
-    // A corridor is a link between two doors
-    //[[SideAObject, SideADoorName],[SideBObject, SideBDoorName]]
-    private _corridors = [
-        [[_ship, "DoorQuarters"],[_ship getVariable "GSRI_FREMM_crewQuartersRoomA", "Door1"]],
-        [[_ship, "DoorBays"],[_ship getVariable "GSRI_FREMM_crewQuartersRoomB", "Door2"]],
-        [[_ship getVariable "GSRI_FREMM_crewQuartersRoomA", "Door2"],[_ship getVariable "GSRI_FREMM_crewQuartersRoomB", "Door1"]]
-    ];
-    {
-        // Connect doors
-        [_x] call GSRI_fnc_doorConnect;
-    } forEach _corridors;
-*/
+    // Modded doors
+    private _moddedDoors = _ship getVariable ["GSRI_FREMM_moddedDoors", []];
+    { _x call GSRI_fnc_createModdedDoor } forEach _moddedDoors;
 
     // When crew quarters are loaded, any respawn on the ship should be redirected to rooms
     player addEventHandler ["Respawn", {

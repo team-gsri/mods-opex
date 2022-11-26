@@ -55,7 +55,7 @@ if(isServer) then {
 	private _briefModdedDoors = [
 		["Sign_Sphere10cm_F", "Door1", [0.895508,3.12,0.3], [0.837891,2.5752,-1.29856], 0, true]
 	];
-	_briefing setVariable ["GSRI_FREMM_moddedDoors",_briefModdedDoors, true];
+	//_briefing setVariable ["GSRI_FREMM_moddedDoors",_briefModdedDoors, true];
 };
 
 if!(isDedicated) then {
@@ -63,5 +63,5 @@ if!(isDedicated) then {
 		[[_ship, "DoorBriefing"],[_ship getVariable "GSRI_FREMM_briefingRoom", "Door1"]]
 	];
 
-	{ [_x] call GSRI_fnc_doorConnect } forEach _corridors;
+	//{ [_x] call GSRI_fnc_doorConnect } forEach _corridors;
 };
