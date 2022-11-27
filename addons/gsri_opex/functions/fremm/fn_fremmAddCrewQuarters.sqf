@@ -141,10 +141,6 @@ if!(isDedicated) then {
         [_x] call gsri_fnc_crewInitBedroom;
     } forEach (_ship getVariable ["gsri_opex_availableBedrooms", []]);
 
-    // Modded doors
-    private _moddedDoors = _ship getVariable ["GSRI_FREMM_moddedDoors", []];
-    { _x call GSRI_fnc_createModdedDoor } forEach _moddedDoors;
-
     // When crew quarters are loaded, any respawn on the ship should be redirected to rooms
     player addEventHandler ["Respawn", {
         //params["_unit", "_corpse"];

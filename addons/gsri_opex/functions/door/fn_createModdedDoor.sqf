@@ -38,7 +38,11 @@ private _goThroughDoor = [
         _player setPosWorld (_refObject modelToWorldWorld (_destination get "position"));
         _player setDir (getDir _refObject + (_destination get "direction"));
     },
-    {true}
+    {true},
+    {},
+    [],
+    [0,0,0],
+    1
 ] call ACE_interact_menu_fnc_createAction;
 
 private _handle = "Sign_Sphere10cm_F" createVehicleLocal getPos _refObject;

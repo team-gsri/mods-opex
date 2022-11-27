@@ -79,4 +79,10 @@ if(isServer) then {
     [west, _ship modelToWorldWorld [1.31018,-1.11719,7.27226], _fullname] call BIS_fnc_addRespawnPosition;
 };
 
+if(hasInterface) then {
+	// Modded doors
+    private _moddedDoors = _ship getVariable ["GSRI_FREMM_moddedDoors", []];
+    { _x call GSRI_fnc_createModdedDoor } forEach _moddedDoors;
+};
+
 diag_log "initFremm finished.";
