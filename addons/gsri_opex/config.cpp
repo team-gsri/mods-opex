@@ -64,6 +64,7 @@ class GSRI_FREMM_Templates {
             hasSubmarine=1;
             hasCrewQuarters=1;
             hasBriefingRoom=1;
+            hasCommandRoom=1;
             hasParajump=1;
         };
         class AvailableBoats {
@@ -123,6 +124,7 @@ class CfgFunctions {
             class fremmAddBridge {};
             class fremmAddBriefingRoom {};
             class fremmAddCrewQuarters {};
+            class fremmAddCommandRoom {};
             class fremmAddHeli {};
             class fremmAddParajump {};
             class fremmAddScreens {};

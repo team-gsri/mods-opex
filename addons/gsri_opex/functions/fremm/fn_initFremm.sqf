@@ -21,6 +21,7 @@ if(_ship getVariable "GSRI_FREMM_hasHelicopter") then { [_ship] call GSRI_fnc_fr
 if(_ship getVariable "GSRI_FREMM_hasSubmarine") then { [_ship] call GSRI_fnc_fremmAddSub };
 if(_ship getVariable "GSRI_FREMM_hasCrewQuarters") then { [_ship] call GSRI_fnc_fremmAddCrewQuarters };
 if(_ship getVariable "GSRI_FREMM_hasBriefingRoom") then { [_ship] call GSRI_fnc_fremmAddBriefingRoom };
+if(_ship getVariable "GSRI_FREMM_hasCommandRoom") then { [_ship] call GSRI_fnc_fremmAddCommandRoom };
 if(_ship getVariable "GSRI_FREMM_hasParajump") then { [_ship] call GSRI_fnc_fremmAddParajump };
 
 if(isServer) then {
