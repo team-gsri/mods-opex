@@ -141,6 +141,16 @@
             <English>Add a briefing room in the ship.</English>
             <French>Ajoute une salle de briefing sur le navire.</French>
         </Key>
+        <Key ID="STR_GSRI_FREMM_hasCommandRoom">
+            <Original>Command room</Original>
+            <English>Command room</English>
+            <French>Salle de commandement</French>
+        </Key>
+        <Key ID="STR_GSRI_FREMM_hasCommandRoom_tooltip">
+            <Original>Add a functionnal command room in the ship.</Original>
+            <English>Add a functionnal command room in the ship.</English>
+            <French>Ajoute une salle de commandement fonctionnelle.</French>
+        </Key>
         <Key ID="STR_GSRI_FREMM_hasParajump">
             <Original>Parajump</Original>
             <English>Parajump</English>
