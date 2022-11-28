@@ -11,6 +11,146 @@
 			<English>Templates are configured from CBA addons settings menu</English>
 			<French>Les templates sont configurés via le menu de configuration des addons CBA</French>
 		</Key>
+		<Key ID="STR_GSRI_FREMM_fullname">
+			<Original>Full name</Original>
+			<English>Full name</English>
+			<French>Nom complet</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_fullname_tooltip">
+			<Original>Used by the corresponding map marker</Original>
+			<English>Used by the corresponding map marker</English>
+			<French>Utilisé pour nommer le marqueur sur carte</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_identifier">
+			<Original>Identifier</Original>
+			<English>Identifier</English>
+			<French>Immatriculation</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_identifier_tooltip">
+			<Original>Displayed on the ship's hull</Original>
+			<English>Displayed on the ship's hull</English>
+			<French>Affiché sur la coque du navire</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_name">
+			<Original>Short name</Original>
+			<English>Short name</English>
+			<French>Nom court</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_name_tooltip">
+			<Original>Name without identifier</Original>
+			<English>Name without identifier</English>
+			<French>Nom sans immatriculation</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_flag">
+			<Original>Flag's texture path</Original>
+			<English>Flag's texture path</English>
+			<French>Texture du drapeau</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_flag_tooltip">
+			<Original>Hanging on the ship's flight deck</Original>
+			<English>Hanging on the ship's flight deck</English>
+			<French>Flottant sur le pont d'envol du navire</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_nameplate">
+			<Original>Nameplate's texture path</Original>
+			<English>Nameplate's texture path</English>
+			<French>Texture de la plaque nominative</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_nameplate_tooltip">
+			<Original>Displayed on the ship's stern</Original>
+			<English>Displayed on the ship's stern</English>
+			<French>Visible à la poupe du navire</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasWeapons">
+			<Original>Armament</Original>
+			<English>Armament</English>
+			<French>Armement</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasWeapons_tooltip">
+			<Original>Add heavy weapons to the ship</Original>
+			<English>Add heavy weapons to the ship</English>
+			<French>Ajoute des armes lourdes au navire</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasArsenal">
+			<Original>Arsenal</Original>
+			<English>Arsenal</English>
+			<French>Arsenal</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasArsenal_tooltip">
+			<Original>Add arsenal on ship's lockers</Original>
+			<English>Add arsenal on ship's lockers</English>
+			<French>Ajoute un arsenal aux casiers du navire</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBridge">
+			<Original>Bridge crew</Original>
+			<English>Bridge crew</English>
+			<French>Personnel navigant</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBridge_tooltip">
+			<Original>Add AI crew on the bridge</Original>
+			<English>Add AI crew on the bridge</English>
+			<French>Ajoute un équipage sur la passerelle</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBoatBays">
+			<Original>Boat bays</Original>
+			<English>Boat bays</English>
+			<French>Baies latérales</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBoatBays_tooltip">
+			<Original>Add working boat bays on ship's sides</Original>
+			<English>Add working boat bays on ship's sides</English>
+			<French>Ajoute des baies à embarcations fonctionnelles</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasHelicopter">
+			<Original>Helicopter</Original>
+			<English>Helicopter</English>
+			<French>Hélicoptère</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasHelicopter_tooltip">
+			<Original>Add a selectable helicopter to the ship's hangar</Original>
+			<English>Add a selectable helicopter to the ship's hangar</English>
+			<French>Ajoute un hélicoptère sélectionnable dans le hangar</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasSubmarine">
+			<Original>Submarine</Original>
+			<English>Submarine</English>
+			<French>Sous-marin</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasSubmarine_tooltip">
+			<Original>Add an escort submarine to the ship</Original>
+			<English>Add an escort submarine to the ship</English>
+			<French>Ajoute un sous-marin d'escorte</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasCrewQuarters">
+			<Original>Crew quarters</Original>
+			<English>Crew quarters</English>
+			<French>Quartiers d'équipe</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasCrewQuarters_tooltip">
+			<Original>Add crew quarters as a spawn location in the ship.</Original>
+			<English>Add crew quarters as a spawn location in the ship.</English>
+			<French>Ajoute des quartiers d'équipages comme zone de spawn.</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBriefingRoom">
+			<Original>Briefing room</Original>
+			<English>Briefing room</English>
+			<French>Salle de briefing</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasBriefingRoom_tooltip">
+			<Original>Add a briefing room in the ship.</Original>
+			<English>Add a briefing room in the ship.</English>
+			<French>Ajoute une salle de briefing sur le navire.</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasParajump">
+			<Original>Parajump</Original>
+			<English>Parajump</English>
+			<French>Parachutage</French>
+		</Key>
+		<Key ID="STR_GSRI_FREMM_hasParajump_tooltip">
+			<Original>Add a parajump feature allowing players to deploy basically anywhere.</Original>
+			<English>Add a parajump feature allowing players to deploy basically anywhere.</English>
+			<French>Ajoute une solution de saut en parachute permettant un déploiement n'importe où.</French>
+		</Key>
 		<Key ID="STR_GSRI_FREMM_navalGroup">
 			<Original>Naval detachment %1</Original>
 			<English>Naval detachment %1</English>
