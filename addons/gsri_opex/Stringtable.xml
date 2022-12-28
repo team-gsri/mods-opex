@@ -283,6 +283,11 @@
             <English>Go through this door</English>
             <French>Franchir cette porte</French>
         </Key>
+        <Key ID="STR_GSRI_FREMM_crewLieDown">
+            <Original>Lie down</Original>
+            <English>Lie down</English>
+            <French>Se coucher</French>
+        </Key>
     </Package>
 
     <Package name="FREMM_parajump">
