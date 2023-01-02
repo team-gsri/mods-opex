@@ -29,12 +29,12 @@ jobs:
           target: ./
           
       - name: Upload pbo files
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: addons
           path: ./*.pbo
 
       - name: Create Github release
-        uses: arwynfr/actions-conventional-versioning@v0
+        uses: arwynfr/actions-conventional-versioning@v1
         with:
-          pattern: $(Convert-Path *.pbo)
+          pattern: '*.pbo'
