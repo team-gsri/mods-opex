@@ -11,24 +11,30 @@ jobs:
     runs-on: [self-hosted, arma-tools]
     steps:
 
-    - name: Checkout files
-      uses: actions/checkout@v2
+      - name: Checkout files
+        uses: actions/checkout@v3
 
-    - name: Build addons
-      uses: team-gsri/actions-build-addon@0.1.0
-      with:
-        source: ./addons/gsri_opex
-        target: ./
-        includes: '*.sqf;*.wss;*.paa;*.jpg;*.xml;*.ogg'
-        prefix: 'fr\gsri\opex'
+      - name: Build opex addon
+        uses: team-gsri/actions-arma-tools/build-addon@v0
+        with:
+          prefix: 'fr\gsri\opex'
+          source: ./addons/gsri_opex
+          target: ./
+          
+      - name: Build units addon
+        uses: team-gsri/actions-arma-tools/build-addon@v0
+        with:
+          prefix: 'fr\gsri\units'
+          source: ./addons/gsri_units
+          target: ./
+          
+      - name: Upload pbo files
+        uses: actions/upload-artifact@v2
+        with:
+          name: addons
+          path: ./*.pbo
 
-    - name: Upload pbo files
-      uses: actions/upload-artifact@v2
-      with:
-        name: addons
-        path: ./*.pbo
-
-    - name: Create Github release
-      uses: arwynfr/actions-conventional-versioning@0.1.0
-      with:
-        pattern: $(Convert-Path *.pbo)
+      - name: Create Github release
+        uses: arwynfr/actions-conventional-versioning@v0
+        with:
+          pattern: $(Convert-Path *.pbo)
