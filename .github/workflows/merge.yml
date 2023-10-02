@@ -10,7 +10,7 @@ jobs:
     steps:
 
     - name: Checkout files
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Lint sources
       uses: jokoho48/sqflint@master
