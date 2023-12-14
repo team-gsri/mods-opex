@@ -29,7 +29,7 @@ jobs:
           target: ./
           
       - name: Upload pbo files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: addons
           path: ./*.pbo
